@@ -1823,7 +1823,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #083cff;
+  background: #d11a9a;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2993,7 +2993,7 @@ pre .javascript .function {
 }
 @media screen and (min-width: 1200px) {
   body {
-    background-image: url("https://blogs-image.oss-cn-beijing.aliyuncs.com/bg2.jpg?Expires=1545901100&OSSAccessKeyId=TMP.AQFKEgsHbRc3jQIbfpQRurCiSTcp_D376_LZ1LXpz-6vW4xstD-KkN3o2tHBADAtAhQZ9iFAXR9jZ22XHmep9Y4HzEMLcAIVAKQBrsDUvC9X37nZAlBPLxXP-YEM&Signature=G0H%2BADyeJo3zrLwRIUuXz2o%2B8xE%3D");
+    background-image: url("https://blogs-image.oss-cn-beijing.aliyuncs.com/bg1.jpg?Expires=1545901463&OSSAccessKeyId=TMP.AQFKEgsHbRc3jQIbfpQRurCiSTcp_D376_LZ1LXpz-6vW4xstD-KkN3o2tHBADAtAhQZ9iFAXR9jZ22XHmep9Y4HzEMLcAIVAKQBrsDUvC9X37nZAlBPLxXP-YEM&Signature=BshdHwP7c79uQEbo0DPSxyBAwfc%3D");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: 50% 50%;
