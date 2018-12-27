@@ -1823,7 +1823,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #cd5437;
+  background: #1f4ddb;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2989,5 +2989,17 @@ pre .javascript .function {
 @media (max-width: 767px) {
   .post-body {
     text-align: justify;
+  }
+}
+@media screen and (min-width: 1200px) {
+  body {
+    background-image: url("https://blogs-image.oss-cn-beijing.aliyuncs.com/bg2.jpg?Expires=1545901100&OSSAccessKeyId=TMP.AQFKEgsHbRc3jQIbfpQRurCiSTcp_D376_LZ1LXpz-6vW4xstD-KkN3o2tHBADAtAhQZ9iFAXR9jZ22XHmep9Y4HzEMLcAIVAKQBrsDUvC9X37nZAlBPLxXP-YEM&Signature=G0H%2BADyeJo3zrLwRIUuXz2o%2B8xE%3D");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: 50% 50%;
+    background-size: cover;
+  }
+  #footer a {
+    color: #eee;
   }
 }
