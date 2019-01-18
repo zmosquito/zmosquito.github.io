@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="Java基础,">
 
 
 
@@ -79,16 +79,18 @@
 
 
 
-<meta name="description" content="qwq">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Mosquito">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="前言：今天在用到offer中，意识到它的用法和add有所重复，所以在这里罗列出了一些重复方法的具体区别">
+<meta name="keywords" content="Java基础">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java 中 add&#x2F;offer，element&#x2F;peek，remove&#x2F;poll等区别">
+<meta property="og:url" content="http://yoursite.com/2019/01/18/basis01/index.html">
 <meta property="og:site_name" content="Mosquito">
-<meta property="og:description" content="qwq">
+<meta property="og:description" content="前言：今天在用到offer中，意识到它的用法和add有所重复，所以在这里罗列出了一些重复方法的具体区别">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-01-18T08:42:38.947Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Mosquito">
-<meta name="twitter:description" content="qwq">
+<meta name="twitter:title" content="Java 中 add&#x2F;offer，element&#x2F;peek，remove&#x2F;poll等区别">
+<meta name="twitter:description" content="前言：今天在用到offer中，意识到它的用法和add有所重复，所以在这里罗列出了一些重复方法的具体区别">
 
 
 
@@ -118,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/">
+  <link rel="canonical" href="http://yoursite.com/2019/01/18/basis01/">
 
 
 
 
 
-  <title>Mosquito</title>
+  <title>Java 中 add/offer，element/peek，remove/poll等区别 | Mosquito</title>
   
 
 
@@ -143,8 +145,7 @@
     
   
   <script type="text/javascript" src="/js/src/snow.js"></script>
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
@@ -247,9 +248,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -279,9 +280,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/01/18/basis01/" itemprop="url">Java 中 add/offer，element/peek，remove/poll等区别</a></h1>
+          <h1 class="post-title" itemprop="name headline">Java 中 add/offer，element/peek，remove/poll等区别</h1>
         
 
         <div class="post-meta">
@@ -353,16 +352,13 @@
       
 
       
-        
-          <h4 id="前言："><a href="#前言：" class="headerlink" title="前言："></a>前言：</h4><p>今天在用到offer中，意识到它的用法和add有所重复，所以在这里罗列出了一些重复方法的具体区别</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/01/18/basis01/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+        <h4 id="前言："><a href="#前言：" class="headerlink" title="前言："></a>前言：</h4><p>今天在用到offer中，意识到它的用法和add有所重复，所以在这里罗列出了一些重复方法的具体区别</p>
+<a id="more"></a>
+<h4 id="1-add-和offer-区别"><a href="#1-add-和offer-区别" class="headerlink" title="1.add()和offer()区别:"></a>1.add()和offer()区别:</h4><p>add()和offer()都是向列表中添加一个元素。一些列表有大小限制，因此如果想在一个满的列表中加入一个新项，调用add()方法就会抛出unchecked异常，而调用offer()方法会返回false。因此就可以在程序中进行有效的判断。</p>
+<h4 id="2-remove-和poll-区别："><a href="#2-remove-和poll-区别：" class="headerlink" title="2.remove()和poll()区别："></a>2.remove()和poll()区别：</h4><p>remove()和poll()方法都是从列表中删除第一个元素。如果列表元素为空，调用remove()的行为与Collection接口的版本相似会抛出一个NoSuchElementException异常，但是新的poll()方法在用空集合调用时只是返回null。因此新的方法更适合容易出现异常条件的情况。</p>
+<h4 id="3-element-和peek-区别："><a href="#3-element-和peek-区别：" class="headerlink" title="3.element()和peek()区别："></a>3.element()和peek()区别：</h4><p>element()和peek()用于在列表的头部查询元素。与remove()方法类似，在列表元素为空时element()会抛出一个NoSuchElementException异常，而peek()方法返回一个null。</p>
+<h4 id="4-pop-和poll-区别："><a href="#4-pop-和poll-区别：" class="headerlink" title="4.pop()和poll()区别："></a>4.pop()和poll()区别：</h4><p>pop()是栈结构的实现类的方法，表示返回栈顶元素，同时该元素从栈中删除，当栈中没有元素时，调用该方法会发生的异常，返回一个NoSuchElementException的异常，类似于removeFirst()方法；而poll()是队列数据结构实现类的方法，从队首获取元素，同时获取的这个元素将从原队列中删除。</p>
+
       
     </div>
     
@@ -377,306 +373,36 @@
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/27/codetrain02/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Mosquito">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Mosquito">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/12/27/codetrain02/" itemprop="url">剑指offer--重建二叉树</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-27T16:56:07+08:00">
-                2018-12-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
+        <div class="post-tags">
           
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/编程练习/" itemprop="url" rel="index">
-                    <span itemprop="name">编程练习</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
+            <a href="/tags/Java基础/" rel="tag"># Java基础</a>
           
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
+      
 
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
+      
       
       
 
       
-        
-          <h4 id="题外话："><a href="#题外话：" class="headerlink" title="题外话："></a>题外话：</h4><p>昨天蚊蚊子练车车，蹦蹦哒哒的下车回学校，然后手机就蹦掉了，屏就碎掉了惹，沮丧~<br>所以今天蚊蚊子为了心情扎了一个双丸子头，然后做了几道剑指offer的题来压压惊~<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/12/27/codetrain02/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/12/27/codetrain02/" rel="next" title="剑指offer--重建二叉树">
+                <i class="fa fa-chevron-left"></i> 剑指offer--重建二叉树
+              </a>
+            
           </div>
-          <!--/noindex-->
-        
-      
-    </p></div>
-    
-    
-    
 
-    
+          <span class="post-nav-divider"></span>
 
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/25/train01/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Mosquito">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Mosquito">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/12/25/train01/" itemprop="url">剑指offer--二维数组中的查找</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+          <div class="post-nav-prev post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-25T22:16:40+08:00">
-                2018-12-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/编程练习/" itemprop="url" rel="index">
-                    <span itemprop="name">编程练习</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h4 id="题意："><a href="#题意：" class="headerlink" title="题意："></a>题意：</h4><p>在一个二维数组中（每个一维数组的长度相同），每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/12/25/train01/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
           </div>
-          <!--/noindex-->
-        
-      
-    </p></div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
+        </div>
       
 
       
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -686,130 +412,11 @@
   </article>
 
 
-    
-      
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/24/hello-world/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Mosquito">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Mosquito">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/12/24/hello-world/" itemprop="url">开心o(*￣▽￣*)ブ</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-24T17:07:39+08:00">
-                2018-12-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>超级开心的搭建了自己的博客辣辣辣~<br>这里我要特别感激<a href="https://bololopie.com/" target="_blank" rel="noopener">菠萝萝</a>! 全过程提供技术支持，哇~太爱她啦！<br>然后还要蟹蟹<a href="https://kzpx.github.io/" target="_blank" rel="noopener">小迷弟</a>! 哎哟~帮我解决了那个图标的问题，真有爱.jpg~<br><a href="https://i.loli.net/2018/12/25/5c21e61faf642.gif" target="_blank" rel="noopener"><img src="https://i.loli.net/2018/12/25/5c21e61faf642.gif" alt="圆圈舞（GIF）原创(1).gif"></a></p>
-
-          
-        
+    <div class="post-spread">
       
     </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
   </div>
-  
-  
-  
-  </article>
-
-
-    
-  </section>
-
-  
 
 
           </div>
@@ -817,6 +424,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -837,8 +448,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -900,6 +520,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#前言："><span class="nav-number">1.</span> <span class="nav-text">前言：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-add-和offer-区别"><span class="nav-number">2.</span> <span class="nav-text">1.add()和offer()区别:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-remove-和poll-区别："><span class="nav-number">3.</span> <span class="nav-text">2.remove()和poll()区别：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-element-和peek-区别："><span class="nav-number">4.</span> <span class="nav-text">3.element()和peek()区别：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-pop-和poll-区别："><span class="nav-number">5.</span> <span class="nav-text">4.pop()和poll()区别：</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -1040,6 +676,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
