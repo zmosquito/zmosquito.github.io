@@ -1,0 +1,1075 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/avatar.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="c/s,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="蚊子快面临面试了，所以把在牛客网看到的Java面经全部都整理了下来，然后蚊子会不断的更新问题，并且更新我所理解的答案，如果有什么不正确的，还请大家多多指正，蟹蟹啦~">
+<meta name="keywords" content="c&#x2F;s">
+<meta property="og:type" content="article">
+<meta property="og:title" content="面试题总结">
+<meta property="og:url" content="http://yoursite.com/2019/02/12/basis05/index.html">
+<meta property="og:site_name" content="Mosquito">
+<meta property="og:description" content="蚊子快面临面试了，所以把在牛客网看到的Java面经全部都整理了下来，然后蚊子会不断的更新问题，并且更新我所理解的答案，如果有什么不正确的，还请大家多多指正，蟹蟹啦~">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-03-04T12:33:30.754Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="面试题总结">
+<meta name="twitter:description" content="蚊子快面临面试了，所以把在牛客网看到的Java面经全部都整理了下来，然后蚊子会不断的更新问题，并且更新我所理解的答案，如果有什么不正确的，还请大家多多指正，蟹蟹啦~">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/02/12/basis05/">
+
+
+
+
+
+  <title>面试题总结 | Mosquito</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+  <script type="text/javascript" src="/js/src/snow.js"></script>
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Mosquito</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/12/basis05/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mosquito">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mosquito">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">面试题总结</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-12T21:09:53+08:00">
+                2019-02-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/基础知识/" itemprop="url" rel="index">
+                    <span itemprop="name">基础知识</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>蚊子快面临面试了，所以把在牛客网看到的Java面经全部都整理了下来，然后蚊子会不断的更新问题，并且更新我所理解的答案，如果有什么不正确的，还请大家多多指正，蟹蟹啦~</p>
+<a id="more"></a>
+<h3 id="一、Java-基础"><a href="#一、Java-基础" class="headerlink" title="一、Java 基础"></a>一、Java 基础</h3><ul>
+<li>JDK 和 JRE 有什么区别？</li>
+<li>== 和 equals 的区别是什么？</li>
+<li>两个对象的 hashCode()相同，则 equals()也一定为 true，对吗？</li>
+<li>final 在 java 中有什么作用？</li>
+<li>java 中的 Math.round(-1.5) 等于多少？</li>
+<li>String 属于基础的数据类型吗？</li>
+<li>java 中操作字符串都有哪些类？它们之间有什么区别？</li>
+<li>String str=”i”与 String str=new String(“i”)一样吗？</li>
+<li>如何将字符串反转？</li>
+<li>String 类的常用方法都有那些？</li>
+<li>抽象类必须要有抽象方法吗？</li>
+<li>普通类和抽象类有哪些区别？</li>
+<li>抽象类能使用 final 修饰吗？</li>
+<li>接口和抽象类有什么区别？</li>
+<li>java 中 IO 流分为几种？</li>
+<li>BIO、NIO、AIO 有什么区别？</li>
+<li>Files的常用方法都有哪些？</li>
+<li><strong>static和内存泄露问题</strong></li>
+</ul>
+<p>答：在dalvik虚拟机中，static变量所指向的内存引用，如果不把它设置为null，GC是永远不会回收这个对象的</p>
+<h3 id="二、容器"><a href="#二、容器" class="headerlink" title="二、容器"></a>二、容器</h3><ul>
+<li>java 容器都有哪些？</li>
+<li>Collection 和 Collections 有什么区别？</li>
+<li>List、Set、Map 之间的区别是什么？</li>
+<li>HashMap 和 Hashtable 有什么区别？</li>
+<li>如何决定使用 HashMap 还是 TreeMap？</li>
+<li>说一下 HashMap 的实现原理？</li>
+<li>说一下 HashSet 的实现原理？</li>
+<li>ArrayList 和 LinkedList 的区别是什么？</li>
+<li>如何实现数组和 List 之间的转换？</li>
+<li>ArrayList 和 Vector 的区别是什么？</li>
+<li>Array 和 ArrayList 有何区别？</li>
+<li>在 Queue 中 poll()和 remove()有什么区别？</li>
+<li>哪些集合类是线程安全的？</li>
+<li>迭代器 Iterator 是什么？</li>
+<li>Iterator 怎么使用？有什么特点？</li>
+<li>Iterator 和 ListIterator 有什么区别？</li>
+<li>怎么确保一个集合不能被修改？</li>
+</ul>
+<h3 id="三、多线程"><a href="#三、多线程" class="headerlink" title="三、多线程"></a>三、多线程</h3><ul>
+<li>并行和并发有什么区别？</li>
+<li>线程和进程的区别？</li>
+<li>守护线程是什么？</li>
+<li>创建线程有哪几种方式？</li>
+<li>说一下 runnable 和 callable 有什么区别？</li>
+<li>线程有哪些状态？</li>
+<li>sleep() 和 wait() 有什么区别？</li>
+<li>notify()和 notifyAll()有什么区别？</li>
+<li>线程的 run()和 start()有什么区别？</li>
+<li>创建线程池有哪几种方式？</li>
+<li>线程池都有哪些状态？</li>
+<li>线程池中 submit()和 execute()方法有什么区别？</li>
+<li>在 java 程序中怎么保证多线程的运行安全？</li>
+<li>多线程锁的升级原理是什么？</li>
+<li>什么是死锁？</li>
+<li>怎么防止死锁？</li>
+<li>ThreadLocal 是什么？有哪些使用场景？</li>
+<li>说一下 synchronized 底层实现原理？</li>
+<li>synchronized 和 volatile 的区别是什么？</li>
+<li>synchronized 和 Lock 有什么区别？</li>
+<li>synchronized 和 ReentrantLock 区别是什么？</li>
+<li>说一下 atomic 的原理？</li>
+</ul>
+<h3 id="四、反射"><a href="#四、反射" class="headerlink" title="四、反射"></a>四、反射</h3><ol>
+<li>什么是反射？</li>
+<li>什么是 java 序列化？什么情况下需要序列化？</li>
+<li>动态代理是什么？有哪些应用？</li>
+<li>怎么实现动态代理？</li>
+</ol>
+<h3 id="五、对象拷贝"><a href="#五、对象拷贝" class="headerlink" title="五、对象拷贝"></a>五、对象拷贝</h3><ol>
+<li>为什么要使用克隆？</li>
+<li>如何实现对象克隆？</li>
+<li>深拷贝和浅拷贝区别是什么？</li>
+</ol>
+<h3 id="六、Java-Web"><a href="#六、Java-Web" class="headerlink" title="六、Java Web"></a>六、Java Web</h3><ul>
+<li>jsp 和 servlet 有什么区别？</li>
+<li>jsp 有哪些内置对象？作用分别是什么？</li>
+<li>说一下 jsp 的 4 种作用域？</li>
+<li>session 和 cookie 有什么区别？</li>
+<li>说一下 session 的工作原理？</li>
+<li>如果客户端禁止 cookie 能实现 session 还能用吗？</li>
+<li>spring mvc 和 struts 的区别是什么？</li>
+<li>如何避免 sql 注入？</li>
+<li>什么是 XSS 攻击，如何避免？</li>
+<li>什么是 CSRF 攻击，如何避免？</li>
+</ul>
+<h3 id="七、异常"><a href="#七、异常" class="headerlink" title="七、异常"></a>七、异常</h3><ul>
+<li>throw 和 throws 的区别？</li>
+<li><strong>final、finally、finalize 有什么区别？</strong></li>
+</ul>
+<p>答：final修饰普通基本类变量，作用为使变量的值无法改变</p>
+<p>​       final修饰引用类型变量，也就是对象类型变量，可以保证变量不能再次被赋值，但无法保证对象的值的改变</p>
+<p>​       finally关键字用来定义始终在try-catch-finally语句中执行的块。</p>
+<p>​       finally块通常包含清理代码，用在部分执行try块后恢复正常运行。</p>
+<p>​       finalize()是Object的protected方法，子类可以覆盖该方法以实现资源清理工作，GC在回收对象之前调用该方法</p>
+<p>​       final能够保证线程安全</p>
+<ul>
+<li>try-catch-finally 中哪个部分可以省略？</li>
+<li>try-catch-finally 中，如果 catch 中 return 了，finally 还会执行吗？</li>
+<li>常见的异常类有哪些？</li>
+</ul>
+<h3 id="八、网络"><a href="#八、网络" class="headerlink" title="八、网络"></a>八、网络</h3><ul>
+<li>http 响应码 301 和 302 代表的是什么？有什么区别？</li>
+<li>forward 和 redirect 的区别？</li>
+<li>简述 tcp 和 udp的区别？</li>
+<li>tcp 为什么要三次握手，两次不行吗？为什么？</li>
+<li>说一下 tcp 粘包是怎么产生的？</li>
+<li>OSI 的七层模型都有哪些？</li>
+<li>get 和 post 请求有哪些区别？</li>
+<li>如何实现跨域？</li>
+<li>说一下 JSONP 实现原理？</li>
+</ul>
+<h3 id="九、设计模式"><a href="#九、设计模式" class="headerlink" title="九、设计模式"></a>九、设计模式</h3><ul>
+<li>说一下你熟悉的设计模式？</li>
+<li>简单工厂和抽象工厂有什么区别？</li>
+</ul>
+<h3 id="十、Spring-Spring-MVC"><a href="#十、Spring-Spring-MVC" class="headerlink" title="十、Spring/Spring MVC"></a>十、Spring/Spring MVC</h3><ul>
+<li>为什么要使用 spring？</li>
+<li>解释一下什么是 aop？</li>
+<li>解释一下什么是 ioc？</li>
+<li>spring 有哪些主要模块？</li>
+<li>spring 常用的注入方式有哪些？</li>
+<li>spring 中的 bean 是线程安全的吗？</li>
+<li>spring 支持几种 bean 的作用域？</li>
+<li>spring 自动装配 bean 有哪些方式？</li>
+<li>spring 事务实现方式有哪些？</li>
+<li>说一下 spring 的事务隔离？</li>
+<li>说一下 spring mvc 运行流程？</li>
+<li>spring mvc 有哪些组件？</li>
+<li>@RequestMapping 的作用是什么？</li>
+<li>@Autowired 的作用是什么？</li>
+</ul>
+<h3 id="十一、Spring-Boot-Spring-Cloud"><a href="#十一、Spring-Boot-Spring-Cloud" class="headerlink" title="十一、Spring Boot/Spring Cloud"></a>十一、Spring Boot/Spring Cloud</h3><ul>
+<li>什么是 spring boot？</li>
+<li>为什么要用 spring boot？</li>
+<li>spring boot 核心配置文件是什么？</li>
+<li>spring boot 配置文件有哪几种类型？它们有什么区别？</li>
+<li>spring boot 有哪些方式可以实现热部署？</li>
+<li>jpa 和 hibernate 有什么区别？</li>
+<li>什么是 spring cloud？</li>
+<li>spring cloud 断路器的作用是什么？</li>
+<li>spring cloud 的核心组件有哪些？</li>
+</ul>
+<h3 id="十二、Hibernate"><a href="#十二、Hibernate" class="headerlink" title="十二、Hibernate"></a>十二、Hibernate</h3><ul>
+<li>为什么要使用 hibernate？</li>
+<li>什么是 ORM 框架？</li>
+<li>hibernate 中如何在控制台查看打印的 sql 语句？</li>
+<li>hibernate 有几种查询方式？</li>
+<li>hibernate 实体类可以被定义为 final 吗？</li>
+<li>在 hibernate 中使用 Integer 和 int 做映射有什么区别？</li>
+<li>hibernate 是如何工作的？</li>
+<li>get()和 load()的区别？</li>
+<li>说一下 hibernate 的缓存机制？</li>
+<li>hibernate 对象有哪些状态？</li>
+<li>在 hibernate 中 getCurrentSession 和 openSession 的区别是什么？</li>
+<li>hibernate 实体类必须要有无参构造函数吗？为什么？</li>
+</ul>
+<h3 id="十三、Mybatis"><a href="#十三、Mybatis" class="headerlink" title="十三、Mybatis"></a>十三、Mybatis</h3><ul>
+<li>mybatis 中 #{}和 ${}的区别是什么？</li>
+<li>mybatis 有几种分页方式？</li>
+<li>RowBounds 是一次性查询全部结果吗？为什么？</li>
+<li>mybatis 逻辑分页和物理分页的区别是什么？</li>
+<li>mybatis 是否支持延迟加载？延迟加载的原理是什么？</li>
+<li>说一下 mybatis 的一级缓存和二级缓存？</li>
+<li>mybatis 和 hibernate 的区别有哪些？</li>
+<li>mybatis 有哪些执行器（Executor）？</li>
+<li>mybatis 分页插件的实现原理是什么？</li>
+<li>mybatis 如何编写一个自定义插件？</li>
+</ul>
+<h3 id="十四、RabbitMQ"><a href="#十四、RabbitMQ" class="headerlink" title="十四、RabbitMQ"></a>十四、RabbitMQ</h3><ul>
+<li>rabbitmq 的使用场景有哪些？</li>
+<li>rabbitmq 有哪些重要的角色？</li>
+<li>rabbitmq 有哪些重要的组件？</li>
+<li>rabbitmq 中 vhost 的作用是什么？</li>
+<li>rabbitmq 的消息是怎么发送的？</li>
+<li>rabbitmq 怎么保证消息的稳定性？</li>
+<li>rabbitmq 怎么避免消息丢失？</li>
+<li>要保证消息持久化成功的条件有哪些？</li>
+<li>rabbitmq 持久化有什么缺点？</li>
+<li>rabbitmq 有几种广播类型？</li>
+<li>rabbitmq 怎么实现延迟消息队列？</li>
+<li>rabbitmq 集群有什么用？</li>
+<li>rabbitmq 节点的类型有哪些？</li>
+<li>rabbitmq 集群搭建需要注意哪些问题？</li>
+<li>rabbitmq 每个节点是其他节点的完整拷贝吗？为什么？</li>
+<li>rabbitmq 集群中唯一一个磁盘节点崩溃了会发生什么情况？</li>
+<li>rabbitmq 对集群节点停止顺序有要求吗？</li>
+</ul>
+<h3 id="十五、Kafka"><a href="#十五、Kafka" class="headerlink" title="十五、Kafka"></a>十五、Kafka</h3><ul>
+<li>kafka 可以脱离 zookeeper 单独使用吗？为什么？</li>
+<li>kafka 有几种数据保留的策略？</li>
+<li>kafka 同时设置了 7 天和 10G 清除数据，到第五天的时候消息达到了 10G，这个时候 kafka 将如何处理？</li>
+<li>什么情况会导致 kafka 运行变慢？</li>
+<li>使用 kafka 集群需要注意什么？</li>
+</ul>
+<h3 id="十六、Zookeeper"><a href="#十六、Zookeeper" class="headerlink" title="十六、Zookeeper"></a>十六、Zookeeper</h3><ul>
+<li>zookeeper 是什么？</li>
+<li>zookeeper 都有哪些功能？</li>
+<li>zookeeper 有几种部署模式？</li>
+<li>zookeeper 怎么保证主从节点的状态同步？</li>
+<li>集群中为什么要有主节点？</li>
+<li>集群中有 3 台服务器，其中一个节点宕机，这个时候 zookeeper 还可以使用吗？</li>
+<li>说一下 zookeeper 的通知机制？</li>
+</ul>
+<h3 id="十七、MySql"><a href="#十七、MySql" class="headerlink" title="十七、MySql"></a>十七、MySql</h3><ul>
+<li>数据库的三范式是什么？</li>
+<li>一张自增表里面总共有 7 条数据，删除了最后 2 条数据，重启 mysql 数据库，又插入了一条数据，此时 id 是几？</li>
+<li>如何获取当前数据库版本？</li>
+<li>说一下 ACID 是什么？</li>
+<li>char 和 varchar 的区别是什么？</li>
+<li>float 和 double 的区别是什么？</li>
+<li>mysql 的内连接、左连接、右连接有什么区别？</li>
+<li>mysql 索引是怎么实现的？</li>
+<li>怎么验证 mysql 的索引是否满足需求？</li>
+<li>说一下数据库的事务隔离？</li>
+<li>说一下 mysql 常用的引擎？</li>
+<li>说一下 mysql 的行锁和表锁？</li>
+<li>说一下乐观锁和悲观锁？</li>
+<li>mysql 问题排查都有哪些手段？</li>
+<li>如何做 mysql 的性能优化？</li>
+</ul>
+<h3 id="十八、Redis"><a href="#十八、Redis" class="headerlink" title="十八、Redis"></a>十八、Redis</h3><ul>
+<li>redis 是什么？都有哪些使用场景？</li>
+<li>redis 有哪些功能？</li>
+<li>redis 和 memecache 有什么区别？</li>
+<li>redis 为什么是单线程的？</li>
+<li>什么是缓存穿透？怎么解决？</li>
+<li>redis 支持的数据类型有哪些？</li>
+<li>redis 支持的 java 客户端都有哪些？</li>
+<li>jedis 和 redisson 有哪些区别？</li>
+<li>怎么保证缓存和数据库数据的一致性？</li>
+<li>redis 持久化有几种方式？</li>
+<li>redis 怎么实现分布式锁？</li>
+<li>redis 分布式锁有什么缺陷？</li>
+<li>redis 如何做内存优化？</li>
+<li>redis 淘汰策略有哪些？</li>
+<li>redis 常见的性能问题有哪些？该如何解决？</li>
+</ul>
+<h3 id="十九、JVM"><a href="#十九、JVM" class="headerlink" title="十九、JVM"></a>十九、JVM</h3><ul>
+<li>说一下 jvm 的主要组成部分？及其作用？</li>
+<li>说一下 jvm 运行时数据区？</li>
+<li>说一下堆栈的区别？</li>
+<li>队列和栈是什么？有什么区别？</li>
+<li>什么是双亲委派模型？</li>
+<li>说一下类加载的执行过程？</li>
+<li>怎么判断对象是否可以被回收？</li>
+<li>java 中都有哪些引用类型？</li>
+<li>说一下 jvm 有哪些垃圾回收算法？</li>
+<li>说一下 jvm 有哪些垃圾回收器？</li>
+<li>详细介绍一下 CMS 垃圾回收器？</li>
+<li>新生代垃圾回收器和老生代垃圾回收器都有哪些？有什么区别？</li>
+<li>简述分代垃圾回收器是怎么工作的？</li>
+<li>说一下 jvm 调优的工具？</li>
+<li>常用的 jvm 调优的参数都有哪些？</li>
+<li><strong>创建一个对象的的过程</strong></li>
+</ul>
+<p>答：1.相应类加载检查过程</p>
+<p>JVM（本文特指HotSpot）遇到new指令时，先检查指令参数是否能在常量池中定位到一个类的符号引用：</p>
+<p>A)如果能定位到，检查这个符号引用代表的类是否已经被加载、解析和初始化过；</p>
+<p>B)如果不能定位到，或没有检查到，就先执行相应的类加载过程；</p>
+<p>2.为对象分配内存</p>
+<p>对象所需内存的大小在类加载完成后便完全确定（JVM可以通过普通Java对象的类元数据信息确定对象大小）；</p>
+<p>为对象分配内存相当于把一块确定大小的内存从Java堆里划分出来；</p>
+<p>A)分配方式：</p>
+<p>|）指针碰撞</p>
+<p>如果Java堆是绝对规整的：一边是用过的内存，中间一个指针作为边界指示器；</p>
+<p>分配内存只需向空闲那边移动指针，这种分配方式称为“指针碰撞”（Bump the Pointer）</p>
+<p>||）空闲列表</p>
+<p>如果Java堆不是规整的：用过的和空闲的内存相互交错；</p>
+<p>需要维护一个列表，记录哪些内存可用；</p>
+<p>分配内存时查表找到一个足够大的内存，并更新列表，这种分配方式成为“空闲列表”（Free List）</p>
+<p>Java堆是否规整由JVM采用的垃圾收集器是否带有压缩功能决定的；</p>
+<p>所以，使用Serial、ParNew等带有Compact过程的收集器时，JVM采用指针碰撞方式分配内存；而使用CMS这种基于标记-清楚（Mark-Sweep）算法的收集器时，采用空闲列表方式</p>
+<p>B)线程安全问题：</p>
+<p>并发时，上面两种方式分配内存的操作都不是线程安全的，有两种解决方案：</p>
+<p>|）同步处理</p>
+<p>对分配内存的动作进行同步处理：</p>
+<p>JVM采用CAS（Compare and Swap）机制加上失败重试的方式，保证更新操作的原子性；</p>
+<p>CAS：有3个操作数，内存值V，旧的预期值A，要修改的新值B。当且仅当预期值A和内存值V相同时，将内存值V修改为B，否则什么都不做；</p>
+<p>||）本地线程分配缓冲区</p>
+<p>把内存分配的动作按照线程划分在不同的空间中进行：</p>
+<p>在每个线程在Java堆预先分配一小块内存，称为本地线程分配缓冲区（Thread Local Allocation Buffer，TLAB）</p>
+<p>哪个线程需要分配内存就从哪个线程的TLAB上分配；</p>
+<p>只有TLAB用完需要分配新的TLAB时，才需要同步处理；</p>
+<p>JVM通过“-XX：+/-UserTLAB”指定是否适用TLAB；</p>
+<p>3.对象内存初始化为零</p>
+<p>对象内存初始化为零，但不包括对象头；</p>
+<p>如果使用TLAB，提前至分配TLAB时；</p>
+<p>这保证了程序中对象（及实例变量）不显示初始赋零值，程序也能够访问到零值；</p>
+<p>4.对象内存初始化为零</p>
+<p>主要设置对象头信息，包括类元数据引用、对象的哈希码、对象的GC分代年龄等；</p>
+<p>5.执行对象实例方法<init></init></p>
+<p>该方法把对象（实例变量）按照程序定义的初始赋值进行初始化；</p>
+<p>通常，经过上面5步才完全new出来。</p>
+<p>另外，还可以参考HotSpot虚拟机源码中的“bytecodeInterpreter.cpp”文件，这个文件有表示解释器处理“new”指令基本类似上面的5个过程</p>
+<p>6.Java对象创建的JVM指令</p>
+<p>通过前面一些文章，我们还可以用JVM指令的角度来看对象的创建过程；</p>
+<p>A)new指令</p>
+<p>“new”指令有一个类符号引用的常量，JVM解析该常量也就对应步骤1“相应类加载检查过程”；</p>
+<p>“new”指令执行完毕后，一个代表（指向）该对象实例内存数据的reference类型变量数据将压入到操作数栈中；</p>
+<p>B)dup指令</p>
+<p>接着会执行“dup”指令复制reference数据，这时操作数栈栈顶就有两个指向该对象实例内存的referenc数据；（如果<init>方法有参数，还需要把参数加载到操作栈）</init></p>
+<p>C)invokespecial指令</p>
+<p>在执行“invokespecia”指令调用对象实例方法<init>，这时操作数栈最上面的一个reference数据会出栈（如果有参数，包括方法参数）；</init></p>
+<p>然后在Java虚拟机栈中创建<init>方法的栈帧，把出栈的reference数据（和参数）放入该栈帧的局部变量表中，该reference数据在方法中也就是“this”，表示对该对象实例进行的操作；</init></p>
+<p>当然这些参数的数值、数据类型和顺序都必须遵循实例方法的描述符中的描述；</p>
+<p>另外，操作数栈中还有一个对象reference数据一般被“astore”到局部变量表或保存到字段变量，给后面访问对象使用。</p>
+<ul>
+<li>内存模型</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/c-s/" rel="tag"># c/s</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/02/08/basis04/" rel="next" title="找到数组中出现次数唯一不同的数字">
+                <i class="fa fa-chevron-left"></i> 找到数组中出现次数唯一不同的数字
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="Mosquito">
+            
+              <p class="site-author-name" itemprop="name">Mosquito</p>
+              <p class="site-description motion-element" itemprop="description">qwq</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、Java-基础"><span class="nav-number">1.</span> <span class="nav-text">一、Java 基础</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、容器"><span class="nav-number">2.</span> <span class="nav-text">二、容器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、多线程"><span class="nav-number">3.</span> <span class="nav-text">三、多线程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、反射"><span class="nav-number">4.</span> <span class="nav-text">四、反射</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#五、对象拷贝"><span class="nav-number">5.</span> <span class="nav-text">五、对象拷贝</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#六、Java-Web"><span class="nav-number">6.</span> <span class="nav-text">六、Java Web</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#七、异常"><span class="nav-number">7.</span> <span class="nav-text">七、异常</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#八、网络"><span class="nav-number">8.</span> <span class="nav-text">八、网络</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#九、设计模式"><span class="nav-number">9.</span> <span class="nav-text">九、设计模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#十、Spring-Spring-MVC"><span class="nav-number">10.</span> <span class="nav-text">十、Spring/Spring MVC</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#十一、Spring-Boot-Spring-Cloud"><span class="nav-number">11.</span> <span class="nav-text">十一、Spring Boot/Spring Cloud</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#十二、Hibernate"><span class="nav-number">12.</span> <span class="nav-text">十二、Hibernate</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#十三、Mybatis"><span class="nav-number">13.</span> <span class="nav-text">十三、Mybatis</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#十四、RabbitMQ"><span class="nav-number">14.</span> <span class="nav-text">十四、RabbitMQ</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#十五、Kafka"><span class="nav-number">15.</span> <span class="nav-text">十五、Kafka</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#十六、Zookeeper"><span class="nav-number">16.</span> <span class="nav-text">十六、Zookeeper</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#十七、MySql"><span class="nav-number">17.</span> <span class="nav-text">十七、MySql</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#十八、Redis"><span class="nav-number">18.</span> <span class="nav-text">十八、Redis</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#十九、JVM"><span class="nav-number">19.</span> <span class="nav-text">十九、JVM</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Mosquito</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>
