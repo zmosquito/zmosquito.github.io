@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Mosquito">
 <meta property="og:description" content="蚊子快面临面试了，所以把在牛客网看到的Java面经全部都整理了下来，然后蚊子会不断的更新问题，并且更新我所理解的答案，如果有什么不正确的，还请大家多多指正，蟹蟹啦~">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-04T12:33:30.754Z">
+<meta property="og:updated_time" content="2019-03-05T10:06:32.542Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="面试题总结">
 <meta name="twitter:description" content="蚊子快面临面试了，所以把在牛客网看到的Java面经全部都整理了下来，然后蚊子会不断的更新问题，并且更新我所理解的答案，如果有什么不正确的，还请大家多多指正，蟹蟹啦~">
@@ -365,12 +365,25 @@
         <p>蚊子快面临面试了，所以把在牛客网看到的Java面经全部都整理了下来，然后蚊子会不断的更新问题，并且更新我所理解的答案，如果有什么不正确的，还请大家多多指正，蟹蟹啦~</p>
 <a id="more"></a>
 <h3 id="一、Java-基础"><a href="#一、Java-基础" class="headerlink" title="一、Java 基础"></a>一、Java 基础</h3><ul>
-<li>JDK 和 JRE 有什么区别？</li>
-<li>== 和 equals 的区别是什么？</li>
-<li>两个对象的 hashCode()相同，则 equals()也一定为 true，对吗？</li>
+<li><strong>JDK 和 JRE 有什么区别？</strong></li>
+</ul>
+<p>答：JDK：Java Development Kit，顾名思义是Java开发工具包，是程序员使用Java语言编写Java程序所需的开发工具包，是提供给程序员使用的。JDK包含了JRE，同时还包含了编译Java源码的编译器javac，还包含了很多Java程序调试和分析的工具：jconsloe、jvisualvm等工具软件，还包含了Java程序编写所需的文档和demo例子程序。</p>
+<p>JRE：Java Runtime Environment，顾名思义就是Java运行时环境，包含了Java虚拟机，Java基础库。是使用Java语言编写的程序运行所需要的软件环境，是提供给想运行Java程序的用户使用的。</p>
+<p>如果你需要运行Java程序，只需安装JRE就可以了，如果你需要编写Java程序，需要安装JDK。JRE根据不同操作系统（如：windows，linux等）和不同JRE提供商（IBM，ORACLRE等）有很多版本，最常用的是Oracle公司收购的SUN公司的JRE版本。</p>
+<ul>
+<li><strong>== 和 equals 的区别是什么？</strong></li>
+</ul>
+<p>== 比较stack中的值（引用数据类型stack中存放的是对象的堆内存地址）</p>
+<p>equals()通常被覆写为比较对象的值</p>
+<p>== 或等号操作在Java编程语言中是一个二元操作符，用于比较原生类型和对象。就原生类型如Boolean、int、float来说，使用 == 来比较两者，这个很好掌握。但是在比较对象的时候，就会与equals()造成困惑。== 对比两个对象基于内存引用，如果两个对象的引用完全相同（只想同一对象）时，== 操作将返回true，否则返回false。</p>
+<p>equals()方法定义在Object类里面，根据具体的业务逻辑来定义该方法，用于检查两个对象的相等性（值）。</p>
+<ul>
+<li><strong>两个对象的 hashCode()相同，则 equals()也一定为 true，对吗？</strong></li>
+</ul>
+<p>不对，因为对象相等则hashcode一定相等，但是hashcode相等对象未必相等，取决于hashcode这个方法的设计规则是否一样。</p>
+<ul>
 <li>final 在 java 中有什么作用？</li>
 <li>java 中的 Math.round(-1.5) 等于多少？</li>
-<li>String 属于基础的数据类型吗？</li>
 <li>java 中操作字符串都有哪些类？它们之间有什么区别？</li>
 <li>String str=”i”与 String str=new String(“i”)一样吗？</li>
 <li>如何将字符串反转？</li>
