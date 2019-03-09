@@ -88,7 +88,7 @@
 <meta property="og:description" content="蚊子快面临面试了，所以把在牛客网看到的Java面经全部都整理了下来，然后蚊子会不断的更新问题，并且更新我所理解的答案，如果有什么不正确的，还请大家多多指正，蟹蟹啦~">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://blogs-image.oss-cn-beijing.aliyuncs.com/List-Set-Map-difference.jpg">
-<meta property="og:updated_time" content="2019-03-09T09:44:32.196Z">
+<meta property="og:updated_time" content="2019-03-09T15:39:18.164Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="面试题总结">
 <meta name="twitter:description" content="蚊子快面临面试了，所以把在牛客网看到的Java面经全部都整理了下来，然后蚊子会不断的更新问题，并且更新我所理解的答案，如果有什么不正确的，还请大家多多指正，蟹蟹啦~">
@@ -983,58 +983,302 @@
 <p>工厂方法：用来生产同一等级结构中的固定产品，支持增加任意产品。</p>
 <p>抽象工厂：用来盛在不同产品族的全部产品，对于增加新的产品，无能为力；支持增加产品族。</p>
 <h3 id="Spring-Spring-MVC"><a href="#Spring-Spring-MVC" class="headerlink" title="Spring/Spring MVC"></a>Spring/Spring MVC</h3><ul>
-<li>为什么要使用 spring？</li>
-<li>解释一下什么是 aop？</li>
-<li>解释一下什么是 ioc？</li>
-<li>spring 有哪些主要模块？</li>
-<li>spring 常用的注入方式有哪些？</li>
-<li>spring 中的 bean 是线程安全的吗？</li>
-<li>spring 支持几种 bean 的作用域？</li>
-<li>spring 自动装配 bean 有哪些方式？</li>
-<li>spring 事务实现方式有哪些？</li>
-<li>说一下 spring 的事务隔离？</li>
-<li>说一下 spring mvc 运行流程？</li>
-<li>spring mvc 有哪些组件？</li>
-<li>@RequestMapping 的作用是什么？</li>
-<li>@Autowired 的作用是什么？</li>
+<li><strong>为什么要使用 spring？</strong></li>
 </ul>
+<ol>
+<li>Spring 提供 IOC 技术，容器会帮你管理依赖的对象，从而不需要自己创建和管理依赖对象了，更轻松的实现了程序的解耦。</li>
+<li>Spring 提供了事务支持，是的事务操作变得更加方便。</li>
+<li>Spring 提供了面向切片编程，这样可以更方便的处理某一类的问题。</li>
+<li>更方便的框架集成，Spring 可以很方便的集成其他框架，比如 MyBatis、Hibernate 等。</li>
+</ol>
+<ul>
+<li><strong>解释一下什么是 aop？</strong></li>
+</ul>
+<p>aop 是面向切面编程，通过预编译方式和运行期间动态代理实现程序功能的统一维护的一种技术。</p>
+<p>简单来说就是统一处理某一 “切面”（类）的问题的编程思想，比如统一处理日志、异常等。</p>
+<ul>
+<li><strong>解释一下什么是 ioc？</strong></li>
+</ul>
+<p>ioc：Inversion of Control（中文：控制反转）是 Spring 的核心，对于 Spring 框架来说，就是由 Spring 来负责控制对象的生命周期和对象间的关系。</p>
+<p>简单来说，控制指的就是当前对象对内部成员的控制权；控制反转指的是，这种控制权不由当前对象管理，由其他（类、第三方容器）来管理。</p>
+<ul>
+<li><strong>spring 有哪些主要模块？</strong></li>
+</ul>
+<p>在 Spring 中有 20 种模块，其主要的有：</p>
+<p>Spring Core：框架的最基础部分，提供 ioc 和依赖注入特性。</p>
+<p>Spring Context：构建于 Core 封装包基础上的 Context 封装包，提供了一种框架式的对象访问方法。</p>
+<p>Spring Dao：Data Acess Object 提供了 JDBC 的抽象层。</p>
+<p>Spring AOP：提供了面向切面的编程实现，让你可以自定义拦截器、切点等。</p>
+<p>Spring Web：提供了针对 Web 开发的集成特性，例如文件上传、利用 servlet listeners 进行 ioc 容器初始化和针对 Web 的ApplicationContext。</p>
+<p>Spring Web mvc：Spring 中的 MVC 封装包提供了 Web 应用的 Model-View-Controller（MVC）的实现。</p>
+<ul>
+<li><strong>spring 常用的注入方式有哪些？</strong></li>
+</ul>
+<p>setter 属性注入</p>
+<p>构造方法注入</p>
+<p>注解方式注入</p>
+<ul>
+<li><strong>spring 中的 bean 是线程安全的吗？</strong></li>
+</ul>
+<p>Spring 中的 bean 默认是单例模式，Spring 框架并没有对单例 bean 进行多线程的封装处理。</p>
+<p>实际上大部分时候 Spring bean 是无状态的（比如 dao 类），所以某种程度上来说 bean 也是安全的，但如果 bean 有状态的话（比如 view model 对象），那就要开发者自己去保证线程安全了，最简单的就是改变 bean 的作用域，把 “singleton” 变更为 “prototype”，这样请求 bean 相当于 new Bean() 了，所以就可以保证线程安全了。</p>
+<p>有状态就是有数据存储功能。</p>
+<p>无状态就是不会保存数据。</p>
+<ul>
+<li><strong>spring 支持几种 bean 的作用域？</strong></li>
+</ul>
+<p>Spring 支持 5 种作用域，如下：</p>
+<p>singleton：Spring ioc 容器中只存在一个 bean 实例，bean 以单例模式存在，是系统默认值。</p>
+<p>prototype：每次从容器调用 bean 时都会创建一个新的实例，既每次 getBean() 相当于执行 new Bean() 操作。</p>
+<p>request：每次 Http 请求都会创建一个 bean。</p>
+<p>session：同一个 Http session 共享一个 bean 实例。</p>
+<p>global-session：用于 portlet 容器，因为每个 portlet 有单独的 session，globalsession 提供一个全局性的 Http session。</p>
+<p><strong>注意</strong>：使用 prototype 作用域需要慎重的考虑，因为频繁创建和销毁 bean 会带来很大的性能开销。</p>
+<ul>
+<li><strong>spring 自动装配 bean 有哪些方式？</strong></li>
+</ul>
+<p>no：默认值，表示没有自动装填，应使用显式 bean 引用进行装配。</p>
+<p>byName：它根据 bean 的名称注入对象依赖项。</p>
+<p>byType：它根据类型注入对象依赖项。</p>
+<p>构造函数：通过构造函数来注入依赖项，需要设置大量参数。</p>
+<p>autodetect：容器首先通过构造函数使用 autowire 装配，如果不能，则通过 byType 自动装配。</p>
+<ul>
+<li><strong>spring 事务实现方式有哪些？</strong></li>
+</ul>
+<p>声明式事务：声明式事务也有两种实现方式，基于 xml 配置文件的方式和注解方式（在类上添加 @Transaction 注解）。</p>
+<p>编码方式：提供编码的形式管理和维护事务。</p>
+<ul>
+<li><strong>说一下 spring 的事务隔离？</strong></li>
+</ul>
+<p>Spring 有五大隔离级别，默认值为 ISOLATION_DEFAULT（使用数据库的设置），其他四个隔离级别跟数据库隔离级别一直：</p>
+<p>ISOLATION_DEFAULT：用底层数据库的设计隔离级别，数据库设置的是什么我就用什么。</p>
+<p>ISOLATION READUNCOMMITTED：未提交读，最低隔离级别、事务未提交前，就可被其他事务读取（会出现幻读、脏读、不可重复读）。</p>
+<p>ISOLATION REPEATABLEREAD：可重复读，保证多次读取同一个数据时，其值都和事务开始时候的内容一致，禁止读取到别的事务未提交的数据（会造成幻读），MySQL 的默认级别。</p>
+<p>ISOLATION_SERIALIZABLE：序列化，代价最高最可靠的隔离级别，该隔离级别能防止脏读、不可重复读、幻读。</p>
+<p><strong>脏读</strong>：表示一个事务能够读取另一个事务中还未提交的数据。比如，某事务尝试插入记录 A，此时该事务还未提交，然后另一个事务尝试读取到了记录 A。</p>
+<p><strong>不可重复读</strong>：是指在一个事务内，多次读同一数据。</p>
+<p><strong>幻读</strong>：指同一个事务内多次查询返回的结果集不一样。比如同一个事务 A 第一次查询时候有 n 条记录，但是第二次同等条件下查询却有 n + 1 条记录，这就好像产生了幻觉。发生幻读的原因也是另一个事务新增或者删除或者修改了第一个事务结果集里面的数据，同一条记录的数据内容被修改了，所以数据行的记录就变多或者变少了。</p>
+<ul>
+<li><strong>说一下 spring mvc 运行流程？</strong></li>
+</ul>
+<ol>
+<li>Spring MVC 先将请求发送给 DispatcherServlet。</li>
+<li>DispatcherServlet 查询一个或对各 HandlerMapping，找到处理请求的 Controller。</li>
+<li>DispatcherServlet 再把请求提交到对应的 Controller。</li>
+<li>Controller 进行业务逻辑处理后，会返回一个 ModelAndView。</li>
+<li>DispatcherServlet 查询一个或多个 ViewResolver 视图解析器，找到 ModelAndView 对象指定的视图对象。</li>
+<li>视图对象负责渲染返回给客户端。</li>
+</ol>
+<ul>
+<li><strong>spring mvc 有哪些组件？</strong></li>
+</ul>
+<p>前置控制器 DispatcherServlet</p>
+<p>映射控制器 HandlerMapping</p>
+<p>处理器 Controller</p>
+<p>模型和视图 ModelAndView</p>
+<p>视图解析器 ViewResolver</p>
+<ul>
+<li><strong>@RequestMapping 的作用是什么？</strong></li>
+</ul>
+<p>将 Http 请求映射到相应的类/方法上。</p>
+<ul>
+<li><strong>@Autowired 的作用是什么？</strong></li>
+</ul>
+<p>@Autowired 它可以对类成员变量、方法及构造函数进行标注，完成自动转配的工作，通过 @Autowired 的使用来消除 set/get 方法。</p>
 <h3 id="Spring-Boot-Spring-Cloud"><a href="#Spring-Boot-Spring-Cloud" class="headerlink" title="Spring Boot/Spring Cloud"></a>Spring Boot/Spring Cloud</h3><ul>
-<li>什么是 spring boot？</li>
-<li>为什么要用 spring boot？</li>
-<li>spring boot 核心配置文件是什么？</li>
-<li>spring boot 配置文件有哪几种类型？它们有什么区别？</li>
-<li>spring boot 有哪些方式可以实现热部署？</li>
-<li>jpa 和 hibernate 有什么区别？</li>
-<li>什么是 spring cloud？</li>
-<li>spring cloud 断路器的作用是什么？</li>
-<li>spring cloud 的核心组件有哪些？</li>
+<li><strong>什么是 spring boot？</strong></li>
 </ul>
+<p>Spring Boot 是为 Spring 服务的，是用来简化新 Spring 应用的初始搭建以及开发过程的。</p>
+<ul>
+<li><strong>为什么要用 spring boot？</strong></li>
+</ul>
+<ol>
+<li>配置简单</li>
+<li>独立运行</li>
+<li>自动装配</li>
+<li>无代码生成和 xml 配置</li>
+<li>提供应用监控</li>
+<li>易上手</li>
+<li>提升开发效率</li>
+</ol>
+<ul>
+<li><strong>spring boot 核心配置文件是什么？</strong></li>
+</ul>
+<p>Spring Boot 核心的两个配置文件：</p>
+<ol>
+<li>Bootstrap（.yml 或者 .properties）：Bootstrap 由父 ApplicationContext加载的，比 application 优先加载，且 Bootstrap 里面的属性不能被覆盖。</li>
+<li>application（.yml 或者 .properties）：用于 Spring Boot 项目的自动化配置。</li>
+</ol>
+<ul>
+<li><strong>spring boot 配置文件有哪几种类型？它们有什么区别？</strong></li>
+</ul>
+<p>配置文件有 .properties 格式和 .yml 格式，它们主要的区别是书法风格不同。</p>
+<p>.properties 配置如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">spring. RabbitMQ. port=5672</span><br></pre></td></tr></table></figure>
+<p>.yml 配置如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">spring:</span><br><span class="line">	RabbitMQ:</span><br><span class="line">		port: 5672</span><br></pre></td></tr></table></figure>
+<p>.yml 格式不支持 @PropertySource 注解导入</p>
+<ul>
+<li><strong>spring boot 有哪些方式可以实现热部署？</strong></li>
+</ul>
+<p>使用 devtools 启动热部署，添加 devtools 库，在配置文件中把 spring.devtools.restart.enabled 设置为 true。</p>
+<p>使用 Intellij Idea 编辑器，勾上自动编译或手动重新编译。</p>
+<ul>
+<li><strong>jpa 和 hibernate 有什么区别？</strong></li>
+</ul>
+<p>jpa 全程 Java Persistence API，是 Java 持久化接口规范；Hibernate 属于 jpa 的具体实现。</p>
+<ul>
+<li><strong>什么是 spring cloud？</strong></li>
+</ul>
+<p>Spring Cloud 是一系列框架的有序集合。它利用 Spring Boot 的开发便利性巧妙地简化了分布式系统基础设施的开发，如服务发现注册、配置中心、消息总线、负载均衡、断路器、数据监控等，都可以用 Spring Boot 的开发风格做到一键启动和部署。</p>
+<ul>
+<li><strong>spring cloud 断路器的作用是什么？</strong></li>
+</ul>
+<p>在分布式架构中，断路器模式的作用也是类似的，当某个服务单元发生故障（类似用电器发生短路）之后，通过断路器的故障监控（类似熔断保险丝），向调用方返回一个错误响应，而不是长时间的等待。这样就不会使得线程因调用故障服务被长时间占用不释放，避免了故障在分布式系统中的蔓延。</p>
+<ul>
+<li><strong>spring cloud 的核心组件有哪些？</strong></li>
+</ul>
+<p>Eureka：服务注册于发现</p>
+<p>Feign：基于动态代理机制，根据注解和选择的机器，拼接请求 url 地址，发起请求。</p>
+<p>Ribbon：实现负载均衡，从一个服务的多台机器中选择一台。</p>
+<p>Hystrix：提供线程池，不同的服务走不同的线程池，实现了不同服务调用的隔离，避免了服务雪崩的问题。</p>
+<p>Zuul：网管管理，由 Zuul 网管转发请求给对应的服务。</p>
 <h3 id="Hibernate"><a href="#Hibernate" class="headerlink" title="Hibernate"></a>Hibernate</h3><ul>
-<li>为什么要使用 hibernate？</li>
-<li>什么是 ORM 框架？</li>
-<li>hibernate 中如何在控制台查看打印的 sql 语句？</li>
-<li>hibernate 有几种查询方式？</li>
-<li>hibernate 实体类可以被定义为 final 吗？</li>
-<li>在 hibernate 中使用 Integer 和 int 做映射有什么区别？</li>
-<li>hibernate 是如何工作的？</li>
-<li>get()和 load()的区别？</li>
-<li>说一下 hibernate 的缓存机制？</li>
-<li>hibernate 对象有哪些状态？</li>
-<li>在 hibernate 中 getCurrentSession 和 openSession 的区别是什么？</li>
-<li>hibernate 实体类必须要有无参构造函数吗？为什么？</li>
+<li><strong>为什么要使用 hibernate？</strong></li>
 </ul>
+<p>Hibernate 是对 JDBC 的封装，大大简化了数据访问层的繁琐的重复性代码。</p>
+<p>Hibernate 是一个优秀的 ORM 实现，很大程度上简化了 DAO 层的编码功能。</p>
+<p>可以很方便的进行数据库的移植工作。</p>
+<p>提供了缓存机制，使程序执行更加的高效。</p>
+<ul>
+<li><strong>什么是 ORM 框架？</strong></li>
+</ul>
+<p>ORM（Object Relation Mapping）对象关系映射，是把数据库中的关系数据映射成为程序中的对象。</p>
+<p>使用 ORM 的优点：提高了开发效率降低了开发成本、开发更简单更对象化、可移植更强。</p>
+<ul>
+<li><strong>hibernate 中如何在控制台查看打印的 sql 语句？</strong></li>
+</ul>
+<p>在 Config 里面把 hibernate.show_SQL 设置为 true 就可以。但不建议开启，开启之后会降低程序的运行效率。</p>
+<ul>
+<li><strong>hibernate 有几种查询方式？</strong></li>
+</ul>
+<p>三种：hql、原生 SQL、条件查询 Criteria</p>
+<ul>
+<li><strong>hibernate 实体类可以被定义为 final 吗？</strong></li>
+</ul>
+<p>实体类可以被定义为 final 类，但这样的话就不能使用 Hibernate 代理模式下的延迟关联提供性能了，所以不建议定义实体类为 final。</p>
+<ul>
+<li><strong>在 hibernate 中使用 Integer 和 int 做映射有什么区别？</strong></li>
+</ul>
+<p>Integer 类型为对象，它的值允许为 null，而 int 属于基础数据类型，值不能为 null。</p>
+<ul>
+<li><strong>hibernate 是如何工作的？</strong></li>
+</ul>
+<ol>
+<li>读取并解析配置文件。</li>
+<li>读取并解析映射文件，创建 SessionFactory。</li>
+<li>打开 Session。</li>
+<li>创建事务。</li>
+<li>进行持久化操作。</li>
+<li>提交事务。</li>
+<li>关闭 Session。</li>
+<li>关闭 SessionFactory。</li>
+</ol>
+<ul>
+<li><strong>get()和 load()的区别？</strong></li>
+</ul>
+<p>数据查询时，没有 OID 指定的对象，get() 返回 null；load() 返回一个代理对象。</p>
+<p>load() 支持延迟加载；get() 不支持延迟加载。</p>
+<ul>
+<li><strong>说一下 hibernate 的缓存机制？</strong></li>
+</ul>
+<p>Hibernate 常用的缓存有一级缓存和二级缓存：</p>
+<p>一级缓存：也叫 Session 缓存，只在 Session 作用范围内有效，不需要用户干涉，由 Hibernate 自身维护，可以通过：evict(object) 清除 object 的缓存；clear() 清除一级缓存的所有缓存；flush() 刷出缓存。</p>
+<p>二级缓存：应用级别缓存，在所有 Session 中都有效，指出配置第三方的缓存，如：EhCache。</p>
+<ul>
+<li><strong>hibernate 对象有哪些状态？</strong></li>
+</ul>
+<p>临时/瞬时状态：直接 new 出来的对象，该对象还没被持久化（没保存在数据库中），不受 Session 管理。</p>
+<p>持久化状态：当调用 Session 的 save/saveOrupdate/get/load/list 等方法的时候，对象就是持久状态。</p>
+<p>游离状态：Session 关闭之后对象就是游离状态。</p>
+<ul>
+<li><strong>在 hibernate 中 getCurrentSession 和 openSession 的区别是什么？</strong></li>
+</ul>
+<p>getCurrentSession 会绑定当前线程；而 openSession 则不会。</p>
+<p>getCurrentSession 事务是 Spring 控制的，并且不需要手动关闭；而 openSession 需要我们自己手动开启和提交事务。</p>
+<ul>
+<li><strong>hibernate 实体类必须要有无参构造函数吗？为什么？</strong></li>
+</ul>
+<p>Hibernate 中每个实体类必须提供一个无参构造参数，因为 Hibernate 框架要使用 reflection api，通过调用 Classnewlnstance() 来创建实体类的实例，如果没有午餐的构造函数就会抛出异常。+</p>
 <h3 id="Mybatis"><a href="#Mybatis" class="headerlink" title="Mybatis"></a>Mybatis</h3><ul>
-<li>mybatis 中 #{}和 ${}的区别是什么？</li>
-<li>mybatis 有几种分页方式？</li>
-<li>RowBounds 是一次性查询全部结果吗？为什么？</li>
-<li>mybatis 逻辑分页和物理分页的区别是什么？</li>
-<li>mybatis 是否支持延迟加载？延迟加载的原理是什么？</li>
-<li>说一下 mybatis 的一级缓存和二级缓存？</li>
-<li>mybatis 和 hibernate 的区别有哪些？</li>
-<li>mybatis 有哪些执行器（Executor）？</li>
-<li>mybatis 分页插件的实现原理是什么？</li>
-<li>mybatis 如何编写一个自定义插件？</li>
+<li><strong>mybatis 中 #{}和 ${}的区别是什么？</strong></li>
 </ul>
+<p>#{} 是预编译处理，${} 是字符替换。在使用 #{} 时，MyBatis 会将 SQL 中的 #{} 替换成 “?”，配合 PrepareedStatement 的 set 方法赋值，这样可以有效的防止 SQL 注入，保证程序的运行安全。</p>
+<ul>
+<li><strong>mybatis 有几种分页方式？</strong></li>
+</ul>
+<p>分页方式：逻辑分页和物理分页。</p>
+<p>逻辑分页：使用 MyBatis 自带的 RowBounds 进行分页，它是一次性查询很多数据，然后在数据中再进行检索。</p>
+<p>物理分页：自动手写 SQL 分页或使用分页插件 PageHelper，去数据库查询指定条数的分页数据的形式。</p>
+<ul>
+<li><strong>RowBounds 是一次性查询全部结果吗？为什么？</strong></li>
+</ul>
+<p>RowBounds 表面是在 “所有” 数据中检索数据，其实并非是一次性查询出所有数据，因为 MyBatis 是对 JDBC 的封装，在 JDBC 驱动中有一个 Fetch Size 的配置，它规定了每次最多从数据库查询多少条数据，假如你要查询更多的数据，它会在你执行 next() 的时候，去查询更多的数据。就好比你去自动取款机取 10000 元，但取款机每次最多能取 2500 元，所以你要取 4 次才能把钱取完。只是对于 JDBC 来说，当你调用 next() 的时候会自动帮你完成查询工作。这样做的好处可以有效的防止内存溢出。</p>
+<ul>
+<li><strong>mybatis 逻辑分页和物理分页的区别是什么？</strong></li>
+</ul>
+<p>逻辑分页是一次性查询很多数据，然后再在结果中检索分页的数据。这样做弊端是需要消耗大量的内存，有内存溢出的风险，对数据库压力较大。</p>
+<p>物理分页是从数据库查询指定条数的数据，弥补了一次性全部查出所有数据的种种缺点，比如需要大量内存，对数据库查询压力大等问题。</p>
+<ul>
+<li><strong>mybatis 是否支持延迟加载？延迟加载的原理是什么？</strong></li>
+</ul>
+<p>MyBatis 支持延迟加载，设置 lazyLoadingEnable = true 即可。</p>
+<p>延迟加载的原理是调用的时候触发加载，而不是在初始化的时候就加载信息。比如调用 a.getB().getName()，这时候发现 a.getB() 的值为 null，此时会单独触发事先保存好的关联 B 对象的 SQL，先查询出来 B，然后再调用 a.setB()，而这时候再调用 a.getB().getName() 就有值了，这就是延迟加载的基本原理。</p>
+<ul>
+<li><strong>说一下 mybatis 的一级缓存和二级缓存？</strong></li>
+</ul>
+<p>一级缓存：基于 PerpetualCache 的HashMap 本地缓存，它的声明周期是和 SQLSession 一致的，有多个 SQLSession 或者分布式的环境中数据库操作，可能会出现脏数据。当 Session flush 或 close 之后，该 Session 中的所有 Cache 就将清空，默认一级缓存是开启的。</p>
+<p>二级缓存：也是基于 PerpetualCache 的 HashMap 本地缓存，不同在于其存储作用域为 Mapper 级别的，如果多个 SQLSession 之间需要共享缓存，则需要使用到二级缓存，并且二级缓存可自定义存储源，如 Ehcache。默认不打开二级缓存，要开启二级缓存，使用二级缓存属性类需要实现 Serializable 序列化接口（可用来保存对象的状态）。</p>
+<p>开启二级缓存数据查询流程：二级缓存 -&gt; 一级缓存 -&gt; 数据库。</p>
+<p>缓存更新机制：当某一作用域（一级缓存 Session/二级缓存 Mapper）进行了 C/U/D 操作后，默认该作用域下所有 select 中的缓存将被 clear。</p>
+<ul>
+<li><strong>mybatis 和 hibernate 的区别有哪些？</strong></li>
+</ul>
+<ol>
+<li>灵活性：MyBatis 更加灵活，自己可以写 SQL 语句，使用起来比较方便。</li>
+<li>可移植性：MyBatis 有很多自己写的 SQL，因为每个数据库的 SQL 可以不相同，所以可移植性比较差。</li>
+<li>学习和使用门槛：MyBatis 入门比较简单，使用门槛也更低。</li>
+<li>二级缓存：Hibernate 拥有更好的二级缓存，它的二级缓存可以自行更换为第三方的二级缓存。</li>
+</ol>
+<ul>
+<li><strong>mybatis 有哪些执行器（Executor）？</strong></li>
+</ul>
+<p>MyBatis 有三种基本的 Executor 执行器：</p>
+<p>SimpleExecutor：每执行一次 update 或 select 就开启一个 Statement 对象，用完立即关闭 Statement。</p>
+<p>ReuseExecutor：执行 update 或 select，以 SQL 作为 key 查找 Statement 对象，存在就使用，不存在就创建，用完后不关闭 Statement 对象，而是放置于 Map 内供下一次使用。简言之，就是重复使用 Statement 对象。</p>
+<p>BatchExecutor：执行 update（没有 select，JDBC 批处理不支持 select），将所有 SQL 都添加到批处理中（addBatch()），等待统一执行（executeBatch()），它缓存了多个 Statement 对象，每个 Statement 对象都是 addBatch() 完毕后，等待逐一执行 executeBatch() 批处理，与 JDBC 批处理相同。 </p>
+<ul>
+<li><strong>mybatis 分页插件的实现原理是什么？</strong></li>
+</ul>
+<p>分页插件的基本原理是使用 MyBatis 提供的插件接口，使用自定义插件，在插件的拦截方法内拦截待执行的 SQL，然后重写 SQL，根据 dialect 方言，添加对应的物理分页语句和物理分页参数。</p>
+<ul>
+<li><strong>mybatis 如何编写一个自定义插件？</strong></li>
+</ul>
+<p><strong>自定义插件实现原理：</strong></p>
+<p>MyBatis 自定义插件针对 MyBatis 四大对象（Executor、StatementHandler、ParameterHandler、ResultSetHandler）进行拦截：</p>
+<p>Executor：拦截内部执行器，它负责调用 StatementHandler 操作数据库，并把结果集通过 ResultSetHandler 进行自动映射，另外它还处理了二级缓存的操作。</p>
+<p>StatementHandler：拦截 SQL 语法构建的处理，它是 MyBatis 直接和数据库执行 SQL 脚本的对象，另外它也实现了 MyBatis 的一级缓存。</p>
+<p>ParameterHandler：拦截参数的处理。</p>
+<p>ResultSetHandler：拦截结果集的处理。</p>
+<p><strong>自定义插件实现关键：</strong></p>
+<p>MyBatis 插件要实现 Interceptor 接口，接口包含的方法，如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Interceotor</span></span>&#123;</span><br><span class="line">    <span class="function">Object <span class="title">intercept</span><span class="params">(Invocation invocation)</span> <span class="keyword">throws</span> Throwable</span>;</span><br><span class="line">    <span class="function">Object <span class="title">plugin</span><span class="params">(Object target)</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">setProperties</span><span class="params">(Properties properties)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>setProperties 方法是在 MyBatis 进行配置插件的时候可以配置自定义相关属性，即：接口实现对象的参数配置。</p>
+<p>plugin 方法是插件用于封装目标对象的，通过该方法我们可以返回目标本身，也可以返回一个它的代理，可以决定是否要进行拦截进而决定要返回一个什么样的目标对象，官方提供了实例：return Plugin.warp(target, this)。</p>
+<p>intercept 方法就是要进行拦截的时候要执行的方法。</p>
+<p><strong>自定义插件实现示例：</strong></p>
+<p>官方插件实现：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Intercepts</span>(&#123;<span class="meta">@Signature</span>(type = Executor. <span class="class"><span class="keyword">class</span>, <span class="title">method</span> </span>= <span class="string">"query"</span>,</span><br><span class="line">        args = &#123;MappedStatement. <span class="class"><span class="keyword">class</span>, <span class="title">Object</span>. <span class="title">class</span>, <span class="title">RowBounds</span>. <span class="title">class</span>, <span class="title">ResultHandler</span>. <span class="title">class</span>&#125;)&#125;)</span></span><br><span class="line"><span class="class"><span class="title">public</span> <span class="title">class</span> <span class="title">TestInterceptor</span> <span class="keyword">implements</span> <span class="title">Interceptor</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> Object <span class="title">intercept</span><span class="params">(Invocation invocation)</span> <span class="keyword">throws</span> Throwable </span>&#123;</span><br><span class="line">     Object target = invocation. getTarget(); <span class="comment">//被代理对象</span></span><br><span class="line">     Method method = invocation. getMethod(); <span class="comment">//代理方法</span></span><br><span class="line">     Object[] args = invocation. getArgs(); <span class="comment">//方法参数</span></span><br><span class="line">     <span class="comment">// do something . . . . . .  方法拦截前执行代码块</span></span><br><span class="line">     Object result = invocation. proceed();</span><br><span class="line">     <span class="comment">// do something . . . . . . . 方法拦截后执行代码块</span></span><br><span class="line">     <span class="keyword">return</span> result;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> Object <span class="title">plugin</span><span class="params">(Object target)</span> </span>&#123;</span><br><span class="line">     <span class="keyword">return</span> Plugin. wrap(target, <span class="keyword">this</span>);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="RabbitMQ"><a href="#RabbitMQ" class="headerlink" title="RabbitMQ"></a>RabbitMQ</h3><ul>
 <li>rabbitmq 的使用场景有哪些？</li>
 <li>rabbitmq 有哪些重要的角色？</li>
@@ -1071,28 +1315,145 @@
 <li>说一下 zookeeper 的通知机制？</li>
 </ul>
 <h3 id="MySql"><a href="#MySql" class="headerlink" title="MySql"></a>MySql</h3><ul>
-<li>数据库的三范式是什么？</li>
-<li>一张自增表里面总共有 7 条数据，删除了最后 2 条数据，重启 mysql 数据库，又插入了一条数据，此时 id 是几？</li>
-<li>如何获取当前数据库版本？</li>
-<li>说一下 ACID 是什么？</li>
-<li>char 和 varchar 的区别是什么？</li>
-<li>float 和 double 的区别是什么？</li>
-<li>mysql 的内连接、左连接、右连接有什么区别？</li>
-<li>mysql 索引是怎么实现的？</li>
-<li>怎么验证 mysql 的索引是否满足需求？</li>
-<li>说一下数据库的事务隔离？</li>
-<li>说一下 mysql 常用的引擎？</li>
-<li>说一下 mysql 的行锁和表锁？</li>
-<li>说一下乐观锁和悲观锁？</li>
-<li>mysql 问题排查都有哪些手段？</li>
-<li>如何做 mysql 的性能优化？</li>
+<li><strong>数据库的三范式是什么？</strong></li>
 </ul>
+<p>第一范式：强调的是列的原子性，即数据库表的每一列都是不可分割的原子数据项。</p>
+<p>第二范式：要求实体的属性完全依赖于主关键字。所谓完全依赖是指不能存在仅依赖主关键字一部分的属性。</p>
+<p>第三范式：任何非主属性不依赖于其他非主属性。</p>
+<ul>
+<li><strong>一张自增表里面总共有 7 条数据，删除了最后 2 条数据，重启 mysql 数据库，又插入了一条数据，此时 id 是几？</strong></li>
+</ul>
+<p>表类型如果是 MyISAM，那 id 就是 8。</p>
+<p>表类型如果是 InnoDB，那 id 就是 6。</p>
+<p>InnoDB 表只会把自增主键的最大 id 记录在内存中，所以重启之后会导致最大 id 丢失。</p>
+<ul>
+<li><strong>如何获取当前数据库版本？</strong></li>
+</ul>
+<p>使用 select version() 获取当前 MySQL 数据库版本。</p>
+<ul>
+<li><strong>说一下 ACID 是什么？</strong></li>
+</ul>
+<p>Atomicity（原子性）：一个事务（transcation）中的所有操作，或者全部完成，或者全部不完成，不会结束在中间某个环节。事务在执行过程中发生错误，会被恢复（Rollback）到事务开始前的状态，就像这个事务从来没有执行过一样。即，事务不可分割、不可约简。</p>
+<p>Consistency（一致性）：在事务开始之前和事务结束以后，数据库的完整性没有被破坏。这表示写入的资料必须完全符合所有的预设约束、触发器、级联回滚等。</p>
+<p>Isolation（隔离性）：数据库允许多个并发事务同时对其数据进行读写和修改的能力，隔离性可以防止多个事务并发执行时由于交叉执行而导致数据的不一致。事务隔离分为不同级别，包括读未提交（Read uncommitted）、读提交（Read committed）、可重复读（Repeatable Read）和串行化（Serializable）。</p>
+<p>Durability（持久性）：事务处理结束后，对数据的修改就是永久的，即便系统故障也不会丢失。</p>
+<ul>
+<li><strong>char 和 varchar 的区别是什么？</strong></li>
+</ul>
+<p>char(n)：固定长度类型，比如订阅 char(10)，当你输入 “abc” 三个字符的时候，他们占的空间还是 10 个字节，其他 7 个是空字节。</p>
+<p>char 有点：效率高；缺点：占用空间；使用场景：存储密码的 md5 值，固定长度的，使用 char 非常合适。</p>
+<p>varchar(n)：可变长度，存储的值是每个值占用的字节再加上一个用来记录其长度的字节的长度。</p>
+<p>所以从空间上考虑 varchar 比较合适；从效率上考虑 char 比较合适，二者使用需要权衡。</p>
+<ul>
+<li><strong>float 和 double 的区别是什么？</strong></li>
+</ul>
+<p>float 最多可以存储 8 位的十进制数，并在内存中占 4 字节。</p>
+<p>double 最多可以存储 16 位的十进制数，并在内存中占 8 字节。</p>
+<ul>
+<li><strong>mysql 的内连接、左连接、右连接有什么区别？</strong></li>
+</ul>
+<p>内连接关键字：inner join；左连接：left join；右连接：right join。</p>
+<p>内链接是把匹配的关联数据显示出来；左连接是左边的表全部显示出来，右边的表显示出符合条件的数据；右连接正好相反。</p>
+<ul>
+<li><strong>mysql 索引是怎么实现的？</strong></li>
+</ul>
+<p>索引是满足某种特定查找算法的数据结构，而这些数据结构会以某种方式指向数据，从而实现高效查找数据。</p>
+<p>具体来说 MySQL 中的索引，不同的数据引擎实现有所不同，但目前主流的数据库引擎的索引都是 B+ 树实现的，B+ 树的搜索效率，可以到达二分法的性能，找到数据区域之后就找到了完整的数据结构了，所以索引的性能也是更好的。</p>
+<ul>
+<li><strong>怎么验证 mysql 的索引是否满足需求？</strong></li>
+</ul>
+<p>使用 explain 查看 SQL 是如何执行查询语句的，从而分析你的索引是否满足需求。</p>
+<p>explain 语法：explain select * fom table where type = 1.</p>
+<ul>
+<li><strong>说一下数据库的事务隔离？</strong></li>
+</ul>
+<p>MySQL 的事务隔离是在 MySQL.ini 配置文件里添加的，在文件最后添加：</p>
+<blockquote>
+<p>transaction-isolation = REPEATABLE-READ</p>
+</blockquote>
+<p> 可用的配置值：READ-UNCOMMITTED、READ-COMMITTED、REPEATABLE-READ、SERIALIZABLE。</p>
+<p>READ-UNCOMMITTED：未提交读，最低隔离级别，事务未提交前，就可被其他事务读取（会出现幻读、脏读、不可重复读）</p>
+<p>READ-COMMITTED：提交读，一个事务提交后才能被其他事务读取到（会造成幻读、不可重复读）。</p>
+<p>REPEATABLE-READ：可重复读，默认级别，保证多次读取同一个数据时，其值都和事务开始时候的内容一致，禁止读取到别的事务未提交的数据（会造成幻读）。</p>
+<p>SERIALIZABLE：序列化，代价最高最可靠的隔离级别，该隔离级别能防止脏读、不可重复读、幻读。</p>
+<p><strong>幻读</strong>：表示一个事务能够读取另一个事务中还未提交的数据。比如，某个事务尝试插入记录 A，此时该事务还未提交，然后另一个事务尝试读取到了记录 A。</p>
+<p><strong>不可重复读</strong>：是指在一个事务内，多次读同一数据。</p>
+<p><strong>幻读</strong>：指同一个事务内多次查询返回的结果集不一样。比如同一个事务 A 第一次查询的时候有 n 条记录，但是第二次同等条件下查询却有 n + 1 条记录，这就好像产生了幻觉。发生幻读的原因也是另外一个事务新增或者删除或者修改了第一个事务结果集里面的数据，同一个记录的数据内容被修改了，所以数据行的记录就变多或者变少了。</p>
+<ul>
+<li><strong>说一下 mysql 常用的引擎？</strong></li>
+</ul>
+<p>InnoDB 引擎：InnoDB 引擎提供了对数据库 acid 事务的支持，并且还提供了行级锁和外键的约束，它的设计的目标就是处理大数据容量的数据库系统。MySQL 运行的时候，InnoDB 会在内存中建立缓冲池，用于缓冲数据和索引。但是该引擎是不支持全文搜索，同时启动也比较的慢，它是不会保存表的行数的，所以当进行 select count(*) from table 指令的时候，需要进行扫描全表，由于锁的粒度小，所操作是不会锁定全表的，所以在并发较高的场景下使用会提高效率。</p>
+<p>MyIASM 引擎：MySQL 的默认引擎，但不提供事务的支持，也不支持行级锁和外键。因此当执行插入和更新语句时，即执行写操作的时候需要锁定这个表，所以会导致效率会降低。不过和 InnoDB 不同的是，MyISAM 引擎是保存了表的行数，于是当进行 select count(*) from table 语句时，可以直接的读取已经保存的值而不需要进行扫描全表。所以如果表的读操作远远多于写操作时，并且不需要事务的支持的，可以将 MyISAM 作为数据引擎的首选。</p>
+<ul>
+<li><strong>说一下 mysql 的行锁和表锁？</strong></li>
+</ul>
+<p>MYISAM 只支持表锁，InnoDB 支持表锁和行锁，默认为行锁。</p>
+<p>表级锁：开销小，加锁快，不会出现死锁。锁定粒度大，发生锁冲突的概率最高，并发量最低。</p>
+<p>行级锁：开销大，加锁慢，会出现死锁。锁粒度小，发生锁冲突的概率小，并发度最高。</p>
+<ul>
+<li><strong>说一下乐观锁和悲观锁？</strong></li>
+</ul>
+<p>乐观锁：每次去拿数据的时候都认为别人不会修改，所以不会上锁，但是在提交更新的时候会判断一下在此期间别人有没有去更新这个数据。</p>
+<p>悲观锁：每次去拿数据的时候都认为别人会修改，所以每次在拿数据的时候都会上锁，这样别人想拿这个数据就会阻止，知道这个锁被释放。</p>
+<p>数据库的乐观所需要自己实现，在表里面添加一个 version 字段，每次修改成功值加 1，这样每次修改的时候先对比一下，自己拥有的 version 和数据库现在的 version 是否一致，如果不一致就不修改，这样就实现了乐观锁。</p>
+<ul>
+<li><strong>mysql 问题排查都有哪些手段？</strong></li>
+</ul>
+<ol>
+<li>使用 show processlist 命令查看当前所有连接信息。</li>
+<li>使用 explain 命令查询 SQL 语句执行计划</li>
+<li>开启慢查询日志，查看慢查询的 SQL。</li>
+<li><ul>
+<li><strong>如何做 mysql 的性能优化？</strong></li>
+</ul>
+</li>
+</ol>
+<ol>
+<li>为搜索字段创建索引。</li>
+<li>避免使用 select *，列出需要查询的字段。</li>
+<li>垂直分割分表。</li>
+<li>选择正确的存储引擎。</li>
+</ol>
 <h3 id="Redis"><a href="#Redis" class="headerlink" title="Redis"></a>Redis</h3><ul>
-<li>redis 是什么？都有哪些使用场景？</li>
-<li>redis 有哪些功能？</li>
-<li>redis 和 memecache 有什么区别？</li>
-<li>redis 为什么是单线程的？</li>
-<li>什么是缓存穿透？怎么解决？</li>
+<li><strong>redis 是什么？都有哪些使用场景？</strong></li>
+</ul>
+<p>Redis 是一个使用 C 语言开打的高速缓存数据库。</p>
+<p>Redis 使用场景：</p>
+<ol>
+<li>记录帖子点赞数、点击数、评论数；</li>
+<li>缓存近期热帖；</li>
+<li>缓存文章详情信息；</li>
+<li>记录用户会话信息。</li>
+</ol>
+<ul>
+<li><strong>redis 有哪些功能？</strong></li>
+</ul>
+<ol>
+<li>数据库缓存功能。</li>
+<li>分布式锁的功能。</li>
+<li>支持数据持久化。</li>
+<li>支持事务。</li>
+<li>支持消息队列。</li>
+</ol>
+<ul>
+<li><strong>redis 和 memecache 有什么区别？</strong></li>
+</ul>
+<ol>
+<li>存储方式不同：Memcache 把数据全部存在内存之中，断电后会挂掉，数据不能超过内存大小；Redis 有部分存在硬盘上，这样能保证数据的持久性。</li>
+<li>数据支持类型：Memcache 对数据类型支持相对简单；Redis 有复杂的数据类型。</li>
+<li>使用底层模型不同：它们之间底层实现方式，以及与客户端之间通信的应用协议不一样，Redis 自己构建的 vm 机制，因为一般的系统调用系统函数的话，会浪费一定的时间去移动和请求。</li>
+<li>value 值大小不同：Redis 最大可以达到 1GB；Mecache 只有 1MB。</li>
+</ol>
+<ul>
+<li><strong>redis 为什么是单线程的？</strong></li>
+</ul>
+<p>因为 CPU 不是 Redis 的瓶颈，Redis 的瓶颈最有可能是机器内存或者网络带宽，既然单线程容易实现，而且 CPU 又不会成为瓶颈，那就顺理成章采用单线程的方案了。</p>
+<p>关于 Redis 的性能，官方网站也有，普通笔记本轻松处理每秒几十万的请求。</p>
+<p>而且单线程并不代表就慢，nginx 和 nodejs 也都是高性能单线程的代表。</p>
+<ul>
+<li><strong>什么是缓存穿透？怎么解决？</strong></li>
+</ul>
+<ul>
 <li>redis 支持的数据类型有哪些？</li>
 <li>redis 支持的 java 客户端都有哪些？</li>
 <li>jedis 和 redisson 有哪些区别？</li>
