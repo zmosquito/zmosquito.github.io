@@ -87,10 +87,12 @@
 <meta property="og:site_name" content="Mosquito">
 <meta property="og:description" content="蚊子快面临面试了，所以把在牛客网看到的Java面经全部都整理了下来，然后蚊子会不断的更新问题，并且更新我所理解的答案，如果有什么不正确的，还请大家多多指正，蟹蟹啦~">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-05T10:06:32.542Z">
+<meta property="og:image" content="https://blogs-image.oss-cn-beijing.aliyuncs.com/List-Set-Map-difference.jpg?Expires=1552107825&OSSAccessKeyId=TMP.AQG4VkUBDbu051lDdsDWE4ujKyKoOxBqJRJmwMOl7FBKrFsa-RqtswGHG_x-ADAtAhRrMKaMoIgtwALY7u-Y5B08dYOIHQIVAJCrFUyXUnr27NzQuh8JFHBidUXo&Signature=6dm7HPPkPTKQ4jTlrp7Uo2I69AE%3D">
+<meta property="og:updated_time" content="2019-03-09T05:35:18.907Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="面试题总结">
 <meta name="twitter:description" content="蚊子快面临面试了，所以把在牛客网看到的Java面经全部都整理了下来，然后蚊子会不断的更新问题，并且更新我所理解的答案，如果有什么不正确的，还请大家多多指正，蟹蟹啦~">
+<meta name="twitter:image" content="https://blogs-image.oss-cn-beijing.aliyuncs.com/List-Set-Map-difference.jpg?Expires=1552107825&OSSAccessKeyId=TMP.AQG4VkUBDbu051lDdsDWE4ujKyKoOxBqJRJmwMOl7FBKrFsa-RqtswGHG_x-ADAtAhRrMKaMoIgtwALY7u-Y5B08dYOIHQIVAJCrFUyXUnr27NzQuh8JFHBidUXo&Signature=6dm7HPPkPTKQ4jTlrp7Uo2I69AE%3D">
 
 
 
@@ -364,60 +366,255 @@
       
         <p>蚊子快面临面试了，所以把在牛客网看到的Java面经全部都整理了下来，然后蚊子会不断的更新问题，并且更新我所理解的答案，如果有什么不正确的，还请大家多多指正，蟹蟹啦~</p>
 <a id="more"></a>
-<h3 id="一、Java-基础"><a href="#一、Java-基础" class="headerlink" title="一、Java 基础"></a>一、Java 基础</h3><ul>
+<h3 id="Java-基础"><a href="#Java-基础" class="headerlink" title="Java 基础"></a>Java 基础</h3><ul>
 <li><strong>JDK 和 JRE 有什么区别？</strong></li>
 </ul>
-<p>答：JDK：Java Development Kit，顾名思义是Java开发工具包，是程序员使用Java语言编写Java程序所需的开发工具包，是提供给程序员使用的。JDK包含了JRE，同时还包含了编译Java源码的编译器javac，还包含了很多Java程序调试和分析的工具：jconsloe、jvisualvm等工具软件，还包含了Java程序编写所需的文档和demo例子程序。</p>
-<p>JRE：Java Runtime Environment，顾名思义就是Java运行时环境，包含了Java虚拟机，Java基础库。是使用Java语言编写的程序运行所需要的软件环境，是提供给想运行Java程序的用户使用的。</p>
-<p>如果你需要运行Java程序，只需安装JRE就可以了，如果你需要编写Java程序，需要安装JDK。JRE根据不同操作系统（如：windows，linux等）和不同JRE提供商（IBM，ORACLRE等）有很多版本，最常用的是Oracle公司收购的SUN公司的JRE版本。</p>
+<p>JDK：Java Development Kit的简称，Java开发工具包，提供了Java的开发环境和运行环境。</p>
+<p>JRE：Java Runtime Environment的简称，Java运行时环境，为Java的运行提供了所需环境，包含了Java虚拟机，Java基础库。</p>
+<p>集体来说JDK其中包含了JRE，同时还包含了编译Java源码的编译器Javac，还包含了很多Java程序调试和分析的工具。简单来说：如果你需要运行Java程序，只需安装JRE就可以了，如果你需要要编写Java程序，需要安装JDK。</p>
 <ul>
 <li><strong>== 和 equals 的区别是什么？</strong></li>
 </ul>
-<p>== 比较stack中的值（引用数据类型stack中存放的是对象的堆内存地址）</p>
-<p>equals()通常被覆写为比较对象的值</p>
+<p><strong>== 解读</strong></p>
+<p>对于基本类型和引用类型 == 的作用效果是不同的，如下所示：</p>
+<ul>
+<li>基本类型：比较的是值是否相同；</li>
+<li>引用类型：比较的是引用是否相同；</li>
+</ul>
+<p>代码示例：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">String x = <span class="string">"string"</span>;</span><br><span class="line">String y = <span class="string">"string"</span>;</span><br><span class="line">String z = <span class="keyword">new</span> String(<span class="string">"string"</span>);</span><br><span class="line">System.out.println(x == y);</span><br><span class="line">System.out.println(x == z);</span><br><span class="line">System.out.println(x.equals(y));</span><br><span class="line">System.out.println(x.equals(z));</span><br></pre></td></tr></table></figure>
+<p>代码解读：因为 x 和 y 指向的是同一个引用，所以 == 也是 true，而 new String() 方法则重新开辟空间，所以 == 结果为 false，而 equals 比较的一直是值，所以结果为 true。</p>
+<p><strong>equals 解读</strong></p>
+<p>equals 本质上就是 ==，只不过 String 和 Integer 等重写了 equals 方法，把它变成了值比较。看下面的代码就明白了。</p>
+<p>首先来看默认情况下 equals 比较一个有相同值的对象，代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cat</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Cat</span><span class="params">(String name)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> name;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    Cat c1 = <span class="keyword">new</span> Cat(<span class="string">"mosquito"</span>);</span><br><span class="line">    Cat c2 = <span class="keyword">new</span> Cat(<span class="string">"mosquito"</span>);</span><br><span class="line">    System.out.println(c1.equals(c2));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>输出结果出乎我们的意料，竟然是 false？这是怎么回事，看了 equals 源码就知道了，源码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object obj)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (<span class="keyword">this</span> == obj);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>原来 equals 本质上就是 ==。</p>
+<p>那么问题来了，两个相同值的 String 对象，为什么返回的是 true？代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">String s1 = <span class="keyword">new</span> String(<span class="string">"mosquito"</span>);</span><br><span class="line">String s2 = <span class="keyword">new</span> String(<span class="string">"mosquito"</span>);</span><br><span class="line">System.out.println(s1.equals(s2));</span><br></pre></td></tr></table></figure>
+<p>同样的，当我们进入 String 的 equals 方法，找到了答案，代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object anObject)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">this</span> == anObject)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(anObject <span class="keyword">instanceof</span> String)&#123;</span><br><span class="line">        String anotherString  = (String)anObject;</span><br><span class="line">        <span class="keyword">int</span> n = value.length;</span><br><span class="line">        <span class="keyword">if</span>(n == anotherString.value.length)&#123;</span><br><span class="line">            <span class="keyword">char</span> v1[] = value;</span><br><span class="line">            <span class="keyword">char</span> v2[] = anotherString.value;</span><br><span class="line">            <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">while</span>(n-- != <span class="number">0</span>)&#123;</span><br><span class="line">                <span class="keyword">if</span>(v1[i] != v2[i])</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">                i++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>原来是 String 重写了 Object 的 equals 方法，把引用比较改成了值比较。</p>
+<p><strong>总结：</strong></p>
 <p>== 或等号操作在Java编程语言中是一个二元操作符，用于比较原生类型和对象。就原生类型如Boolean、int、float来说，使用 == 来比较两者，这个很好掌握。但是在比较对象的时候，就会与equals()造成困惑。== 对比两个对象基于内存引用，如果两个对象的引用完全相同（只想同一对象）时，== 操作将返回true，否则返回false。</p>
 <p>equals()方法定义在Object类里面，根据具体的业务逻辑来定义该方法，用于检查两个对象的相等性（值）。</p>
 <ul>
 <li><strong>两个对象的 hashCode()相同，则 equals()也一定为 true，对吗？</strong></li>
 </ul>
-<p>不对，因为对象相等则hashcode一定相等，但是hashcode相等对象未必相等，取决于hashcode这个方法的设计规则是否一样。</p>
+<p>不对，两个对象的 hashCode() 相同，equals() 不一定为 true。</p>
+<p>代码实例：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">String str1 = <span class="string">"通话"</span>;</span><br><span class="line">String str2 = <span class="string">"重地"</span>;</span><br><span class="line">System.out.println(String.format(<span class="string">"str1: %d | str2: %d"</span>, str1.hashCode(), str2.hashCode()));</span><br><span class="line">System.out.println(str1.equals(str2));</span><br></pre></td></tr></table></figure>
+<p>执行结果：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">str1: <span class="number">1179395</span> | str2: <span class="number">1179395</span></span><br><span class="line"><span class="keyword">false</span></span><br></pre></td></tr></table></figure>
+<p>代码解读：</p>
+<p>很显然“通话”和“重地”的 hashCode() 相同，然而 equals() 则为 false，因为在散列表中，hashCode() 相同即两个键值对的哈希值相同，然而哈希值相同，并不一定能得出键值对相同。</p>
 <ul>
-<li>final 在 java 中有什么作用？</li>
-<li>java 中的 Math.round(-1.5) 等于多少？</li>
-<li>java 中操作字符串都有哪些类？它们之间有什么区别？</li>
-<li>String str=”i”与 String str=new String(“i”)一样吗？</li>
-<li>如何将字符串反转？</li>
-<li>String 类的常用方法都有那些？</li>
-<li>抽象类必须要有抽象方法吗？</li>
-<li>普通类和抽象类有哪些区别？</li>
-<li>抽象类能使用 final 修饰吗？</li>
-<li>接口和抽象类有什么区别？</li>
-<li>java 中 IO 流分为几种？</li>
-<li>BIO、NIO、AIO 有什么区别？</li>
-<li>Files的常用方法都有哪些？</li>
+<li><strong>final 在 java 中有什么作用？</strong></li>
+</ul>
+<ol>
+<li>final 修饰的类叫最终类，该类不能被继承。</li>
+<li>final 修饰的方法不能被重写。</li>
+<li>final 修饰的变量叫常量，常量必须被初始化，初始化之后值就不能被修改。</li>
+</ol>
+<ul>
+<li><strong>java 中的 Math.round(-1.5) 等于多少？</strong></li>
+</ul>
+<p>等于 -1，因为在数轴上取值时，中间值（0.5）向右取整，所以正 0.5 是往上取整，负 0.5 是直接而舍弃。</p>
+<ul>
+<li><strong>String 属于基础的数据类型吗？</strong></li>
+</ul>
+<p>String 不属于基础数据类型，基础数据类型有 8 种：byte、boolean、char、short、int、float、long、double，而 String 属于对象。</p>
+<ul>
+<li><strong>java 中操作字符串都有哪些类？它们之间有什么区别？</strong></li>
+</ul>
+<p>操作字符串的类有：String、StringBuffer、StringBuilder。</p>
+<p>String 和 StringBuffer、StringBuilder 的区别在于 String 声明的是不可变的对象，每次操作都会生成新的 String 对象，然后将指针指向新的 String 对象，而 StringBuffer、StringBuilder 可以在原有对象的基础上进行操作，所以在经常改变字符串内容的情况下最好不要使用 String。</p>
+<p>StringBuffer 和 StringBuilder 最大的区别在于，StringBuffer 是线程安全的，而 StringBuilder 是非线程安全的，但 StringBuilder 的性能却高于 StringBuffer，所以在单线程环境下推荐使用 StringBuilder，多线程环境下推荐使用 StringBuffer。</p>
+<ul>
+<li><strong>String str=”i”与 String str=new String(“i”)一样吗？</strong></li>
+</ul>
+<p>不一样，因为内存的分配方式不一样。String str = “i” 的方式，Java 虚拟机会将其分配到常量池中；而 String str = new String(“i”) 则会分配到堆内存中。</p>
+<ul>
+<li><strong>如何将字符串反转？</strong></li>
+</ul>
+<p>使用 StringBuilder 或者 StringBuffer 的 reverse() 方法。</p>
+<p>示例代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// StringBuffer reverse</span></span><br><span class="line">StringBuffer stringBuffer = <span class="keyword">new</span> StringBuffer();</span><br><span class="line">stringBuffer. append(<span class="string">"abcdefg"</span>);</span><br><span class="line">System. out. println(stringBuffer. reverse()); <span class="comment">// gfedcba</span></span><br><span class="line"><span class="comment">// StringBuilder reverse</span></span><br><span class="line">StringBuilder stringBuilder = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">stringBuilder. append(<span class="string">"abcdefg"</span>);</span><br><span class="line">System. out. println(stringBuilder. reverse()); <span class="comment">// gfedcba</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>String 类的常用方法都有那些？</strong></li>
+</ul>
+<p>indexOf()：返回指定字符的索引。</p>
+<p>charAt()：返回指定索引处的字符。</p>
+<p>replace()：字符串替换。</p>
+<p>trim()：去除字符串两端空白。</p>
+<p>split()：分割字符串，返回一个分割后的字符串数组。</p>
+<p>getBytes()：返回字符串的 byte 类型数组。</p>
+<p>length()：返回字符串长度。</p>
+<p>toLowerCase()：将字符串转成小写字母。</p>
+<p>toUpperCase()：将字符串转成大写字母。</p>
+<p>substring()：截取字符串。</p>
+<p>equals()：字符串比较。</p>
+<ul>
+<li><strong>抽象类必须要有抽象方法吗？</strong></li>
+</ul>
+<p>不需要，抽象类不一定非要抽象方法。</p>
+<p>示例代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Cat</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">sayHi</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System. out. println(<span class="string">"hi~"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面代码，抽象类并没有抽象方法但完全可以正常运行。</p>
+<ul>
+<li><strong>普通类和抽象类有哪些区别？</strong></li>
+</ul>
+<p>普通类不能包含抽象方法，抽象类可以包含抽象方法。</p>
+<p>抽象类不能直接实例化，普通类可以直接实例化。</p>
+<ul>
+<li><strong>抽象类能使用 final 修饰吗？</strong></li>
+</ul>
+<p>不能，定义抽象了就是让其它类继承的，如果定义为 final 该类就不能被继承，这样彼此就会产生矛盾，所以 final 不能修饰抽象类。</p>
+<ul>
+<li><strong>接口和抽象类有什么区别？</strong></li>
+</ul>
+<ol>
+<li>实现：抽象类的子类使用 extends 来继承；接口必须使用 implements 来实现接口。</li>
+<li>构造函数：抽象类可以有构造函数；接口不能有。</li>
+<li>main 方法：抽象类可以有 main 方法，并且我们能运行它；接口不能有 main 方法。</li>
+<li>实现数量：类可以实现很多个接口；但是只能继承一个抽象类。</li>
+<li>访问修饰符：接口中的方法默认使用 public 修饰；抽象类中的方法可以是任意访问修饰符。</li>
+</ol>
+<ul>
+<li><strong>java 中 IO 流分为几种</strong></li>
+</ul>
+<p>按功能分：输入流（input）、输出流（output）。</p>
+<p>按类型分：字节流和字符流。  </p>
+<p>字节流和字符流的区别是：字节流按 8 位传输以字节为单位输入输出数据，字符流按16位传输以字符为单位输入输出数据。</p>
+<ul>
+<li><strong>BIO、NIO、AIO 有什么区别？</strong></li>
+</ul>
+<p><strong>BIO</strong>：Block IO 同步阻塞式 IO，就是我们平时使用的传统 IO，它的特点是模式简单使用方便，并发处理能力低。</p>
+<p><strong>NIO</strong>：New IO 同步非阻塞 IO，是传统 IO 的升级，客户端和服务器端通过 Channel（通道）通讯，实现了多路复用。</p>
+<p><strong>AIO</strong>：Asynchronous IO 是 NIO 的升级，也叫 NIO2，实现了一部非阻塞 IO，异步 IO 的操作基于事件和回调机制。</p>
+<ul>
+<li><strong>Files的常用方法都有哪些？</strong></li>
+</ul>
+<p>Files.exists()：检查文件按是否存在</p>
+<p>Files.cresteFile()：创建文件按。</p>
+<p>Files.cresteDirectory()：创建文件夹</p>
+<p>Files.delete()：删除一个文件或目录。</p>
+<p>Files.copy()：复制文件。</p>
+<p>Files.move()：移动文件。</p>
+<p>Files.size()：查看文件个数。</p>
+<p>Files.read()：读取文件。</p>
+<p>Files.write()：写入文件。</p>
+<ul>
 <li><strong>static和内存泄露问题</strong></li>
 </ul>
-<p>答：在dalvik虚拟机中，static变量所指向的内存引用，如果不把它设置为null，GC是永远不会回收这个对象的</p>
-<h3 id="二、容器"><a href="#二、容器" class="headerlink" title="二、容器"></a>二、容器</h3><ul>
-<li>java 容器都有哪些？</li>
-<li>Collection 和 Collections 有什么区别？</li>
-<li>List、Set、Map 之间的区别是什么？</li>
-<li>HashMap 和 Hashtable 有什么区别？</li>
-<li>如何决定使用 HashMap 还是 TreeMap？</li>
-<li>说一下 HashMap 的实现原理？</li>
-<li>说一下 HashSet 的实现原理？</li>
-<li>ArrayList 和 LinkedList 的区别是什么？</li>
-<li>如何实现数组和 List 之间的转换？</li>
-<li>ArrayList 和 Vector 的区别是什么？</li>
-<li>Array 和 ArrayList 有何区别？</li>
-<li>在 Queue 中 poll()和 remove()有什么区别？</li>
-<li>哪些集合类是线程安全的？</li>
-<li>迭代器 Iterator 是什么？</li>
-<li>Iterator 怎么使用？有什么特点？</li>
-<li>Iterator 和 ListIterator 有什么区别？</li>
-<li>怎么确保一个集合不能被修改？</li>
+<p>在dalvik虚拟机中，static变量所指向的内存引用，如果不把它设置为null，GC是永远不会回收这个对象的</p>
+<h3 id="容器"><a href="#容器" class="headerlink" title="容器"></a>容器</h3><ul>
+<li><strong>java 容器都有哪些？</strong></li>
 </ul>
-<h3 id="三、多线程"><a href="#三、多线程" class="headerlink" title="三、多线程"></a>三、多线程</h3><ul>
+<p>Collection</p>
+<p>List：ArryList、LinkedList、Vector、Stack</p>
+<p>Set：HashSet、LinkedHashSet、TreeSet</p>
+<p>Map</p>
+<p>HashMap：LinkedHashMap</p>
+<p>TreeMap</p>
+<p>ConcurrentHashMap</p>
+<p>HashTable</p>
+<ul>
+<li><strong>Collection 和 Collections 有什么区别？</strong></li>
+</ul>
+<p><strong>Collection</strong> 是一个集合接口，它提供了对集合对象进行基本操作的通用接口方法，所有集合都是它的子类，比如 List、Set等。</p>
+<p><strong>Collections</strong> 是一个包装类，包含了很多静态方法，不能被实例化，就像一个工具类，比如提供的排序方法：Collections.sort(list)。</p>
+<ul>
+<li><strong>List、Set、Map 之间的区别是什么？</strong></li>
+</ul>
+<p>List、Set、Map 的区别主要体现在两个方面：元素是否有序、是否允许元素重复。</p>
+<p>三者之间的区别，如下表：</p>
+<p><img src="https://blogs-image.oss-cn-beijing.aliyuncs.com/List-Set-Map-difference.jpg?Expires=1552107825&amp;OSSAccessKeyId=TMP.AQG4VkUBDbu051lDdsDWE4ujKyKoOxBqJRJmwMOl7FBKrFsa-RqtswGHG_x-ADAtAhRrMKaMoIgtwALY7u-Y5B08dYOIHQIVAJCrFUyXUnr27NzQuh8JFHBidUXo&amp;Signature=6dm7HPPkPTKQ4jTlrp7Uo2I69AE%3D" alt="List-Set-Map-difference"></p>
+<ul>
+<li><strong>HashMap 和 Hashtable 有什么区别？</strong></li>
+</ul>
+<ol>
+<li>存储：HashMap 运行 key 和 value 为 null，而 Hashtable 不允许。</li>
+<li>线程安全：Hashtable 是线程安全的，而 HashMap 是非线程安全的。</li>
+<li>推荐使用：在 Hashtable 的类注释可以看到，Hashtable 是保留类不建议使用，推荐在单线程环境下使用 HashMap 替代，如果需要多线程使用则用 ConcurrentHashMap 替代。</li>
+</ol>
+<ul>
+<li><strong>如何决定使用 HashMap 还是 TreeMap？</strong></li>
+</ul>
+<p>对于在 Map 中插入、删除、定位一个元素这类操作，HashMap 是最好的选择，因为相对而言 HashMap 的插入会更快，但如果你要对一个 key 集合进行有序的遍历，那 TreeMap 是更好的选择。</p>
+<ul>
+<li><strong>说一下 HashMap 的实现原理？</strong></li>
+</ul>
+<p>HashMap 基于 hash 算法实现的，我我们通过 put(key, value) 存储，get(key) 来获取。当传入 key 时，HashMap 会根据 key.hashCode() 计算出 hash 值，根据 hash 值将 value 保存在 bucket 里。当计算出的 hash 值相同时，我们称之为 hash 冲突，HashMap 的做法是用链表和红黑树存储相同的 hash 值的 value。当 hash 冲突的个数比较少时，使用链表否则使用红黑树。</p>
+<ul>
+<li><strong>说一下 HashSet 的实现原理？</strong></li>
+</ul>
+<p>HashSet 是基于 HashMap 实现的，HashSet 底层使用 HashMap 来保存所有元素，因此 HashSet 的实现比较简单，相关 HashSet 的操作，基本上都是直接调用底层 HashMap 的相关方法来完成，HashSet 不允许重复的值。</p>
+<ul>
+<li><strong>ArrayList 和 LinkedList 的区别是什么？</strong></li>
+</ul>
+<ol>
+<li>数据结构实现：ArrayList 是动态数组的数据结构实现，而 LinkedList 是双向链表的数据结构实现。</li>
+<li>随机访问效率：ArrayList 比 LinkedList 在随机访问的时候效率要高，因为 LinkedList 是线性的数据存储方式，所以需要移动指针从前往后依次查找。</li>
+<li>增加和删除效率：在非首尾增加和删除操作，LinkedList 要比 ArrayList 效率要高，因为 ArrayList 增删操作要影响数组内的其他数据的下标。</li>
+</ol>
+<p>综合来说，在需要频繁读取集合中的元素时，要推荐使用 ArrayList，而在插入和删除操作较多时，更推荐使用 LinkedList。</p>
+<ul>
+<li><strong>如何实现数组和 List 之间的转换？</strong></li>
+</ul>
+<p>数组转 List：使用 Arrays.asList(array) 进行转换。</p>
+<p>List 转数组：使用 List 自带的 toArray() 方法。</p>
+<ul>
+<li><strong>ArrayList 和 Vector 的区别是什么？</strong></li>
+</ul>
+<ol>
+<li>线程安全：Vector 使用了 Synchronized 来实现线程同步，是线程安全的，而 ArrayList 是非线程安全的。</li>
+<li>性能：ArrayList 在性能方面要优于 Vector。</li>
+<li>扩容：ArrayList 和 Vector 都会根据实际的需要动态的调整容量，只不过在 Vector 扩容每次都hi增加 1 倍，而 ArrayList 只会增加 50%。</li>
+</ol>
+<ul>
+<li><strong>Array 和 ArrayList 有何区别？</strong></li>
+</ul>
+<ol>
+<li>Array 可以存储基本数据类型对象，ArrayList 只能存储对象。</li>
+<li>Array 是固定大小的，而 ArrayList 大小是自动扩展的。</li>
+<li>Array 内置方法没有 ArrayList 多，比如 addAll、removeAll、iteration 等方法只有 ArrayList 有。</li>
+</ol>
+<ul>
+<li><strong>在 Queue 中 poll()和 remove()有什么区别？</strong></li>
+</ul>
+<p>相同点：都是返回第一个元素，并在队列中删除返回的对象。</p>
+<p>不同点：如果没有元素 poll() 会返回 null，而 remove() 会直接抛出 NoSuchElementException 异常。</p>
+<ul>
+<li><strong>哪些集合类是线程安全的？</strong></li>
+</ul>
+<p>Vector、Hashtable、Stack都是线程安全的，而像 HashMap 则是非线程安全的，不过在 JDK1.5 之后 随着 java.util.concurrent 并发包的出现，他们也有了自己对应的线程安全类，比如 HashMap 对应的线程安全类就是 ConcurrentHashMap。</p>
+<ul>
+<li><strong>迭代器 Iterator 是什么？</strong></li>
+</ul>
+<p>Iterator 接口提供遍历任何 Collection 的接口。我们可以从一个 Collection 中使用迭代器方法来获取迭代器实例。迭代器取代了 Java 集合框架中的 Enumeration，迭代器允许调用者在迭代过程中删除元素。</p>
+<ul>
+<li><strong>Iterator 怎么使用？有什么特点？</strong></li>
+</ul>
+<p>Iteratir 使用代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">List&lt;String&gt; list = <span class="keyword">new</span> ArrayList&lt;String&gt;();</span><br><span class="line">Iterator&lt;String&gt; it = list.iterator();</span><br><span class="line"><span class="keyword">while</span>(it.hasNext())&#123;</span><br><span class="line">    String obj = it.next();</span><br><span class="line">    System.out.println(obj);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Iterator 的特点是更加安全，因为它可以确保，在当前遍历的集合元素被更改的时候，就会抛出 ConcurrentModificationException 异常。</p>
+<ul>
+<li><strong>Iterator 和 ListIterator 有什么区别？</strong></li>
+</ul>
+<ol>
+<li>Iterator 可以便利 Set 和 List 集合，而 ListIterator 只能遍历 List。</li>
+<li>Iterator 只能单向遍历，而 ListIterator 可以双向遍历（向前/后遍历）。</li>
+<li>ListIterator 从 Iterator 接口继承，然后添加了一些额外的功能，比如添加一个元素、替代一个元素、获取前面或后面元素的索引位置。</li>
+</ol>
+<ul>
+<li><strong>怎么确保一个集合不能被修改？</strong></li>
+</ul>
+<p>可以使用 Collection.unmodifiableCollection(Collection c) 方法来创建一个只读集合，这样改变集合的任何操作都会抛出 java.lang.UnsupportedOperationException 异常。</p>
+<p>示例代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">List&lt;String&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">list. add(<span class="string">"x"</span>);</span><br><span class="line">Collection&lt;String&gt; clist = Collections. unmodifiableCollection(list);</span><br><span class="line">clist. add(<span class="string">"y"</span>); <span class="comment">// 运行时此行报错</span></span><br><span class="line">System. out. println(list. size());</span><br></pre></td></tr></table></figure>
+<h3 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h3><ul>
 <li>并行和并发有什么区别？</li>
 <li>线程和进程的区别？</li>
 <li>守护线程是什么？</li>
@@ -441,18 +638,18 @@
 <li>synchronized 和 ReentrantLock 区别是什么？</li>
 <li>说一下 atomic 的原理？</li>
 </ul>
-<h3 id="四、反射"><a href="#四、反射" class="headerlink" title="四、反射"></a>四、反射</h3><ol>
+<h3 id="反射"><a href="#反射" class="headerlink" title="反射"></a>反射</h3><ol>
 <li>什么是反射？</li>
 <li>什么是 java 序列化？什么情况下需要序列化？</li>
 <li>动态代理是什么？有哪些应用？</li>
 <li>怎么实现动态代理？</li>
 </ol>
-<h3 id="五、对象拷贝"><a href="#五、对象拷贝" class="headerlink" title="五、对象拷贝"></a>五、对象拷贝</h3><ol>
+<h3 id="对象拷贝"><a href="#对象拷贝" class="headerlink" title="对象拷贝"></a>对象拷贝</h3><ol>
 <li>为什么要使用克隆？</li>
 <li>如何实现对象克隆？</li>
 <li>深拷贝和浅拷贝区别是什么？</li>
 </ol>
-<h3 id="六、Java-Web"><a href="#六、Java-Web" class="headerlink" title="六、Java Web"></a>六、Java Web</h3><ul>
+<h3 id="Java-Web"><a href="#Java-Web" class="headerlink" title="Java Web"></a>Java Web</h3><ul>
 <li>jsp 和 servlet 有什么区别？</li>
 <li>jsp 有哪些内置对象？作用分别是什么？</li>
 <li>说一下 jsp 的 4 种作用域？</li>
@@ -464,7 +661,7 @@
 <li>什么是 XSS 攻击，如何避免？</li>
 <li>什么是 CSRF 攻击，如何避免？</li>
 </ul>
-<h3 id="七、异常"><a href="#七、异常" class="headerlink" title="七、异常"></a>七、异常</h3><ul>
+<h3 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h3><ul>
 <li>throw 和 throws 的区别？</li>
 <li><strong>final、finally、finalize 有什么区别？</strong></li>
 </ul>
@@ -479,7 +676,7 @@
 <li>try-catch-finally 中，如果 catch 中 return 了，finally 还会执行吗？</li>
 <li>常见的异常类有哪些？</li>
 </ul>
-<h3 id="八、网络"><a href="#八、网络" class="headerlink" title="八、网络"></a>八、网络</h3><ul>
+<h3 id="网络"><a href="#网络" class="headerlink" title="网络"></a>网络</h3><ul>
 <li>http 响应码 301 和 302 代表的是什么？有什么区别？</li>
 <li>forward 和 redirect 的区别？</li>
 <li>简述 tcp 和 udp的区别？</li>
@@ -490,11 +687,11 @@
 <li>如何实现跨域？</li>
 <li>说一下 JSONP 实现原理？</li>
 </ul>
-<h3 id="九、设计模式"><a href="#九、设计模式" class="headerlink" title="九、设计模式"></a>九、设计模式</h3><ul>
+<h3 id="设计模式"><a href="#设计模式" class="headerlink" title="设计模式"></a>设计模式</h3><ul>
 <li>说一下你熟悉的设计模式？</li>
 <li>简单工厂和抽象工厂有什么区别？</li>
 </ul>
-<h3 id="十、Spring-Spring-MVC"><a href="#十、Spring-Spring-MVC" class="headerlink" title="十、Spring/Spring MVC"></a>十、Spring/Spring MVC</h3><ul>
+<h3 id="Spring-Spring-MVC"><a href="#Spring-Spring-MVC" class="headerlink" title="Spring/Spring MVC"></a>Spring/Spring MVC</h3><ul>
 <li>为什么要使用 spring？</li>
 <li>解释一下什么是 aop？</li>
 <li>解释一下什么是 ioc？</li>
@@ -510,7 +707,7 @@
 <li>@RequestMapping 的作用是什么？</li>
 <li>@Autowired 的作用是什么？</li>
 </ul>
-<h3 id="十一、Spring-Boot-Spring-Cloud"><a href="#十一、Spring-Boot-Spring-Cloud" class="headerlink" title="十一、Spring Boot/Spring Cloud"></a>十一、Spring Boot/Spring Cloud</h3><ul>
+<h3 id="Spring-Boot-Spring-Cloud"><a href="#Spring-Boot-Spring-Cloud" class="headerlink" title="Spring Boot/Spring Cloud"></a>Spring Boot/Spring Cloud</h3><ul>
 <li>什么是 spring boot？</li>
 <li>为什么要用 spring boot？</li>
 <li>spring boot 核心配置文件是什么？</li>
@@ -521,7 +718,7 @@
 <li>spring cloud 断路器的作用是什么？</li>
 <li>spring cloud 的核心组件有哪些？</li>
 </ul>
-<h3 id="十二、Hibernate"><a href="#十二、Hibernate" class="headerlink" title="十二、Hibernate"></a>十二、Hibernate</h3><ul>
+<h3 id="Hibernate"><a href="#Hibernate" class="headerlink" title="Hibernate"></a>Hibernate</h3><ul>
 <li>为什么要使用 hibernate？</li>
 <li>什么是 ORM 框架？</li>
 <li>hibernate 中如何在控制台查看打印的 sql 语句？</li>
@@ -535,7 +732,7 @@
 <li>在 hibernate 中 getCurrentSession 和 openSession 的区别是什么？</li>
 <li>hibernate 实体类必须要有无参构造函数吗？为什么？</li>
 </ul>
-<h3 id="十三、Mybatis"><a href="#十三、Mybatis" class="headerlink" title="十三、Mybatis"></a>十三、Mybatis</h3><ul>
+<h3 id="Mybatis"><a href="#Mybatis" class="headerlink" title="Mybatis"></a>Mybatis</h3><ul>
 <li>mybatis 中 #{}和 ${}的区别是什么？</li>
 <li>mybatis 有几种分页方式？</li>
 <li>RowBounds 是一次性查询全部结果吗？为什么？</li>
@@ -547,7 +744,7 @@
 <li>mybatis 分页插件的实现原理是什么？</li>
 <li>mybatis 如何编写一个自定义插件？</li>
 </ul>
-<h3 id="十四、RabbitMQ"><a href="#十四、RabbitMQ" class="headerlink" title="十四、RabbitMQ"></a>十四、RabbitMQ</h3><ul>
+<h3 id="RabbitMQ"><a href="#RabbitMQ" class="headerlink" title="RabbitMQ"></a>RabbitMQ</h3><ul>
 <li>rabbitmq 的使用场景有哪些？</li>
 <li>rabbitmq 有哪些重要的角色？</li>
 <li>rabbitmq 有哪些重要的组件？</li>
@@ -566,14 +763,14 @@
 <li>rabbitmq 集群中唯一一个磁盘节点崩溃了会发生什么情况？</li>
 <li>rabbitmq 对集群节点停止顺序有要求吗？</li>
 </ul>
-<h3 id="十五、Kafka"><a href="#十五、Kafka" class="headerlink" title="十五、Kafka"></a>十五、Kafka</h3><ul>
+<h3 id="Kafka"><a href="#Kafka" class="headerlink" title="Kafka"></a>Kafka</h3><ul>
 <li>kafka 可以脱离 zookeeper 单独使用吗？为什么？</li>
 <li>kafka 有几种数据保留的策略？</li>
 <li>kafka 同时设置了 7 天和 10G 清除数据，到第五天的时候消息达到了 10G，这个时候 kafka 将如何处理？</li>
 <li>什么情况会导致 kafka 运行变慢？</li>
 <li>使用 kafka 集群需要注意什么？</li>
 </ul>
-<h3 id="十六、Zookeeper"><a href="#十六、Zookeeper" class="headerlink" title="十六、Zookeeper"></a>十六、Zookeeper</h3><ul>
+<h3 id="Zookeeper"><a href="#Zookeeper" class="headerlink" title="Zookeeper"></a>Zookeeper</h3><ul>
 <li>zookeeper 是什么？</li>
 <li>zookeeper 都有哪些功能？</li>
 <li>zookeeper 有几种部署模式？</li>
@@ -582,7 +779,7 @@
 <li>集群中有 3 台服务器，其中一个节点宕机，这个时候 zookeeper 还可以使用吗？</li>
 <li>说一下 zookeeper 的通知机制？</li>
 </ul>
-<h3 id="十七、MySql"><a href="#十七、MySql" class="headerlink" title="十七、MySql"></a>十七、MySql</h3><ul>
+<h3 id="MySql"><a href="#MySql" class="headerlink" title="MySql"></a>MySql</h3><ul>
 <li>数据库的三范式是什么？</li>
 <li>一张自增表里面总共有 7 条数据，删除了最后 2 条数据，重启 mysql 数据库，又插入了一条数据，此时 id 是几？</li>
 <li>如何获取当前数据库版本？</li>
@@ -599,7 +796,7 @@
 <li>mysql 问题排查都有哪些手段？</li>
 <li>如何做 mysql 的性能优化？</li>
 </ul>
-<h3 id="十八、Redis"><a href="#十八、Redis" class="headerlink" title="十八、Redis"></a>十八、Redis</h3><ul>
+<h3 id="Redis"><a href="#Redis" class="headerlink" title="Redis"></a>Redis</h3><ul>
 <li>redis 是什么？都有哪些使用场景？</li>
 <li>redis 有哪些功能？</li>
 <li>redis 和 memecache 有什么区别？</li>
@@ -616,7 +813,7 @@
 <li>redis 淘汰策略有哪些？</li>
 <li>redis 常见的性能问题有哪些？该如何解决？</li>
 </ul>
-<h3 id="十九、JVM"><a href="#十九、JVM" class="headerlink" title="十九、JVM"></a>十九、JVM</h3><ul>
+<h3 id="JVM"><a href="#JVM" class="headerlink" title="JVM"></a>JVM</h3><ul>
 <li>说一下 jvm 的主要组成部分？及其作用？</li>
 <li>说一下 jvm 运行时数据区？</li>
 <li>说一下堆栈的区别？</li>
@@ -728,6 +925,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2019/03/06/basis06/" rel="prev" title="Spring IOC 和 DI 的概念和原理">
+                Spring IOC 和 DI 的概念和原理 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -808,7 +1009,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -819,7 +1020,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -830,7 +1031,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -863,7 +1064,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、Java-基础"><span class="nav-number">1.</span> <span class="nav-text">一、Java 基础</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、容器"><span class="nav-number">2.</span> <span class="nav-text">二、容器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、多线程"><span class="nav-number">3.</span> <span class="nav-text">三、多线程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、反射"><span class="nav-number">4.</span> <span class="nav-text">四、反射</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#五、对象拷贝"><span class="nav-number">5.</span> <span class="nav-text">五、对象拷贝</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#六、Java-Web"><span class="nav-number">6.</span> <span class="nav-text">六、Java Web</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#七、异常"><span class="nav-number">7.</span> <span class="nav-text">七、异常</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#八、网络"><span class="nav-number">8.</span> <span class="nav-text">八、网络</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#九、设计模式"><span class="nav-number">9.</span> <span class="nav-text">九、设计模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#十、Spring-Spring-MVC"><span class="nav-number">10.</span> <span class="nav-text">十、Spring/Spring MVC</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#十一、Spring-Boot-Spring-Cloud"><span class="nav-number">11.</span> <span class="nav-text">十一、Spring Boot/Spring Cloud</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#十二、Hibernate"><span class="nav-number">12.</span> <span class="nav-text">十二、Hibernate</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#十三、Mybatis"><span class="nav-number">13.</span> <span class="nav-text">十三、Mybatis</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#十四、RabbitMQ"><span class="nav-number">14.</span> <span class="nav-text">十四、RabbitMQ</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#十五、Kafka"><span class="nav-number">15.</span> <span class="nav-text">十五、Kafka</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#十六、Zookeeper"><span class="nav-number">16.</span> <span class="nav-text">十六、Zookeeper</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#十七、MySql"><span class="nav-number">17.</span> <span class="nav-text">十七、MySql</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#十八、Redis"><span class="nav-number">18.</span> <span class="nav-text">十八、Redis</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#十九、JVM"><span class="nav-number">19.</span> <span class="nav-text">十九、JVM</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Java-基础"><span class="nav-number">1.</span> <span class="nav-text">Java 基础</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#容器"><span class="nav-number">2.</span> <span class="nav-text">容器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多线程"><span class="nav-number">3.</span> <span class="nav-text">多线程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#反射"><span class="nav-number">4.</span> <span class="nav-text">反射</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对象拷贝"><span class="nav-number">5.</span> <span class="nav-text">对象拷贝</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java-Web"><span class="nav-number">6.</span> <span class="nav-text">Java Web</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#异常"><span class="nav-number">7.</span> <span class="nav-text">异常</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#网络"><span class="nav-number">8.</span> <span class="nav-text">网络</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设计模式"><span class="nav-number">9.</span> <span class="nav-text">设计模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring-Spring-MVC"><span class="nav-number">10.</span> <span class="nav-text">Spring/Spring MVC</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring-Boot-Spring-Cloud"><span class="nav-number">11.</span> <span class="nav-text">Spring Boot/Spring Cloud</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hibernate"><span class="nav-number">12.</span> <span class="nav-text">Hibernate</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Mybatis"><span class="nav-number">13.</span> <span class="nav-text">Mybatis</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RabbitMQ"><span class="nav-number">14.</span> <span class="nav-text">RabbitMQ</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Kafka"><span class="nav-number">15.</span> <span class="nav-text">Kafka</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Zookeeper"><span class="nav-number">16.</span> <span class="nav-text">Zookeeper</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MySql"><span class="nav-number">17.</span> <span class="nav-text">MySql</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Redis"><span class="nav-number">18.</span> <span class="nav-text">Redis</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JVM"><span class="nav-number">19.</span> <span class="nav-text">JVM</span></a></li></ol></div>
             
 
           </div>

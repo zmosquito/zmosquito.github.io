@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="Spring,">
 
 
 
@@ -79,16 +79,18 @@
 
 
 
-<meta name="description" content="qwq">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Mosquito">
-<meta property="og:url" content="http://yoursite.com/archives/2018/index.html">
+<meta name="description" content="前言：前几天看博客的时候，看到了网上对于Spring IOC 和 DI 的概念的解析，觉得很不错，然后提取了其中一部分精华内容并做了一些自己的理解。">
+<meta name="keywords" content="Spring">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spring IOC 和 DI 的概念和原理">
+<meta property="og:url" content="http://yoursite.com/2019/03/06/basis06/index.html">
 <meta property="og:site_name" content="Mosquito">
-<meta property="og:description" content="qwq">
+<meta property="og:description" content="前言：前几天看博客的时候，看到了网上对于Spring IOC 和 DI 的概念的解析，觉得很不错，然后提取了其中一部分精华内容并做了一些自己的理解。">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-03-06T09:35:06.731Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Mosquito">
-<meta name="twitter:description" content="qwq">
+<meta name="twitter:title" content="Spring IOC 和 DI 的概念和原理">
+<meta name="twitter:description" content="前言：前几天看博客的时候，看到了网上对于Spring IOC 和 DI 的概念的解析，觉得很不错，然后提取了其中一部分精华内容并做了一些自己的理解。">
 
 
 
@@ -118,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/archives/2018/">
+  <link rel="canonical" href="http://yoursite.com/2019/03/06/basis06/">
 
 
 
 
 
-  <title>归档 | Mosquito</title>
+  <title>Spring IOC 和 DI 的概念和原理 | Mosquito</title>
   
 
 
@@ -143,7 +145,7 @@
     
   
   <script type="text/javascript" src="/js/src/snow.js"></script>
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
@@ -247,142 +249,190 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-      <span class="archive-page-counter">
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/06/basis06/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mosquito">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mosquito">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
+          <h1 class="post-title" itemprop="name headline">Spring IOC 和 DI 的概念和原理</h1>
         
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-06T16:07:12+08:00">
+                2019-03-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-        
-        嗯..! 目前共计 9 篇日志。 继续努力。
-      </span>
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Spring/" itemprop="url" rel="index">
+                    <span itemprop="name">Spring</span>
+                  </a>
+                </span>
 
-      
-
-        
-        
-        
-
-        
+                
+                
+              
+            </span>
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2018">2018</h1>
-          </div>
-        
-        
 
-        
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/03/06/basis06/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/03/06/basis06/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
 
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
+          
+          
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/12/27/codetrain02/" itemprop="url">
-              
-                <span itemprop="name">剑指offer--重建二叉树</span>
-              
-            </a>
-        
-      </h2>
+          
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2018-12-27T16:56:07+08:00" content="2018-12-27">
-          12-27
-        </time>
-      </div>
+          
 
-    </header>
-  </article>
+          
 
+        </div>
+      </header>
+    
 
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/12/25/train01/" itemprop="url">
-              
-                <span itemprop="name">剑指offer--二维数组中的查找</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2018-12-25T22:16:40+08:00" content="2018-12-25">
-          12-25
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/12/24/hello-world/" itemprop="url">
-              
-                <span itemprop="name">开心o(*￣▽￣*)ブ</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2018-12-24T16:58:40+08:00" content="2018-12-24">
-          12-24
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
+      
+        <h3 id="前言："><a href="#前言：" class="headerlink" title="前言："></a>前言：</h3><p>前几天看博客的时候，看到了网上对于Spring IOC 和 DI 的概念的解析，觉得很不错，然后提取了其中一部分精华内容并做了一些自己的理解。</p>
+<a id="more"></a>
+<h3 id="1-1-IOC-是什么？"><a href="#1-1-IOC-是什么？" class="headerlink" title="1.1.IOC 是什么？"></a>1.1.IOC 是什么？</h3><p>IOC – Inversion of Control，即 “控制反转” ，不是什么技术，而是一种设计思想。这是 Spring 的核心，贯穿始终。所谓 IOC，对于 Spring 框架来说， 就是由 Spring 来负责控制对象的生命周期和对象间的关系。而在Java开发中，IOC 意味着将你设计好的对象交给容器控制，而不是传统的在你的对象内部直接控制。</p>
+<ul>
+<li>谁控制谁，控制什么：传统的Java SE 程序设计，我们直接在对象内部通过 new 进行创建对象，是程序主动去创建依赖对象；而 IOC 是有专门一个容器来创建这些对象，即由 IOC 容器来控制对象的创建。</li>
+</ul>
+<p>注解：</p>
+<p>提到控制，我们就需要理解什么是控制，所谓控制，就是对象的创建、初始化、销毁。</p>
+<ul>
+<li>为何是反转，哪些方面反转了：有反转就有正转，传统应用程序是由我们自己在对象中主动控制去直接获取依赖对象，也就是正转；而反转则是由容器来帮忙创建及注入依赖对象；为何是反转？因为由容器帮我们查找及注入依赖对象，对象只是被动的接受依赖对象，所以是反转；哪些方面反转了？依赖对象的获取被反转了。</li>
+</ul>
+<h3 id="1-2-IOC-能做什么？"><a href="#1-2-IOC-能做什么？" class="headerlink" title="1.2.IOC 能做什么？"></a>1.2.IOC 能做什么？</h3><p>IOC 不是一种技术，只是一种思想，一个重要的面向对象编程的法则，它能知道我们设计出松耦合、更优良的程序。把创建和查找依赖对象的控制权交给了容器，由容器进行注入组合对象，所以对象与对象之间是松散耦合，利于功能复用，更重要的是使得程序的震哥哥体系结构变得非常灵活。</p>
+
+      
     </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Spring/" rel="tag"># Spring</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/02/12/basis05/" rel="next" title="面试题总结">
+                <i class="fa fa-chevron-left"></i> 面试题总结
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -390,6 +440,13 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
 
         </div>
         
@@ -410,8 +467,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -473,6 +539,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言："><span class="nav-number">1.</span> <span class="nav-text">前言：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-IOC-是什么？"><span class="nav-number">2.</span> <span class="nav-text">1.1.IOC 是什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-IOC-能做什么？"><span class="nav-number">3.</span> <span class="nav-text">1.2.IOC 能做什么？</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -613,6 +695,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
