@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="题目描述：">
+<meta name="description" content="题目描述：Given an array of integers, return indices of the two numbers such that they add up to a specific target. You may assume that each input would have exactly one solution, and you may not use the s">
 <meta name="keywords" content="LeetCode">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LeetCode--Two Sum">
 <meta property="og:url" content="http://yoursite.com/2019/03/18/leetcode-1/index.html">
 <meta property="og:site_name" content="Mosquito">
-<meta property="og:description" content="题目描述：">
+<meta property="og:description" content="题目描述：Given an array of integers, return indices of the two numbers such that they add up to a specific target. You may assume that each input would have exactly one solution, and you may not use the s">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-18T12:47:39.315Z">
+<meta property="og:updated_time" content="2019-03-18T14:06:32.702Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LeetCode--Two Sum">
-<meta name="twitter:description" content="题目描述：">
+<meta name="twitter:description" content="题目描述：Given an array of integers, return indices of the two numbers such that they add up to a specific target. You may assume that each input would have exactly one solution, and you may not use the s">
 
 
 
@@ -362,7 +362,27 @@
       
 
       
-        <h3 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a>题目描述：</h3>
+        <h3 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a>题目描述：</h3><p>Given an array of integers, return <strong>indices</strong> of the two numbers such that they add up to a specific target.</p>
+<p>You may assume that each input would have <strong>exactly</strong> one solution, and you may not use the <em>same</em> element twice.</p>
+<a id="more"></a>
+<p>样例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Given nums = [2, 7, 11, 15], target = 9,</span><br><span class="line"></span><br><span class="line">Because nums[0] + nums[1] = 2 + 7 = 9,</span><br><span class="line">return [0, 1].</span><br></pre></td></tr></table></figure>
+<h3 id="题意："><a href="#题意：" class="headerlink" title="题意："></a>题意：</h3><p>给你一个 int 类型的数组，找到数组中的两个数字，相加的和为题目中给出的特定目标，并返回这两个数字在数组中的下标，注意：同样的数字不能重用。</p>
+<h3 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h3><p>可以换个角度来考虑问题，如果给定的数组是已排序的数组，那么就可以设定 left 和 right 两个指针，如果这两个数字的和比 target 要大，那么就 right – ，否则 left ++。这样排序数组需要O(N * logN)，找和的过程需要O(N)。</p>
+<p>这里附上我刚刚过的代码：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; twoSum(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> target) &#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; num = nums;</span><br><span class="line">        <span class="built_in">std</span>::sort(num.begin(), num.end());</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">int</span> length = nums.size();</span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> right = length - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; index;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span>(left &lt; right) &#123;</span><br><span class="line">        	sum = num[left] + num[right];</span><br><span class="line">        	</span><br><span class="line">            <span class="keyword">if</span>(sum == target) &#123;</span><br><span class="line">            	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; length; ++i) &#123;</span><br><span class="line">            		<span class="keyword">if</span>(nums[i] == num[left]) index.push_back(i);</span><br><span class="line">            		<span class="keyword">else</span> <span class="keyword">if</span>(nums[i] == num[right]) index.push_back(i);</span><br><span class="line">            		<span class="keyword">if</span>(index.size() == <span class="number">2</span>) <span class="keyword">break</span>;</span><br><span class="line">            	&#125;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(sum &gt; target) --right;</span><br><span class="line">            <span class="keyword">else</span> ++left;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> index;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>Runtime：4ms Memory：N/A</p>
+<p>faster than 100.00%</p>
+</blockquote>
+<p>然后其他道友们是这样写的，我觉得写的真的超级简洁，感觉超棒.jpg</p>
+<p>其实蚊子觉得思路是一样的，但是就是写起来感觉超简洁，超喜欢.jpg</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; twoSum(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> target) </span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">unordered_map</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; num2id;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i &lt; nums.size(); i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> res = target - nums[i];</span><br><span class="line">            <span class="keyword">auto</span> it = num2id.find(res);</span><br><span class="line">            <span class="keyword">if</span>(it != num2id.end()) <span class="keyword">return</span> <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&#123;it-&gt;second, i&#125;;</span><br><span class="line">            num2id[ nums[i] ] = i;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>Runtime：12ms Memory：10.1MB</p>
+<p>faster than 93.91%</p>
+</blockquote>
+
       
     </div>
     
@@ -537,7 +557,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#题目描述："><span class="nav-number">1.</span> <span class="nav-text">题目描述：</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#题目描述："><span class="nav-number">1.</span> <span class="nav-text">题目描述：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#题意："><span class="nav-number">2.</span> <span class="nav-text">题意：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#思路："><span class="nav-number">3.</span> <span class="nav-text">思路：</span></a></li></ol></div>
             
 
           </div>
