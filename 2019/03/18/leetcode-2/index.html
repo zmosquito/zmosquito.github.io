@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="剑指offer,">
+  <meta name="keywords" content="LeetCode,">
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="题外话：昨天蚊蚊子练车车，蹦蹦哒哒的下车回学校，然后手机就蹦掉了，屏就碎掉了惹，沮丧~所以今天蚊蚊子为了心情扎了一个双丸子头，然后做了几道剑指offer的题来压压惊~">
-<meta name="keywords" content="剑指offer">
+<meta name="description" content="题目描述：You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order and each of their nodes contain a single digit. Add the two numbers and ret">
+<meta name="keywords" content="LeetCode">
 <meta property="og:type" content="article">
-<meta property="og:title" content="剑指offer--重建二叉树">
-<meta property="og:url" content="http://yoursite.com/2018/12/27/codetrain02/index.html">
+<meta property="og:title" content="leetcode--Add Two Numbers">
+<meta property="og:url" content="http://yoursite.com/2019/03/18/leetcode-2/index.html">
 <meta property="og:site_name" content="Mosquito">
-<meta property="og:description" content="题外话：昨天蚊蚊子练车车，蹦蹦哒哒的下车回学校，然后手机就蹦掉了，屏就碎掉了惹，沮丧~所以今天蚊蚊子为了心情扎了一个双丸子头，然后做了几道剑指offer的题来压压惊~">
+<meta property="og:description" content="题目描述：You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order and each of their nodes contain a single digit. Add the two numbers and ret">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-27T09:41:04.950Z">
+<meta property="og:updated_time" content="2019-03-18T02:43:30.604Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="剑指offer--重建二叉树">
-<meta name="twitter:description" content="题外话：昨天蚊蚊子练车车，蹦蹦哒哒的下车回学校，然后手机就蹦掉了，屏就碎掉了惹，沮丧~所以今天蚊蚊子为了心情扎了一个双丸子头，然后做了几道剑指offer的题来压压惊~">
+<meta name="twitter:title" content="leetcode--Add Two Numbers">
+<meta name="twitter:description" content="题目描述：You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order and each of their nodes contain a single digit. Add the two numbers and ret">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/12/27/codetrain02/">
+  <link rel="canonical" href="http://yoursite.com/2019/03/18/leetcode-2/">
 
 
 
 
 
-  <title>剑指offer--重建二叉树 | Mosquito</title>
+  <title>leetcode--Add Two Numbers | Mosquito</title>
   
 
 
@@ -263,7 +263,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/27/codetrain02/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/18/leetcode-2/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Mosquito">
@@ -280,7 +280,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">剑指offer--重建二叉树</h1>
+          <h1 class="post-title" itemprop="name headline">leetcode--Add Two Numbers</h1>
         
 
         <div class="post-meta">
@@ -292,8 +292,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-27T16:56:07+08:00">
-                2018-12-27
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-18T10:29:07+08:00">
+                2019-03-18
               </time>
             
 
@@ -333,8 +333,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/12/27/codetrain02/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/12/27/codetrain02/" itemprop="commentCount"></span>
+                <a href="/2019/03/18/leetcode-2/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/03/18/leetcode-2/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -362,10 +362,16 @@
       
 
       
-        <h4 id="题外话："><a href="#题外话：" class="headerlink" title="题外话："></a>题外话：</h4><p>昨天蚊蚊子练车车，蹦蹦哒哒的下车回学校，然后手机就蹦掉了，屏就碎掉了惹，沮丧~<br>所以今天蚊蚊子为了心情扎了一个双丸子头，然后做了几道剑指offer的题来压压惊~<br><a id="more"></a></p>
-<h4 id="题意："><a href="#题意：" class="headerlink" title="题意："></a>题意：</h4><p>输入某二叉树的前序遍历和中序遍历的结果，请重建出该二叉树。假设输入的前序遍历和中序遍历的结果中都不含重复的数字。例如输入前序遍历序列{1,2,4,7,3,5,6,8}和中序遍历序列{4,7,2,1,5,3,8,6}，则重建二叉树并返回。</p>
-<h4 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h4><p>前序遍历：根 - 左 - 右<br>中序遍历：左 - 根 - 右<br>先看前序，因为前序遍历的第一个节点，就是该树的根。那么在中序中找到该根的位置，设为index；<br>在中序遍历集合中，位于index之前的属于根的左子树，位于index之后的属于根的右子树；<br>然后，对左右子树，遍历的调用该过程，就能将树结构还原；</p>
-<h4 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 树节点的定义</span></span><br><span class="line"><span class="comment"> * public class TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode left;</span></span><br><span class="line"><span class="comment"> *     TreeNode right;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) &#123; val = x; &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> TreeNode <span class="title">reConstructBinaryTree</span><span class="params">(<span class="keyword">int</span> [] pre,<span class="keyword">int</span> [] in)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> value = pre[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">int</span> length = pre.length;</span><br><span class="line">        TreeNode root = <span class="keyword">new</span> TreeNode(value);</span><br><span class="line">        root.left = root.right = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">if</span> (pre.length == <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> root;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> index = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (in[index] != value)</span><br><span class="line">            index++;<span class="comment">// 此处还要考虑index==length-1的情况</span></span><br><span class="line">        <span class="keyword">if</span> (index &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="comment">// 中序中，根节点左边的节点都属于左子树</span></span><br><span class="line">            <span class="keyword">int</span>[] leftSubPreOrder = <span class="keyword">new</span> <span class="keyword">int</span>[index];</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; leftSubPreOrder.length; i++) &#123;</span><br><span class="line">                leftSubPreOrder[i] = pre[i + <span class="number">1</span>];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">int</span>[] leftSubMidOrder = <span class="keyword">new</span> <span class="keyword">int</span>[index];</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; leftSubMidOrder.length; i++) &#123;</span><br><span class="line">                leftSubMidOrder[i] = in[i];</span><br><span class="line">            &#125;</span><br><span class="line">            root.left = reConstructBinaryTree(leftSubPreOrder, leftSubMidOrder);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (length - index - <span class="number">1</span> &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="comment">// 中序中，根节点右边的节点属于右子树</span></span><br><span class="line">            <span class="keyword">int</span>[] rightSubMidOrder = <span class="keyword">new</span> <span class="keyword">int</span>[length - index - <span class="number">1</span>];</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; rightSubMidOrder.length; i++) &#123;</span><br><span class="line">                rightSubMidOrder[i] = in[i + index + <span class="number">1</span>];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">int</span>[] rightSubPreOrder = <span class="keyword">new</span> <span class="keyword">int</span>[length - index - <span class="number">1</span>];</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; rightSubPreOrder.length; i++) &#123;</span><br><span class="line">                rightSubPreOrder[i] = pre[i + index + <span class="number">1</span>];</span><br><span class="line">            &#125;</span><br><span class="line">            root.right = reConstructBinaryTree(rightSubPreOrder, rightSubMidOrder);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> root;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h3 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a>题目描述：</h3><p>You are given two <strong>non-empty</strong> linked lists representing two non-negative integers. The digits are stored in <strong>reverse order</strong> and each of their nodes contain a single digit. Add the two numbers and return it as a linked list.</p>
+<p>You may assume the two numbers do not contain any leading zero, except the number 0 itself.</p>
+<p>样例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: (2 -&gt; 4 -&gt; 3) + (5 -&gt; 6 -&gt; 4)</span><br><span class="line">Output: 7 -&gt; 0 -&gt; 8</span><br><span class="line">Explanation: 342 + 465 = 807.</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h3 id="题意："><a href="#题意：" class="headerlink" title="题意："></a>题意：</h3><p>给你两个表示非负数字的链表。数字以相反的顺序存储，其节点包含单个数字。将这两个数字相加并将其作为另外一个链表返回。</p>
+<h3 id="题解："><a href="#题解：" class="headerlink" title="题解："></a>题解：</h3><p>这道题其实就是一个暴力，时间的长短，主要就是看怎么一个写法，蚊子第一次的解法是这样的：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>Runtime：40ms    Memory：19.2MB      faster than 96.34%</p>
+<p>康了一下网友的题解，大致都跟蚊子的一样，这里就不拖出来康了。</p>
 
       
     </div>
@@ -383,7 +389,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/剑指offer/" rel="tag"># 剑指offer</a>
+            <a href="/tags/LeetCode/" rel="tag"># LeetCode</a>
           
         </div>
       
@@ -396,8 +402,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/12/25/train01/" rel="next" title="剑指offer--二维数组中的查找">
-                <i class="fa fa-chevron-left"></i> 剑指offer--二维数组中的查找
+              <a href="/2019/03/06/basis05/" rel="next" title="Spring IOC 和 DI 的概念和原理">
+                <i class="fa fa-chevron-left"></i> Spring IOC 和 DI 的概念和原理
               </a>
             
           </div>
@@ -405,10 +411,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/01/18/basis01/" rel="prev" title="Java 中 add/offer...等区别">
-                Java 中 add/offer...等区别 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -545,7 +547,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#题外话："><span class="nav-number">1.</span> <span class="nav-text">题外话：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#题意："><span class="nav-number">2.</span> <span class="nav-text">题意：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#思路："><span class="nav-number">3.</span> <span class="nav-text">思路：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码："><span class="nav-number">4.</span> <span class="nav-text">代码：</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#题目描述："><span class="nav-number">1.</span> <span class="nav-text">题目描述：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#题意："><span class="nav-number">2.</span> <span class="nav-text">题意：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#题解："><span class="nav-number">3.</span> <span class="nav-text">题解：</span></a></li></ol></div>
             
 
           </div>
