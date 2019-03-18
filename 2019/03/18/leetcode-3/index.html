@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Mosquito">
 <meta property="og:description" content="题目描述：Given a string, find the length of the longest substring without repeating characters.">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-18T13:11:21.305Z">
+<meta property="og:updated_time" content="2019-03-18T13:13:36.032Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LeetCode--Longest Substring Without Repeating Characters">
 <meta name="twitter:description" content="题目描述：Given a string, find the length of the longest substring without repeating characters.">
@@ -381,8 +381,10 @@
 <p>当遍历到最后一个 “b” 时，一样操作并替换，子串为 “b”，长度为 1；</p>
 <h3 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h3><p>在上面的描述过程中，我们可以发现，在查找最长无重复的子串时，就相当于一个滑动窗口，在这个滑动窗口里面的字符，是一定没有重复字符的，而我们在每次遍历替换的时候，都会检查加进来的字符，是否重复：若没有重复，那么直接加进滑动窗口；反之，则更新替换。</p>
 <p>下面是我刚刚写过的代码：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>Runtime：40ms &amp;nbsp Memory：16.5MB &amp;nbsp faster than 41.34%</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">lengthOfLongestSubstring</span><span class="params">(<span class="built_in">string</span> s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> begin = <span class="number">-1</span>;</span><br><span class="line">        <span class="built_in">unordered_map</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; mp;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; s.size(); ++i)&#123;</span><br><span class="line">            <span class="keyword">if</span>(mp.count(s[i]) &amp;&amp; mp[s[i]] &gt; begin)&#123;</span><br><span class="line">                begin = mp[s[i]];</span><br><span class="line">            &#125;</span><br><span class="line">            mp[s[i]] = i;</span><br><span class="line">            ans = max(ans, i - begin);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>Runtime：40ms    Memory：16.5MB    faster than 41.34%</p>
+</blockquote>
 
       
     </div>
