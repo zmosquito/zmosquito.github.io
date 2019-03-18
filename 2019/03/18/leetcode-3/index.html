@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Mosquito">
 <meta property="og:description" content="题目描述：Given a string, find the length of the longest substring without repeating characters.">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-18T12:47:34.904Z">
+<meta property="og:updated_time" content="2019-03-18T13:11:21.305Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LeetCode--Longest Substring Without Repeating Characters">
 <meta name="twitter:description" content="题目描述：Given a string, find the length of the longest substring without repeating characters.">
@@ -369,7 +369,21 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: &quot;bbbbb&quot;</span><br><span class="line">Output: 1</span><br><span class="line">Explanation: The answer is &quot;b&quot;, with the length of 1.</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Input: &quot;pwwkew&quot;</span><br><span class="line">Output: 3</span><br><span class="line">Explanation: The answer is &quot;wke&quot;, with the length of 3. </span><br><span class="line">             Note that the answer must be a substring, &quot;pwke&quot; is a subsequence and not a substring.</span><br></pre></td></tr></table></figure>
 <h3 id="题意："><a href="#题意：" class="headerlink" title="题意："></a>题意：</h3><p>给你一个字符串 s，找出最长无重复子串，注意，这里是子串，不是子序列。</p>
-<h3 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h3>
+<h3 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h3><p>因为是找无重复的子串，那么该怎么找呢？蚊子首先就是要一个个字符依次遍历查找</p>
+<p>就比如第一个样例：”abcabcbb”</p>
+<p>一个个遍历查找首先会找到：”a”, “b”, “c”，此时的子串为 “abc”，长度为 3；</p>
+<p>再往后遍历的时候就会查找到 “a”</p>
+<p>这时我们发现已经有一个 “a” 了，因为 “a” 就在之前查找的子串之后，并且替换之后长度未发生改变，那我们将这一个新的 “a” 替换原来的 “a”，此时新的子串为 “bca”，长度为 3；</p>
+<p>再往后遍历，查找到了 “b”</p>
+<p>同样，我们发现原本的子串中已经有一个 “b” 了，并且 “b” 同样在原本的子串之后，长度也没有发生改变，就将新的位置上的 “b” 替换之前的 “b”，此时新的子串为 “cab”；</p>
+<p>之后遍历得到的 “c”，同理，这是子串为 “abc”，长度为 3；</p>
+<p>再之后遍历得到的 “b”，我们发现子串中已经有一个 “b” 了，同样操作，我们替换之前的 “b”，并且此时子串为 “bc”，长度为 2；</p>
+<p>当遍历到最后一个 “b” 时，一样操作并替换，子串为 “b”，长度为 1；</p>
+<h3 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h3><p>在上面的描述过程中，我们可以发现，在查找最长无重复的子串时，就相当于一个滑动窗口，在这个滑动窗口里面的字符，是一定没有重复字符的，而我们在每次遍历替换的时候，都会检查加进来的字符，是否重复：若没有重复，那么直接加进滑动窗口；反之，则更新替换。</p>
+<p>下面是我刚刚写过的代码：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>Runtime：40ms &amp;nbsp Memory：16.5MB &amp;nbsp faster than 41.34%</p>
+
       
     </div>
     
@@ -548,7 +562,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#题目描述："><span class="nav-number">1.</span> <span class="nav-text">题目描述：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#题意："><span class="nav-number">2.</span> <span class="nav-text">题意：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#思路："><span class="nav-number">3.</span> <span class="nav-text">思路：</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#题目描述："><span class="nav-number">1.</span> <span class="nav-text">题目描述：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#题意："><span class="nav-number">2.</span> <span class="nav-text">题意：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#思路："><span class="nav-number">3.</span> <span class="nav-text">思路：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结："><span class="nav-number">4.</span> <span class="nav-text">总结：</span></a></li></ol></div>
             
 
           </div>
