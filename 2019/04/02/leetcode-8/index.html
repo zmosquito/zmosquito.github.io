@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Mosquito">
 <meta property="og:description" content="题目描述：Given an array nums of n integers, are there elements a, b, c in nums such that a + b + c = 0? Find all unique triplets in the array which gives the sum of zero. note: The solution set must not c">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-02T09:16:44.813Z">
+<meta property="og:updated_time" content="2019-04-02T09:45:49.430Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LeetCode-3Sum">
 <meta name="twitter:description" content="题目描述：Given an array nums of n integers, are there elements a, b, c in nums such that a + b + c = 0? Find all unique triplets in the array which gives the sum of zero. note: The solution set must not c">
@@ -370,6 +370,17 @@
 <a id="more"></a>
 <p>样例：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Given array nums = [-1, 0, 1, 2, -1, -4],</span><br><span class="line"></span><br><span class="line">A solution set is:</span><br><span class="line">[</span><br><span class="line">  [-1, 0, 1],</span><br><span class="line">  [-1, -1, 2]</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<h3 id="题意："><a href="#题意：" class="headerlink" title="题意："></a>题意：</h3><p>给你 n 个数，要找出三个不同的数相加为 0，并返回这三个数</p>
+<h3 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h3><p>对数组排序，然后遍历。</p>
+<p>在遍历到正数的时候，因为数组是有序的，后面的数也全是正数，那么就永远不可能相加为 0，所以后面的数字就不需要再进行遍历。</p>
+<p>同时，还会有重复的数值出现，所以当遍历到重复的元素的时候，就跳过。</p>
+<p>在对于遍历到的数，用 0 减去当前遍历的数得到一个 target，然后就只需要在当前数之后找到两数之和为 target 的两个数即可。</p>
+<p>我的代码如下：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; threeSum(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums) &#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; res;</span><br><span class="line">        sort(nums.begin(), nums.end());</span><br><span class="line">        <span class="keyword">int</span> n = nums.size();</span><br><span class="line">        <span class="keyword">if</span>(n == <span class="number">0</span> || nums.back() &lt; <span class="number">0</span> || nums.front() &gt; <span class="number">0</span>) <span class="keyword">return</span> res;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; ++i)&#123;</span><br><span class="line">            <span class="keyword">if</span>(nums[i] &gt; <span class="number">0</span>) <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">if</span>(i &gt; <span class="number">0</span> &amp;&amp; nums[i] == nums[i - <span class="number">1</span>]) <span class="keyword">continue</span>;</span><br><span class="line">            <span class="keyword">int</span> target = <span class="number">0</span> - nums[i];</span><br><span class="line">            <span class="keyword">int</span> l = i + <span class="number">1</span>, r = nums.size() - <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">while</span>(l &lt; r)&#123;</span><br><span class="line">                <span class="keyword">if</span>(nums[l] + nums[r] == target)&#123;</span><br><span class="line">                    res.push_back(&#123;nums[i], nums[l], nums[r]&#125;);</span><br><span class="line">                    <span class="comment">/* 去除重复元素，防止重复答案的产生 */</span></span><br><span class="line">                    <span class="keyword">while</span>(l &lt; r &amp;&amp; nums[l] == nums[l + <span class="number">1</span>]) ++l;</span><br><span class="line">                    <span class="keyword">while</span>(l &lt; r &amp;&amp; nums[r] == nums[r - <span class="number">1</span>]) --r;</span><br><span class="line">                    ++l; --r;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span>(nums[l] + nums[r] &gt; target) --r;</span><br><span class="line">                <span class="keyword">else</span> ++l;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>Runtime：112ms Memory：16.2MB</p>
+</blockquote>
+
       
     </div>
     
@@ -544,7 +555,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#题目描述："><span class="nav-number">1.</span> <span class="nav-text">题目描述：</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#题目描述："><span class="nav-number">1.</span> <span class="nav-text">题目描述：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#题意："><span class="nav-number">2.</span> <span class="nav-text">题意：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#思路："><span class="nav-number">3.</span> <span class="nav-text">思路：</span></a></li></ol></div>
             
 
           </div>
