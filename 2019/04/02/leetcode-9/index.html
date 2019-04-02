@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Java,">
+  <meta name="keywords" content="LeetCode,">
 
 
 
@@ -79,18 +79,20 @@
 
 
 
-<meta name="description" content="就面试总问到 HashMap，蚊子就总说的一知半解，就研究了一下（其实也没有面几家，基本都简历杀了，呜呜呜呜呜~） ~&amp;lt;待完成&amp;gt;~">
-<meta name="keywords" content="Java">
+<meta name="description" content="题目描述：Given a string containing digits from 2-9 inclusive, return all possible letter combinations that the number could represent. A mapping of digit to letters (just like on the telephone buttons) is">
+<meta name="keywords" content="LeetCode">
 <meta property="og:type" content="article">
-<meta property="og:title" content="HashMap 原理">
-<meta property="og:url" content="http://yoursite.com/2019/03/20/basis07/index.html">
+<meta property="og:title" content="LeetCode--Letter Combinations of a Phone Number">
+<meta property="og:url" content="http://yoursite.com/2019/04/02/leetcode-9/index.html">
 <meta property="og:site_name" content="Mosquito">
-<meta property="og:description" content="就面试总问到 HashMap，蚊子就总说的一知半解，就研究了一下（其实也没有面几家，基本都简历杀了，呜呜呜呜呜~） ~&amp;lt;待完成&amp;gt;~">
+<meta property="og:description" content="题目描述：Given a string containing digits from 2-9 inclusive, return all possible letter combinations that the number could represent. A mapping of digit to letters (just like on the telephone buttons) is">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-27T06:53:08.559Z">
+<meta property="og:image" content="https://blogs-image.oss-cn-beijing.aliyuncs.com/LeetCode/Letter-Combinations-of-a-Phone-Number.png">
+<meta property="og:updated_time" content="2019-04-02T10:00:34.722Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="HashMap 原理">
-<meta name="twitter:description" content="就面试总问到 HashMap，蚊子就总说的一知半解，就研究了一下（其实也没有面几家，基本都简历杀了，呜呜呜呜呜~） ~&amp;lt;待完成&amp;gt;~">
+<meta name="twitter:title" content="LeetCode--Letter Combinations of a Phone Number">
+<meta name="twitter:description" content="题目描述：Given a string containing digits from 2-9 inclusive, return all possible letter combinations that the number could represent. A mapping of digit to letters (just like on the telephone buttons) is">
+<meta name="twitter:image" content="https://blogs-image.oss-cn-beijing.aliyuncs.com/LeetCode/Letter-Combinations-of-a-Phone-Number.png">
 
 
 
@@ -120,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/03/20/basis07/">
+  <link rel="canonical" href="http://yoursite.com/2019/04/02/leetcode-9/">
 
 
 
 
 
-  <title>HashMap 原理 | Mosquito</title>
+  <title>LeetCode--Letter Combinations of a Phone Number | Mosquito</title>
   
 
 
@@ -263,7 +265,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/20/basis07/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/02/leetcode-9/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Mosquito">
@@ -280,7 +282,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">HashMap 原理</h1>
+          <h1 class="post-title" itemprop="name headline">LeetCode--Letter Combinations of a Phone Number</h1>
         
 
         <div class="post-meta">
@@ -294,8 +296,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-20T16:39:22+08:00">
-                2019-03-20
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-02T17:51:06+08:00">
+                2019-04-02
               </time>
             
 
@@ -317,8 +319,8 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java基础/" itemprop="url" rel="index">
-                    <span itemprop="name">Java基础</span>
+                  <a href="/categories/编程练习/" itemprop="url" rel="index">
+                    <span itemprop="name">编程练习</span>
                   </a>
                 </span>
 
@@ -335,8 +337,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/03/20/basis07/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/03/20/basis07/" itemprop="commentCount"></span>
+                <a href="/2019/04/02/leetcode-9/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/04/02/leetcode-9/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -364,9 +366,20 @@
       
 
       
-        <p>就面试总问到 HashMap，蚊子就总说的一知半解，就研究了一下（其实也没有面几家，基本都简历杀了，呜呜呜呜呜~）</p>
-<p>~&lt;待完成&gt;~</p>
+        <h3 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a>题目描述：</h3><p>Given a string containing digits from <code>2-9</code> inclusive, return all possible letter combinations that the number could represent.</p>
+<p>A mapping of digit to letters (just like on the telephone buttons) is given below. Note that 1 does not map to any letters.</p>
+<p><img src="https://blogs-image.oss-cn-beijing.aliyuncs.com/LeetCode/Letter-Combinations-of-a-Phone-Number.png" alt="Letter-Combinations-of-a-Phone-Number"></p>
 <a id="more"></a>
+<p>note：</p>
+<p>Although the answer is in lexicographical order, your answer could be in any order you want.</p>
+<p>样例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: &quot;23&quot;</span><br><span class="line">Output: [&quot;ad&quot;, &quot;ae&quot;, &quot;af&quot;, &quot;bd&quot;, &quot;be&quot;, &quot;bf&quot;, &quot;cd&quot;, &quot;ce&quot;, &quot;cf&quot;].</span><br></pre></td></tr></table></figure>
+<h3 id="题意："><a href="#题意：" class="headerlink" title="题意："></a>题意：</h3><p>给定只包含 2 - 9 之间的一个字符串代表一个数字，返回这个数字所有的组合</p>
+<h3 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h3><p>就是根据 2 - 9 所对应的字符进行一个标记，然后直接 dfs 遍历所有的可能的结果。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; letterCombinations(<span class="built_in">string</span> digits) &#123;</span><br><span class="line">        <span class="built_in">map</span>&lt;<span class="built_in">string</span>, <span class="built_in">string</span>&gt; mp;</span><br><span class="line">        mp[<span class="string">"2"</span>] = <span class="string">"abc"</span>;</span><br><span class="line">        mp[<span class="string">"3"</span>] = <span class="string">"def"</span>;</span><br><span class="line">        mp[<span class="string">"4"</span>] = <span class="string">"ghi"</span>;</span><br><span class="line">        mp[<span class="string">"5"</span>] = <span class="string">"jkl"</span>;</span><br><span class="line">        mp[<span class="string">"6"</span>] = <span class="string">"mno"</span>;</span><br><span class="line">        mp[<span class="string">"7"</span>] = <span class="string">"qprs"</span>;</span><br><span class="line">        mp[<span class="string">"8"</span>] = <span class="string">"tuv"</span>;</span><br><span class="line">        mp[<span class="string">"9"</span>] = <span class="string">"wxyz"</span>;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; res;</span><br><span class="line">        <span class="keyword">if</span>(digits.empty() || digits.size() == <span class="number">0</span>) <span class="keyword">return</span> res;</span><br><span class="line">        <span class="built_in">string</span> tmp;</span><br><span class="line">        dfs(res, digits, <span class="number">0</span>, tmp, mp);</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; &amp;res, <span class="built_in">string</span> digits, <span class="keyword">int</span> cur, <span class="built_in">string</span> &amp;tmp, <span class="built_in">map</span>&lt;<span class="built_in">string</span>, <span class="built_in">string</span>&gt; mp)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(cur == digits.size())&#123;</span><br><span class="line">            res.push_back(tmp);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">string</span> index;</span><br><span class="line">        index += digits[cur];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; mp[index].size(); ++i)&#123;</span><br><span class="line">            tmp.push_back(mp[index][i]);</span><br><span class="line">            dfs(res, digits, cur + <span class="number">1</span>, tmp, mp);</span><br><span class="line">            tmp.pop_back();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>Runtime：8ms Memory：10.3MB</p>
+</blockquote>
 
       
     </div>
@@ -384,7 +397,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Java/" rel="tag"># Java</a>
+            <a href="/tags/LeetCode/" rel="tag"># LeetCode</a>
           
         </div>
       
@@ -397,8 +410,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/20/leetcode-5/" rel="next" title="LeetCode--Longest Palindromic Substring">
-                <i class="fa fa-chevron-left"></i> LeetCode--Longest Palindromic Substring
+              <a href="/2019/04/02/leetcode-8/" rel="next" title="LeetCode--3Sum">
+                <i class="fa fa-chevron-left"></i> LeetCode--3Sum
               </a>
             
           </div>
@@ -406,10 +419,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/03/21/leetcode-6/" rel="prev" title="LeetCode--Regular Expression Matching">
-                LeetCode--Regular Expression Matching <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -464,8 +473,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -527,6 +545,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#题目描述："><span class="nav-number">1.</span> <span class="nav-text">题目描述：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#题意："><span class="nav-number">2.</span> <span class="nav-text">题意：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#思路："><span class="nav-number">3.</span> <span class="nav-text">思路：</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
