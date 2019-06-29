@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/avatar.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="笔试,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="上周参加了牛客网的模拟笔试（三月场），后面因为有事情就没有做编程题目，想来挺后悔的。然后编程题的题解是牛客网提供的题解~目前还没有开放做题权限，所以蚊子也不能补题，嘤~">
+<meta name="keywords" content="笔试">
+<meta property="og:type" content="article">
+<meta property="og:title" content="牛客网模拟笔试（三月场）">
+<meta property="og:url" content="http://yoursite.com/2019/03/24/牛客网模拟笔试（三月场）/index.html">
+<meta property="og:site_name" content="Mosquito">
+<meta property="og:description" content="上周参加了牛客网的模拟笔试（三月场），后面因为有事情就没有做编程题目，想来挺后悔的。然后编程题的题解是牛客网提供的题解~目前还没有开放做题权限，所以蚊子也不能补题，嘤~">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-04-01T02:28:50.099Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="牛客网模拟笔试（三月场）">
+<meta name="twitter:description" content="上周参加了牛客网的模拟笔试（三月场），后面因为有事情就没有做编程题目，想来挺后悔的。然后编程题的题解是牛客网提供的题解~目前还没有开放做题权限，所以蚊子也不能补题，嘤~">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/03/24/牛客网模拟笔试（三月场）/">
+
+
+
+
+
+  <title>牛客网模拟笔试（三月场） | Mosquito</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+  <script type="text/javascript" src="/js/src/snow.js"></script>
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Mosquito</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/24/牛客网模拟笔试（三月场）/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mosquito">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mosquito">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">牛客网模拟笔试（三月场）</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+			
+			
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-24T15:17:56+08:00">
+                2019-03-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/笔试-面试/" itemprop="url" rel="index">
+                    <span itemprop="name">笔试/面试</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/03/24/牛客网模拟笔试（三月场）/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/03/24/牛客网模拟笔试（三月场）/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>上周参加了牛客网的模拟笔试（三月场），后面因为有事情就没有做编程题目，想来挺后悔的。然后编程题的题解是牛客网提供的题解~目前还没有开放做题权限，所以蚊子也不能补题，嘤~</p>
+<a id="more"></a>
+<h3 id="选择题"><a href="#选择题" class="headerlink" title="选择题"></a>选择题</h3><p>1.若二叉树采用二叉链表存储结构,要交换其所有分支结点左、右子树的位置,利用()遍历方法最合适 <strong>C</strong></p>
+<p>A 前序<br>B 中序<br>C 后序<br>D 按层次</p>
+<blockquote>
+<p>解析：</p>
+<p>用二叉链表存储结构也就是左孩子右兄弟的存储结构。后序遍历比较合理。正常的逻辑应该就是：做好当前结点子树内部的交换，然后交换当前结点的左右子树。刚好符合后序遍历的算法逻辑。</p>
+<ol>
+<li>交换好左子树</li>
+<li>交换好右子树</li>
+<li>交换左子树与右子树</li>
+</ol>
+</blockquote>
+<p>2.链表不具备的特点是（ ）<strong>A</strong></p>
+<p>A 可随机访问任何一个元素<br>B 插入、删除操作不需要移动元素<br>C 无需事先估计存储空间大小<br>D 所需存储空间与线性表长度成正比</p>
+<p>3.下列关于栈的叙述正确的是（）<strong>D</strong></p>
+<p>A 栈是非线性结构<br>B 栈是一种树状结构<br>C 栈具有先进先出的特征<br>D 栈有后进先出的特征</p>
+<p>4.某棵完全二叉树上有698个节点，则该二叉树的叶子节点数为 <strong>A</strong></p>
+<p>A 349<br>B 350<br>C 255<br>D 351</p>
+<blockquote>
+<p>解析：</p>
+<p>树是完全二叉树，根据树有698个节点可判断出树有10层，前9层节点总数为2^9-1=511，所以第10层节点数为 698-511   = 187 </p>
+<p>所以最后一层的节点数是187，所以第9层有93个度为2的节点和1个度为1的节点，共94个， </p>
+<p>所以第9层还会有 256-94 = 162 个叶子节点 </p>
+<p>叶子节点总数：187 + 162 = 349</p>
+</blockquote>
+<p>5.输入若已经是排好序的，下列排序算法最快的是（） <strong>A</strong></p>
+<p>A 插入排序<br>B Shell排序<br>C 合并排序<br>D 快速排序</p>
+<blockquote>
+<p>解析：</p>
+<p>快速排序在元素基本无序的情况下是最好的选择，在基本递增或递减中时间复杂度是O(n^2) </p>
+<p>归并排序时间复杂度稳定在O(nlogn)</p>
+<p>希尔排序很难说，跟选择的增量有关，一般小于O(n^2)，大于O(n)</p>
+<p>插入排序是在序列已有序的情况下最快的，时间复杂度是O(n)，另外在数数据规模较小时插入排序效果也很好。 </p>
+<p>一般不选择传统的冒泡排序，如果题目中有一个选项是冒泡排序，要想一下是否隐含着改进冒泡排序的含义。</p>
+</blockquote>
+<p>6.在网络7层协议中，如果想使用UDP协议达到TCP协议的效果,可以在哪层做文章? <strong>C</strong></p>
+<p>A 应用层<br>B 表示层<br>C 会话层<br>D 传输层<br>E 网络层</p>
+<blockquote>
+<p>解析：</p>
+<p>因为UDP要达到TCP的功能就必须实现拥塞控制的功能,而且是在路由之间实现,这个在底层明显是做不到拥塞控制的,在应用层也是做不到的,因为应用层之间和应用程序挂钩,一般只能操控主机的程序,而表示层是处理所有与数据表示及运输有关的问题，包括转换、加密和压缩,在传输层是不可能的,因为你已经使用了UDP协议,无法在本层转换它,只有在会话层. </p>
+<p>会话层（SESSION LAYER）允许不同机器上的用户之间建立会话关系。会话层循序进行类似的   <a href="http://baike.baidu.com/view/239605.htm" target="_blank" rel="noopener">传输层</a>   的普通数据的传送，在某些场合还提供了一些有用的增强型服务。允许用户利用一次会话在远端的分时系统上登陆，或者在两台机器间传递文件。 会话层提供的服务之一是管理对话控制。会话层允许信息同时双向传输，或任一时刻只能单向传输。如果属于后者，类似于物理信道上的半双工模式，会话层将记录此时该轮到哪一方</p>
+</blockquote>
+<p>7.主机甲和乙已建立了 TCP 连接,甲始终以 MSS=1KB 大小的段发送数据,并一直有数据 发送;乙每收到一个数据段都会发出一个接收窗口为 10KB 的确认段。若甲在 t 时刻发生超 时时拥塞窗口为 8KB,则从 t 时刻起,不再发生超时的情况下,经过 10 个 RTT 后,甲的发送窗口是() <strong>A</strong></p>
+<p>A 10KB<br>B 12KB<br>C 14KB<br>D 15KB</p>
+<blockquote>
+<p>解析：</p>
+<p>TCP当中的拥塞控制算法，慢开始门限设置为出现拥塞时的发送窗口大小的一半。因此发生拥塞时候，慢开始门限设置为8/2=4，   然后把拥塞窗口设置为   1   ，执行慢开始算法。   当然收到单个确认但此确认多个数据报的时候就加相应的数值。所以一次传输轮次之后拥塞窗口就加倍。这就是乘法增长。1-&gt;2-&gt;4,经过两个来回，到达门限值4，       拥塞避免算法让拥塞窗口缓慢增长，即每经过一个往返时间   RTT   就把发送方的拥塞窗口   加   1   ，而不是加倍。这样拥塞窗口按线性规律缓慢增长。4-&gt;5-&gt;6…-&gt;10,而发送端不能超过接收端10，因此最后为10 </p>
+<p>知识点： </p>
+<ul>
+<li><strong>当cwnd（拥塞窗口值）&lt;ssthresh（慢开始门限值）时，使用慢开始算法。加倍增长</strong>   </li>
+<li><strong>当cwnd&gt;ssthresh时，改用拥塞避免算法。加1线性增长</strong>   </li>
+<li><strong>当cwnd=ssthresh时，慢开始与拥塞避免算法任意。</strong></li>
+</ul>
+</blockquote>
+<p>8.linux 系统中，给文件授予可执行权限的命令是（） <strong>D</strong></p>
+<p>A chown<br>B mv<br>C sudo<br>D chmod</p>
+<blockquote>
+<p>解析：</p>
+<ul>
+<li>chown:给文件赋予拥有权的。 </li>
+<li>mv:是移动文件的。 </li>
+<li>sudo:拥有root权限执行文件，并不能给文件赋予执行权限。</li>
+<li>chmod:不仅可以给文件赋予执行权限还可以赋予读写权限。</li>
+</ul>
+</blockquote>
+<p>9.下面关于Linux文件系统的inode描述错误的是：<strong>A</strong></p>
+<p>A inode和文件是一一对应的<br>B inode描述了文件大小和指向数据块的指针<br>C 通过inode可获得文件占用的块数<br>D 通过inode可实现文件的逻辑结构和物理结构的转换</p>
+<blockquote>
+<p>解析：</p>
+<p>一般情况下，文件名和inode号码是”一一对应”关系，每个inode号码对应一个文件名。但是，Unix/Linux系统允许，多个文件名指向同一个inode号码。这意味着，可以用不同的文件名访问同样的内容；对文件内容进行修改，会影响到所有文件名；但是，删除一个文件名，不影响另一个文件名的访问。这种情况就被称为”硬链接”（hard link）。 除了硬链接以外，还有一种特殊情况。文件A和文件B的inode号码虽然不一样，但是文件A的内容是文件B的路径。读取文件A时，系统会自动将访问者导向文件B。因此，无论打开哪一个文件，最终读取的都是文件B。这时，文件A就称为文件B的”软链接”（soft link）或者”符号链接（symbolic link）。 这意味着，文件A依赖于文件B而存在，如果删除了文件B，打开文件A就会报错：”No such file or directory”。这是软链接与硬链接最大的不同：文件A指向文件B的文件名，而不是文件B的inode号码，文件B的inode”链接数”不会因此发生变化。  </p>
+</blockquote>
+<p>10.进程阻塞的原因不包括<strong>____</strong>。<strong>A</strong></p>
+<p>A 时间片切换<br>B 等待I/O<br>C 进程sleep<br>D 等待解锁</p>
+<blockquote>
+<p>解析：</p>
+<p>进程有3个状态：就绪态。执行态、阻塞态。三种状态的转换包含有：<br>就绪-&gt;执行，执行-&gt;就绪，执行-&gt;阻塞，阻塞-&gt;就绪<br>等待I/O、进程sleep、等待解锁等原因都会导致进程暂停。关于”时间片切换”，当进程已经获得了除cpu外所有的资源，这时的状态就是就绪态，当分配到了时间<br>片就成了执行态，当时间片用完之前一直未进入阻塞态的话，此后便继续进入就绪态。所以进程的就绪与阻塞是完全不同的。</p>
+</blockquote>
+<p>11.如何减少换页错误？<strong>B</strong></p>
+<p>A 进程倾向于占用CPU<br>B 访问局部性（locality of reference）满足进程要求<br>C 进程倾向于占用I/O<br>D 使用基于最短剩余时间（shortest remaining time）的调度机制</p>
+<blockquote>
+<p>解析：</p>
+<p>换页错误又称缺页错误，当一个程序试图访问没有映射到物理内存的地方时，就会出现缺页错误，   这时操作系统就要去虚拟内存中加载这块内存页。 </p>
+<p>百度了一下，减少换页错误的方法，即降低缺页中断率：</p>
+<ol>
+<li>内存页框数。增加作业分得的内存块数。</li>
+<li>页面大小。页面划分越大，中断率越低。    </li>
+<li>替换算法的优劣影响缺页中断次数 。     </li>
+<li>程序局部性。程序局部性好可减少缺页中断。 </li>
+</ol>
+</blockquote>
+<p>12.在内存分配的”最佳适应法”中，空闲块是按（）。<strong>C</strong></p>
+<p>A 始地址从小到大排序<br>B 始地址从大到小排序<br>C 块的大小从小到大排序<br>D 块的大小从大到小排序</p>
+<p>13.某网站的数据库有一个成绩表myscore，希望找出成绩表中平均得分小于90的所有试卷。<strong>B</strong></p>
+<p>A select paper_id from myscore where sum(score) &lt; 90 group by paper_id<br>B select paper_id from myscore group by paper_id having avg(score) &lt; 90<br>C select paper_id from myscore where avg(score) &lt; 90<br>D select paper_id from myscore where avg(score) &lt; 90 group by paper_id</p>
+<p>14.有土豆，萝卜各一筐，土豆有 240 个，萝卜有 313 个，把这两筐平均分给一些小朋友，一直土豆分到最后余 2 个，萝卜分到最后还余 7 个，求最多有多少个小朋友参加分水果？ <strong>D</strong></p>
+<p>A 14<br>B 17<br>C 28<br>D 34</p>
+<p>15.4个袋子，15个球，每个袋子至少放一个球，而且袋子中的球数量不能重复，有多少种方式？ <strong>C</strong></p>
+<p>A 4<br>B 5<br>C 6<br>D 7</p>
+<blockquote>
+<p>解析：</p>
+<p>1,2,3,9<br>1,2,4,8<br>1,2,5,7<br>1,3,4,7<br>1,3,5,6<br>2,3,4,6</p>
+</blockquote>
+<p>16.下列关于 java 语言的特点，描述错误的是（） <strong>C</strong></p>
+<p>A java是跨平台的编程语言<br>B java支持分布式计算<br>C java是面向过程的编程语言<br>D java支持多线程</p>
+<p>17.instanceof运算符能够用来判断一个对象是否为: <strong>C</strong></p>
+<p>A 一个类的实例<br>B 一个实现指定接口的类的实例<br>C 全部正确<br>D 一个子类的实例</p>
+<blockquote>
+<p>解析：</p>
+<p>instance是java的二元运算符，用来判断他左边的对象是否为右面类（接口，抽象类，父类）的实例</p>
+</blockquote>
+<p>18.关于PreparedStatement与Statement描述错误的是（）<strong>D</strong></p>
+<p>A 一般而言，PreparedStatement比Statement执行效率更高<br>B PreparedStatement会预编译SQL语句<br>C Statement每次都会解析/编译SQL，确立并优化数据获取路径<br>D Statement执行扫描的结果集比PreparedStatement大</p>
+<blockquote>
+<p>解析：</p>
+<p>1、创建时的区别： </p>
+<p>​     Statement statement =   conn.createStatement();<br>​     PreparedStatement preStatement =   conn.prepareStatement(sql);<br>​     执行的时候:<br>​     ResultSet rSet =   statement.executeQuery(sql);<br>​     ResultSet pSet =   preStatement.executeQuery(); </p>
+<p>由上可以看出，PreparedStatement有预编译的过程，已经绑定sql，之后无论执行多少遍，都不会再去进行编译，而 statement   不同，如果执行多变，则相应的就要编译多少遍sql，所以从这点看，preStatement 的效率会比 Statement要高一些</p>
+<p>2、安全性问题：</p>
+<p>preStatement是预编译的，所以可以有效的防止 SQL注入等问题，所以 preStatement 的安全性 比 Statement 高</p>
+<p>3、代码的可读性 和 可维护性：preStatement的代码的可读性 和 可维护性明显更高</p>
+</blockquote>
+<p>19.有这么一段程序：<strong>C</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span></span>&#123;</span><br><span class="line">	<span class="keyword">public</span> String name=<span class="string">"abc"</span>;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">		Test test=<span class="keyword">new</span> Test();</span><br><span class="line">		Test testB=<span class="keyword">new</span> Test();</span><br><span class="line">		System.out.println(test.equals(testB)+<span class="string">","</span>+test.name.equals(testB.name));</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>请问以上程序执行的结果是（）<strong>C</strong><br>A true,true<br>B true,false<br>C false,true<br>D false,false</p>
+<p>20.对于一个已经不被任何变量引用的对象，当垃圾回收器准备回收该对象所占用的内存时，将自动调用该对象的哪个方法（）<strong>A</strong><br>A finalize<br>B notify<br>C notifyAll<br>D hashCode</p>
+<h3 id="编程题"><a href="#编程题" class="headerlink" title="编程题"></a>编程题</h3><p>21.【加减二叉树】<br>二叉树是除了叶子节点之外所有的节点都最多有两个子节点的树。满二叉树则是除叶子节点外所有节点都有两个子节点的树，且所有叶子节点到根节点的距离都相等。</p>
+<p>现在有一棵无限大的满二叉树，根节点编号为 1 。编号为 i 的节点的左儿子编号为 2 * i ，右儿子2 * i + 1（比如根节点 1 的左儿子为 2，右儿子为 3，2 的左儿子为 4，右儿子为<br> 5）牛牛在这棵树上做一个游戏，他从妞妞那里得到了两个数 n 和 k ，妞妞希望他拿着数字 0 从根节点开始往下走，每次选择一条边移动，到达一个节点时选择加上这个节点的编号或者减去这个节点的编号。在走到第 k 个节点时所得到的数字刚好等于 n。</p>
+<p>这样的路径当然有很多。为了增加难度，妞妞决定让牛牛告诉她经过的节点的编号和最小的路径。<br>妞妞很聪明，给出的问题都是一定存在答案的。<br>你能帮帮牛牛吗？<br>输入描述：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">一行，两个数字 n，k。</span><br></pre></td></tr></table></figure>
+<p>输出描述：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">共 k 行，第 i 行输出第 i 步到达的节点编号，如果加上这个编号输出 &apos;+&apos;，减去这个编号输出 &apos;-&apos;。</span><br></pre></td></tr></table></figure>
+<p>备注：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1 &lt;= n &lt;= 1000000000。</span><br><span class="line">1 &lt;= n &lt;= 2^k &lt;= 2^60。</span><br></pre></td></tr></table></figure>
+<p>示例1：<br>输入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">3 2</span><br></pre></td></tr></table></figure>
+<p>输出</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1 +</span><br><span class="line">2 +</span><br></pre></td></tr></table></figure>
+<p>代码</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">long</span> <span class="keyword">long</span> n, k, a, d, b, i;</span><br><span class="line">	<span class="keyword">while</span>(~<span class="built_in">scanf</span>(<span class="string">"%lld%lld"</span>, &amp;n, &amp;k))&#123;</span><br><span class="line">        a = <span class="number">1L</span>L&lt;&lt;k;</span><br><span class="line">        d = a - n;</span><br><span class="line">        b = d / <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">for</span>(i = <span class="number">0</span>; i &lt; k; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span>((<span class="number">1L</span>L&lt;&lt;i) &amp; b)<span class="built_in">printf</span>(<span class="string">"%lld -\n"</span>,(<span class="number">1L</span>L&lt;&lt;i));</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">if</span>(i == k - <span class="number">1</span>) &#123;</span><br><span class="line">                    <span class="keyword">if</span>(d &amp; <span class="number">1</span>) </span><br><span class="line">                        <span class="built_in">printf</span>(<span class="string">"%lld +\n"</span>,(<span class="number">1L</span>L&lt;&lt;i));</span><br><span class="line">                    <span class="keyword">else</span> </span><br><span class="line">                        <span class="built_in">printf</span>(<span class="string">"%lld +\n"</span>,(<span class="number">1L</span>L&lt;&lt;i)+<span class="number">1L</span>L);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span> </span><br><span class="line">                    <span class="built_in">printf</span>(<span class="string">"%lld +\n"</span>,(<span class="number">1L</span>L&lt;&lt;i));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>解析</p>
+<blockquote>
+<p>所有 n 都不大于 $2^k$。考虑到 n 等于 $2^k$ 时，一直往左走最后一步往右走。n等于2^k-1时一直往左走。n 等于 $2^k-d​$ 时，分 d 是奇数偶数讨论最后一步的走法（奇左偶右），前面 k-1 步一直往左走，令减去的值刚好等于 d/2 向下取整。  </p>
+</blockquote>
+<p>22.【走斜线】<br>有天他来到一张方格地图上，整张地图可以看做一个二维坐标轴。牛牛此刻处于原点（0,0），他想要到点（x,y）去。</p>
+<p>牛牛有强迫症，他规定自己必须恰好k步走到点(x,y)，中途可以经过任何点包括（x,y），但是第k步一定要到达（x,y）。</p>
+<p>一步有八种走法，直线东（+1,0）南（0,-1）西（-1,0）北（0,+1），斜线东南（+1,-1）东北（+1,+1）西南（-1,-1）西北（-1,+1）。</p>
+<p>牛牛会在能k步到达目的地的基础下尽量走斜线，你能计算出牛牛到底走了多少条斜线吗？<br>输入描述：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">第一行一个整数T，代表数据组数。</span><br><span class="line">每组数据给出三个整数x，y，k。</span><br></pre></td></tr></table></figure>
+<p>输出描述：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">对于每组数据，单独一行输出一个整数。</span><br><span class="line">如果牛牛可以在第k步的时候到达(x,y)，输出牛牛走的斜线数量。</span><br><span class="line">如果牛牛不能到达，输出-1。</span><br></pre></td></tr></table></figure>
+<p>备注：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">对于100%的数据，1&lt;=T&lt;=1000，1&lt;=x，y，k&lt;=1000000000000000000。</span><br></pre></td></tr></table></figure>
+<p>示例1：<br>输入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">2</span><br><span class="line">2 3 4</span><br><span class="line">7 7 9</span><br></pre></td></tr></table></figure>
+<p>输出</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">3</span><br><span class="line">9</span><br></pre></td></tr></table></figure>
+<p>代码</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> T;</span><br><span class="line">	<span class="keyword">long</span> <span class="keyword">long</span> x, y, k, t, ans;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;T);</span><br><span class="line">	<span class="keyword">while</span>(T--) &#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%lld%lld%lld"</span>,&amp;x,&amp;y,&amp;k);</span><br><span class="line">		<span class="keyword">if</span>(x &gt; y) &#123;</span><br><span class="line">			t = x;</span><br><span class="line">			x = y; </span><br><span class="line">			y = t;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(y &gt; k) &#123;</span><br><span class="line">			<span class="built_in">puts</span>(<span class="string">"-1"</span>);</span><br><span class="line">			<span class="keyword">continue</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		ans = k;</span><br><span class="line">		<span class="keyword">if</span>((y - x) % <span class="number">2</span>) ans--;</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span>((k - x) % <span class="number">2</span>) ans -= <span class="number">2</span>;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%lld\n"</span>, ans);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>解析</p>
+<blockquote>
+<p>要到达目的地花费的最小步数是 x 和 y 的最大值，如果 k 小于这个值就一定到不了。如果 k 溢出了，那么在整个 k 步里，最多只会走两条直线。分别是如下三种情况（令x&lt;=y）：0条直线（y-x）是偶数且（k-x）是偶数；1条直线（y-x）是奇数；2条直线（y-x）是偶数且（k-x）是奇数。  </p>
+</blockquote>
+<p>23.【得分最大】<br>牛牛和妞妞从他们的好朋友果果处得到了两个盒子，盒子里是一些写了分值的彩球。牛牛和妞妞发现两个盒子里的彩球数目是相等的，就决定一人一个。</p>
+<p>妞妞拿到自己的盒子之后，决定跟牛牛玩一个游戏，规则如下：</p>
+<p>一开始两个人盒子里的彩球数目都是n个，由妞妞先手，两人轮流实行下面两个操作中的一个（只能选其中一个执行，不能不执行。），直到两个盒子里的彩球都被<br>拿完位置。</p>
+<ol>
+<li>从自己的盒子里选一个球拿出来，把球上面的分值加在自己的总得分上边。</li>
+<li>从对方的盒子里选一个球拿出来，把这个球移出游戏（对方不能再拿这个球）。</li>
+</ol>
+<p>妞妞和牛牛都十分聪明，不会出错，并且尽可能让自己的得分比对方多。妞妞想知道，在游戏结束的时候，他能比牛牛多得多少分呢？<br>输入描述：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">第一行一个数字n，表示盒子里初始彩球的数目。</span><br><span class="line">第二行n个数字a ，表示妞妞盒子里第i个彩球的分值是a。</span><br><span class="line">第三行n个数字b ，表示牛牛盒子里第i个彩球的分值是b。</span><br></pre></td></tr></table></figure>
+<p>输出描述：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">一个整数ans，表示游戏结束的时候妞妞比牛牛多的分值。</span><br></pre></td></tr></table></figure>
+<p>备注：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1&lt;=n&lt;=100000</span><br><span class="line">1&lt;=a &lt;=1000000</span><br><span class="line">1&lt;=b &lt;=1000000</span><br></pre></td></tr></table></figure>
+<p>示例1：<br>输入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">3</span><br><span class="line">2 7 7</span><br><span class="line">2 8 7</span><br></pre></td></tr></table></figure>
+<p>输出</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0</span><br></pre></td></tr></table></figure>
+<p>代码</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> a[<span class="number">100015</span>],b[<span class="number">100015</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">bool</span> _cmp(<span class="keyword">int</span> i, <span class="keyword">int</span> j)&#123;<span class="keyword">return</span> i &gt; j;&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;	</span><br><span class="line">	<span class="keyword">int</span> n;</span><br><span class="line">	<span class="keyword">long</span> <span class="keyword">long</span> ans;</span><br><span class="line">	<span class="keyword">while</span>(~<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;n))&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) </span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;a[i]);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) </span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;b[i]);</span><br><span class="line">        sort(a + <span class="number">1</span>, a + <span class="number">1</span> + n, _cmp);</span><br><span class="line">        sort(b + <span class="number">1</span>, b + <span class="number">1</span> + n, _cmp);</span><br><span class="line">        ans = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> i = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> j = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(i &lt;= n || j &lt;= n) &#123;</span><br><span class="line">            <span class="keyword">if</span>(a[i] &gt; b[j]) </span><br><span class="line">                ans += a[i++];</span><br><span class="line">            <span class="keyword">else</span> </span><br><span class="line">                j++;</span><br><span class="line">            <span class="keyword">if</span>(b[j] &gt; a[i]) </span><br><span class="line">                ans -= b[j++];</span><br><span class="line">            <span class="keyword">else</span> </span><br><span class="line">                i++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%lld"</span>, ans);</span><br><span class="line">    &#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>解析</p>
+<blockquote>
+<p>双方都要使自己的得分尽可能比对方多，就有两种策略：使自己得分越多越好；使对方得分越少越好。所以贪心比较当前自己盒子里分值最大的彩球和对方盒子里分值最大的彩球，如果自己的分比较多，就从自己盒子里拿（自己得分越多越好），否则从对方盒子里拿（对方得分越少越好）。  </p>
+</blockquote>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/笔试/" rel="tag"># 笔试</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/21/leetcode-6/" rel="next" title="LeetCode--Regular Expression Matching">
+                <i class="fa fa-chevron-left"></i> LeetCode--Regular Expression Matching
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/03/27/同程艺龙笔试-编程题/" rel="prev" title="同程艺龙笔试--编程题">
+                同程艺龙笔试--编程题 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="Mosquito">
+            
+              <p class="site-author-name" itemprop="name">Mosquito</p>
+              <p class="site-description motion-element" itemprop="description">qwq</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#选择题"><span class="nav-number">1.</span> <span class="nav-text">选择题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编程题"><span class="nav-number">2.</span> <span class="nav-text">编程题</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Mosquito</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'aWnHg7AdOWYIiVIOudWAPAbv-gzGzoHsz',
+        appKey: '7RLHqNLGONuQpwjTpAM4xOFz',
+        placeholder: 'Just go go',
+        avatar:'wavatar',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>
