@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Mosquito">
 <meta property="og:description" content="题目描述：小Q 正在攀登一座宝塔，这些宝塔很特别。塔总共有 n 层，但是每两层之间的净高却不相同，所以造成了小Q 爬过每层的时间也不同。如果某一层的高度为 x，那么爬过这一层所需的时间也是 x。小Q 还会使用一种魔法，每用一次就可以让他向上跳一层或两层，但是每次跳跃后小 Q 都将用完魔法力，必须爬过至少一层才能再次跳跃（你可以认为小 Q 需要跳两次一层才休息，最后也可以跳到塔外即超过塔高，挑是不消">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-06-30T12:08:55.764Z">
+<meta property="og:updated_time" content="2019-07-01T15:02:00.566Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="每日一题--小Q爬塔">
 <meta name="twitter:description" content="题目描述：小Q 正在攀登一座宝塔，这些宝塔很特别。塔总共有 n 层，但是每两层之间的净高却不相同，所以造成了小Q 爬过每层的时间也不同。如果某一层的高度为 x，那么爬过这一层所需的时间也是 x。小Q 还会使用一种魔法，每用一次就可以让他向上跳一层或两层，但是每次跳跃后小 Q 都将用完魔法力，必须爬过至少一层才能再次跳跃（你可以认为小 Q 需要跳两次一层才休息，最后也可以跳到塔外即超过塔高，挑是不消">
@@ -374,6 +374,24 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">5</span><br><span class="line">3</span><br><span class="line">5</span><br><span class="line">1</span><br><span class="line">8</span><br><span class="line">4</span><br></pre></td></tr></table></figure>
 <p>输出：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1</span><br></pre></td></tr></table></figure>
+<h3 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h3><p>一开始想的是跟爬楼梯一样，就是一个改进版，后来发现爬楼梯将登上第 i 层的状态分为了第 i - 1 层和第 i - 2 层，所以才有 $f(i) = min(f(i - 1), f(i - 2))$ 的转移方程，但是这个方程式对于这一道题其实是不适用的。因为对于第 i 层可以由第 i - 1 层和第 i - 2 层转化过来的，但是第 i - 1 层到第 i 层有 ‘爬’ 和 ‘跳’ 两种方式，所以这个转移方程式就不适用了。</p>
+<p>那么我们怎么来更改这个转移方程是呢？</p>
+<p>因为第 i - 1 层有两种方式，这里我们就用 climb 和 jump 两个数组来分别表示两种方式：</p>
+<p>jump[i] 表示 ‘爬’ 到第 i 层的最短时间</p>
+<p>climb[i] 表示 ‘跳’ 到第 i 层的最短时间</p>
+<p>这里就分为两种情况：</p>
+<ul>
+<li>到达第 i 层方法是爬：</li>
+</ul>
+<p>第 i - 1 层有两种情况，可以是爬，也可以是跳，情况如下：</p>
+<p>climb[i] = min(climb[i - 1], jump[i - 1]) + a[i]</p>
+<ul>
+<li>到达第 i 层是跳：</li>
+</ul>
+<p>那么可以从第 i - 1 层跳，也可以从第 i - 2 层跳，那么：</p>
+<p>climb[i] = min(jump[i - 1], jump[i - 2])</p>
+<p>最后在 climb[n] 和 jump[n] 中取最小值即可。</p>
+<h3 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;algorithm&gt;</span><br><span class="line">#include &lt;cmath&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">int jump[10005], climb[10005];</span><br><span class="line">int main() &#123;</span><br><span class="line">	int n, m, x;</span><br><span class="line">	cin &gt;&gt; n;</span><br><span class="line">	for(int i = 1; i &lt;= n; ++i) &#123;</span><br><span class="line">        cin &gt;&gt; x;</span><br><span class="line">        climb[i] = min(climb[i - 1], jump[i - 1]) + x;</span><br><span class="line">        if(i == 1) continue;</span><br><span class="line">        jump[i] = min(climb[i - 1], climb[i - 2]);</span><br><span class="line">	&#125;</span><br><span class="line">	cout &lt;&lt; min(climb[n], jump[n]) &lt;&lt; endl;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -413,6 +431,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/07/01/妞妞的问题/" rel="prev" title="每日一题 -- 妞妞的问题">
+                每日一题 -- 妞妞的问题 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -494,7 +516,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-count">26</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -579,7 +601,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#题目描述："><span class="nav-number">1.</span> <span class="nav-text">题目描述：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输入描述："><span class="nav-number">2.</span> <span class="nav-text">输入描述：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输出描述："><span class="nav-number">3.</span> <span class="nav-text">输出描述：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#样例："><span class="nav-number">4.</span> <span class="nav-text">样例：</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#题目描述："><span class="nav-number">1.</span> <span class="nav-text">题目描述：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输入描述："><span class="nav-number">2.</span> <span class="nav-text">输入描述：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输出描述："><span class="nav-number">3.</span> <span class="nav-text">输出描述：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#样例："><span class="nav-number">4.</span> <span class="nav-text">样例：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#思路："><span class="nav-number">5.</span> <span class="nav-text">思路：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码："><span class="nav-number">6.</span> <span class="nav-text">代码：</span></a></li></ol></div>
             
 
           </div>
