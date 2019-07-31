@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="笔试,">
+  <meta name="keywords" content="教程,">
 
 
 
@@ -79,18 +79,23 @@
 
 
 
-<meta name="description" content="题目描述：小Q 正在攀登一座宝塔，这些宝塔很特别。塔总共有 n 层，但是每两层之间的净高却不相同，所以造成了小Q 爬过每层的时间也不同。如果某一层的高度为 x，那么爬过这一层所需的时间也是 x。小Q 还会使用一种魔法，每用一次就可以让他向上跳一层或两层，但是每次跳跃后小 Q 都将用完魔法力，必须爬过至少一层才能再次跳跃（你可以认为小 Q 需要跳两次一层才休息，最后也可以跳到塔外即超过塔高，挑是不消">
-<meta name="keywords" content="笔试">
+<meta name="description" content="博客中用的图床——阿里云对象存储（Object Storage Service，简称OSS），虽然目前大家用的比较多的是七牛云之类的，但是因为我个人原因我还是选择了阿里云 主要就是因为没钱。。。七牛云的那个三十天就过期了。。。">
+<meta name="keywords" content="教程">
 <meta property="og:type" content="article">
-<meta property="og:title" content="每日一题--小Q爬塔">
-<meta property="og:url" content="http://yoursite.com/2019/06/30/小Q爬塔/index.html">
+<meta property="og:title" content="阿里云 OSS 搭建图床">
+<meta property="og:url" content="http://yoursite.com/2019/07/31/ossCourse/index.html">
 <meta property="og:site_name" content="Mosquito">
-<meta property="og:description" content="题目描述：小Q 正在攀登一座宝塔，这些宝塔很特别。塔总共有 n 层，但是每两层之间的净高却不相同，所以造成了小Q 爬过每层的时间也不同。如果某一层的高度为 x，那么爬过这一层所需的时间也是 x。小Q 还会使用一种魔法，每用一次就可以让他向上跳一层或两层，但是每次跳跃后小 Q 都将用完魔法力，必须爬过至少一层才能再次跳跃（你可以认为小 Q 需要跳两次一层才休息，最后也可以跳到塔外即超过塔高，挑是不消">
+<meta property="og:description" content="博客中用的图床——阿里云对象存储（Object Storage Service，简称OSS），虽然目前大家用的比较多的是七牛云之类的，但是因为我个人原因我还是选择了阿里云 主要就是因为没钱。。。七牛云的那个三十天就过期了。。。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-01T15:02:00.566Z">
+<meta property="og:image" content="https://blogs-image.oss-cn-beijing.aliyuncs.com/course/ossCourse/accessConsole.png">
+<meta property="og:image" content="https://blogs-image.oss-cn-beijing.aliyuncs.com/course/ossCourse/createBucket.png">
+<meta property="og:image" content="https://blogs-image.oss-cn-beijing.aliyuncs.com/course/ossCourse/ossConcoleShow.png">
+<meta property="og:image" content="https://blogs-image.oss-cn-beijing.aliyuncs.com/course/ossCourse/useFigure.png">
+<meta property="og:updated_time" content="2019-07-31T08:29:39.478Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="每日一题--小Q爬塔">
-<meta name="twitter:description" content="题目描述：小Q 正在攀登一座宝塔，这些宝塔很特别。塔总共有 n 层，但是每两层之间的净高却不相同，所以造成了小Q 爬过每层的时间也不同。如果某一层的高度为 x，那么爬过这一层所需的时间也是 x。小Q 还会使用一种魔法，每用一次就可以让他向上跳一层或两层，但是每次跳跃后小 Q 都将用完魔法力，必须爬过至少一层才能再次跳跃（你可以认为小 Q 需要跳两次一层才休息，最后也可以跳到塔外即超过塔高，挑是不消">
+<meta name="twitter:title" content="阿里云 OSS 搭建图床">
+<meta name="twitter:description" content="博客中用的图床——阿里云对象存储（Object Storage Service，简称OSS），虽然目前大家用的比较多的是七牛云之类的，但是因为我个人原因我还是选择了阿里云 主要就是因为没钱。。。七牛云的那个三十天就过期了。。。">
+<meta name="twitter:image" content="https://blogs-image.oss-cn-beijing.aliyuncs.com/course/ossCourse/accessConsole.png">
 
 
 
@@ -120,13 +125,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/06/30/小Q爬塔/">
+  <link rel="canonical" href="http://yoursite.com/2019/07/31/ossCourse/">
 
 
 
 
 
-  <title>每日一题--小Q爬塔 | Mosquito</title>
+  <title>阿里云 OSS 搭建图床 | Mosquito</title>
   
 
 
@@ -263,7 +268,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/30/小Q爬塔/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/31/ossCourse/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Mosquito">
@@ -280,7 +285,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">每日一题--小Q爬塔</h1>
+          <h1 class="post-title" itemprop="name headline">阿里云 OSS 搭建图床</h1>
         
 
         <div class="post-meta">
@@ -294,8 +299,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-30T19:55:11+08:00">
-                2019-06-30
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-31T16:00:36+08:00">
+                2019-07-31
               </time>
             
 
@@ -317,8 +322,8 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/编程练习/" itemprop="url" rel="index">
-                    <span itemprop="name">编程练习</span>
+                  <a href="/categories/教程/" itemprop="url" rel="index">
+                    <span itemprop="name">教程</span>
                   </a>
                 </span>
 
@@ -335,8 +340,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/06/30/小Q爬塔/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/06/30/小Q爬塔/" itemprop="commentCount"></span>
+                <a href="/2019/07/31/ossCourse/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/07/31/ossCourse/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -364,34 +369,22 @@
       
 
       
-        <h3 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a>题目描述：</h3><p>小Q 正在攀登一座宝塔，这些宝塔很特别。塔总共有 n 层，但是每两层之间的净高却不相同，所以造成了小Q 爬过每层的时间也不同。如果某一层的高度为 x，那么爬过这一层所需的时间也是 x。小Q 还会使用一种魔法，每用一次就可以让他向上跳一层或两层，但是每次跳跃后小 Q 都将用完魔法力，必须爬过至少一层才能再次跳跃（你可以认为小 Q 需要跳两次一层才休息，最后也可以跳到塔外即超过塔高，挑是不消耗时间的）。</p>
-<p>小 Q 享用最短的时间爬过塔顶，希望你能告诉他最短时间是多少？</p>
+        <p>博客中用的图床——阿里云对象存储（Object Storage Service，简称OSS），虽然目前大家用的比较多的是七牛云之类的，但是因为我个人原因我还是选择了阿里云</p>
+<p><del>主要就是因为没钱。。。七牛云的那个三十天就过期了。。。</del></p>
 <a id="more"></a>
-<h3 id="输入描述："><a href="#输入描述：" class="headerlink" title="输入描述："></a>输入描述：</h3><p>第一行一个数 $n (n \leq 10000)$，表示塔的层数。</p>
-<p>接下来的 n 行每行一个数 $h (1 \leq h \leq 100)$，表示从下往上每层的高度</p>
-<h3 id="输出描述："><a href="#输出描述：" class="headerlink" title="输出描述："></a>输出描述：</h3><p>一个数，表示最短时间</p>
-<h3 id="样例："><a href="#样例：" class="headerlink" title="样例："></a>样例：</h3><p>输入：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">5</span><br><span class="line">3</span><br><span class="line">5</span><br><span class="line">1</span><br><span class="line">8</span><br><span class="line">4</span><br></pre></td></tr></table></figure>
-<p>输出：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1</span><br></pre></td></tr></table></figure>
-<h3 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h3><p>一开始想的是跟爬楼梯一样，就是一个改进版，后来发现爬楼梯将登上第 i 层的状态分为了第 i - 1 层和第 i - 2 层，所以才有 $f(i) = min(f(i - 1), f(i - 2))$ 的转移方程，但是这个方程式对于这一道题其实是不适用的。因为对于第 i 层可以由第 i - 1 层和第 i - 2 层转化过来的，但是第 i - 1 层到第 i 层有 ‘爬’ 和 ‘跳’ 两种方式，所以这个转移方程式就不适用了。</p>
-<p>那么我们怎么来更改这个转移方程是呢？</p>
-<p>因为第 i - 1 层有两种方式，这里我们就用 climb 和 jump 两个数组来分别表示两种方式：</p>
-<p>jump[i] 表示 ‘爬’ 到第 i 层的最短时间</p>
-<p>climb[i] 表示 ‘跳’ 到第 i 层的最短时间</p>
-<p>这里就分为两种情况：</p>
-<ul>
-<li>到达第 i 层方法是爬：</li>
-</ul>
-<p>第 i - 1 层有两种情况，可以是爬，也可以是跳，情况如下：</p>
-<p>climb[i] = min(climb[i - 1], jump[i - 1]) + a[i]</p>
-<ul>
-<li>到达第 i 层是跳：</li>
-</ul>
-<p>那么可以从第 i - 1 层跳，也可以从第 i - 2 层跳，那么：</p>
-<p>climb[i] = min(jump[i - 1], jump[i - 2])</p>
-<p>最后在 climb[n] 和 jump[n] 中取最小值即可。</p>
-<h3 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;algorithm&gt;</span><br><span class="line">#include &lt;cmath&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">int jump[10005], climb[10005];</span><br><span class="line">int main() &#123;</span><br><span class="line">	int n, m, x;</span><br><span class="line">	cin &gt;&gt; n;</span><br><span class="line">	for(int i = 1; i &lt;= n; ++i) &#123;</span><br><span class="line">        cin &gt;&gt; x;</span><br><span class="line">        climb[i] = min(climb[i - 1], jump[i - 1]) + x;</span><br><span class="line">        if(i == 1) continue;</span><br><span class="line">        jump[i] = min(climb[i - 1], climb[i - 2]);</span><br><span class="line">	&#125;</span><br><span class="line">	cout &lt;&lt; min(climb[n], jump[n]) &lt;&lt; endl;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="进入控制台"><a href="#进入控制台" class="headerlink" title="进入控制台"></a>进入控制台</h3><p><img src="https://blogs-image.oss-cn-beijing.aliyuncs.com/course/ossCourse/accessConsole.png" alt="accessConsole"></p>
+<h3 id="新建-Bucket"><a href="#新建-Bucket" class="headerlink" title="新建 Bucket"></a>新建 Bucket</h3><p><img src="https://blogs-image.oss-cn-beijing.aliyuncs.com/course/ossCourse/createBucket.png" alt="createBucket"></p>
+<p>Bucket 名称：你所创建的存储空间的名称</p>
+<p>区域：需要选择和你的ECS服务器是同一个区域的,因为这样内网访问才不会走流量,否则按照文档上的说法,是只能走公网访问</p>
+<p>存储类型：作为博客的图床来说，一般选择标准存储</p>
+<p>读写权限：这里博客是能够被所有人都访问到，所以设置公共读就好</p>
+<p>下面的这些就都可以保持默认。。。</p>
+<h3 id="使用-OSS"><a href="#使用-OSS" class="headerlink" title="使用 OSS"></a>使用 OSS</h3><p>创建好之后，就是下面这个样子，你就可以进行一系列的操作了</p>
+<p><img src="https://blogs-image.oss-cn-beijing.aliyuncs.com/course/ossCourse/ossConcoleShow.png" alt="ossConcoleShow"></p>
+<h3 id="使用图床"><a href="#使用图床" class="headerlink" title="使用图床"></a>使用图床</h3><p><img src="https://blogs-image.oss-cn-beijing.aliyuncs.com/course/ossCourse/useFigure.png" alt="useFigure"></p>
+<p>点击图片旁边的更多，就可以看到一系列的选项，主要介绍一下两个</p>
+<p>设置读写权限：默认为是 <strong>继承 Bucket</strong>，如果你之前的 Bucket，没有设置为 <strong>公共读</strong>，这里你也可以设置为公共读</p>
+<p>复制文件 URL：这个复制之后就可以按照 markdown 的图片链接的格式，将图片添加进去。</p>
 
       
     </div>
@@ -409,7 +402,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/笔试/" rel="tag"># 笔试</a>
+            <a href="/tags/教程/" rel="tag"># 教程</a>
           
         </div>
       
@@ -422,8 +415,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/04/02/leetcode-11/" rel="next" title="LeetCode--Valid Parentheses">
-                <i class="fa fa-chevron-left"></i> LeetCode--Valid Parentheses
+              <a href="/2019/07/27/好未来一面/" rel="next" title="好未来一面">
+                <i class="fa fa-chevron-left"></i> 好未来一面
               </a>
             
           </div>
@@ -431,10 +424,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/07/01/妞妞的问题/" rel="prev" title="每日一题 -- 妞妞的问题">
-                每日一题 -- 妞妞的问题 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -601,7 +590,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#题目描述："><span class="nav-number">1.</span> <span class="nav-text">题目描述：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输入描述："><span class="nav-number">2.</span> <span class="nav-text">输入描述：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输出描述："><span class="nav-number">3.</span> <span class="nav-text">输出描述：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#样例："><span class="nav-number">4.</span> <span class="nav-text">样例：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#思路："><span class="nav-number">5.</span> <span class="nav-text">思路：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码："><span class="nav-number">6.</span> <span class="nav-text">代码：</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#进入控制台"><span class="nav-number">1.</span> <span class="nav-text">进入控制台</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#新建-Bucket"><span class="nav-number">2.</span> <span class="nav-text">新建 Bucket</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用-OSS"><span class="nav-number">3.</span> <span class="nav-text">使用 OSS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用图床"><span class="nav-number">4.</span> <span class="nav-text">使用图床</span></a></li></ol></div>
             
 
           </div>
