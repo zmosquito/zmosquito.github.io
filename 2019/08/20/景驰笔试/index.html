@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="面试,">
 
 
 
@@ -79,17 +79,18 @@
 
 
 
-<meta name="description" content="qwq">
+<meta name="description" content="周六笔试的，就三道编程题，蚊子拖延症。。。。一直拖到现在才写出来。 同时朋友今天告诉我，笔试通过了。。。。准备一下面试">
+<meta name="keywords" content="面试">
 <meta property="og:type" content="article">
 <meta property="og:title" content="景驰笔试">
 <meta property="og:url" content="http://yoursite.com/2019/08/20/景驰笔试/index.html">
 <meta property="og:site_name" content="Mosquito">
-<meta property="og:description" content="qwq">
+<meta property="og:description" content="周六笔试的，就三道编程题，蚊子拖延症。。。。一直拖到现在才写出来。 同时朋友今天告诉我，笔试通过了。。。。准备一下面试">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-20T12:32:34.666Z">
+<meta property="og:updated_time" content="2019-08-20T13:01:37.483Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="景驰笔试">
-<meta name="twitter:description" content="qwq">
+<meta name="twitter:description" content="周六笔试的，就三道编程题，蚊子拖延症。。。。一直拖到现在才写出来。 同时朋友今天告诉我，笔试通过了。。。。准备一下面试">
 
 
 
@@ -304,6 +305,28 @@
           </span>
 
           
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/笔试-面试/" itemprop="url" rel="index">
+                    <span itemprop="name">笔试/面试</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -341,7 +364,23 @@
       
 
       
-        
+        <p>周六笔试的，就三道编程题，蚊子拖延症。。。。一直拖到现在才写出来。</p>
+<p>同时朋友今天告诉我，笔试通过了。。。。准备一下面试</p>
+<a id="more"></a>
+<p>其实三道题都是经典题，就是输入很恶心，因为它输入里面数字用逗号分开且逗号跟数字有任意空白字符。</p>
+<p>第一题：装最多水问题</p>
+<p>思路：采用两边逼近法，显而易见，当逐渐逼近的时候，容器的长在变短，那么要使得面积增大的话，宽必须要变大，所以我们保留长的那条线段，使得短线段向另一方逐渐逼近。</p>
+<p>代码：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> num[<span class="number">100000</span>], ind = <span class="number">0</span>;</span><br><span class="line">	<span class="built_in">string</span> in;</span><br><span class="line">	<span class="keyword">while</span> (<span class="built_in">cin</span> &gt;&gt; in) &#123;</span><br><span class="line">		<span class="keyword">int</span> sum = <span class="number">0</span>, flag = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; in.size(); ++i) &#123;</span><br><span class="line">			<span class="keyword">if</span> (in[i] &gt; <span class="string">'9'</span>||in[i] &lt; <span class="string">'0'</span>) &#123;</span><br><span class="line">				<span class="keyword">if</span> (flag)</span><br><span class="line">					num[ind++] = sum, sum = <span class="number">0</span>, flag = <span class="number">0</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">else</span> &#123;</span><br><span class="line">				flag = <span class="number">1</span>;</span><br><span class="line">				sum = sum * <span class="number">10</span> + in[i] - <span class="string">'0'</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (flag)</span><br><span class="line">			num[ind++] = sum;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">int</span> l = <span class="number">0</span>, r = ind - <span class="number">1</span>, maxn = <span class="number">0</span>, now = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span> (l != r) &#123;</span><br><span class="line">		now = min(num[l], num[r])*(r - l);</span><br><span class="line">		maxn = max(now, maxn);</span><br><span class="line">		<span class="keyword">if</span> (num[l] &gt; num[r])</span><br><span class="line">			r--;</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">			l++;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; maxn &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>第二题：给定一个代表硬币不同面值的数组，和一个硬币的总数额，求用硬币凑出该总数额的最小硬币个数。如果无法凑出该面额，返回-1。</p>
+<p>思路：用动态规划的方法，也就是完全背包，硬币总额从0开始，一步一步地往上加，直到amount。每一步记录得到该金额的最小硬币数。</p>
+<p>代码：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">cmp</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123; <span class="keyword">return</span> x &gt; y; &#125;</span><br><span class="line"><span class="keyword">int</span> num[<span class="number">100000</span>], ind = <span class="number">0</span>, Size[<span class="number">11000000</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="built_in">string</span> in;</span><br><span class="line">	<span class="keyword">while</span> (<span class="built_in">cin</span> &gt;&gt; in) &#123;</span><br><span class="line">		<span class="keyword">int</span> sum = <span class="number">0</span>, flag = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; in.size(); ++i) &#123;</span><br><span class="line">			<span class="keyword">if</span> (in[i] &gt; <span class="string">'9'</span>||in[i] &lt; <span class="string">'0'</span>) &#123;</span><br><span class="line">				<span class="keyword">if</span> (flag)</span><br><span class="line">					num[ind++] = sum, sum = <span class="number">0</span>, flag = <span class="number">0</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">else</span> &#123;</span><br><span class="line">				flag = <span class="number">1</span>;</span><br><span class="line">				sum = sum * <span class="number">10</span> + in[i] - <span class="string">'0'</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (flag)</span><br><span class="line">			num[ind++] = sum;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">int</span> m = num[--ind];</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= m + <span class="number">1</span>; i++)</span><br><span class="line">		Size[i] = m + <span class="number">1</span>;</span><br><span class="line">	Size[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">	sort(num, num + ind, cmp);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; ind; ++i)</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j = num[i]; j &lt;= m; j++)</span><br><span class="line">			Size[j] = min(Size[j], Size[j - num[i]] + <span class="number">1</span>);</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; (Size[m] == m + <span class="number">1</span> ? <span class="number">-1</span> : Size[m]) &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>第三题：leetcode 原题，最小跳跃II</p>
+<p>思路：贪心，每次我们只要在某个步数所能涵盖的最大范围内设置它当前的步数，只有超过这个最大范围的时候才对这个步数加一。求下一个步数的时候则求在当前步数的范围内能涵盖的最大值。在具体的实现中，我们需要记录在每一步中它所能涵盖的最大值，每次到遍历到这个值的时候，我们的步数加一。另外，我们在每次的遍历中都要计算当前位置所能涵盖的最大范围以作为下一个步数所能涵盖的范围。</p>
+<p>代码：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> num[<span class="number">10000011</span>], ind = <span class="number">0</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> in;</span><br><span class="line">    <span class="keyword">int</span> sum = <span class="number">0</span>, flag = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> ((in = getchar()) != EOF)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (in &gt; <span class="string">'9'</span> || in &lt; <span class="string">'0'</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (flag)</span><br><span class="line">            &#123;</span><br><span class="line">                num[ind++] = sum, sum = <span class="number">0</span>, flag = <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                flag = <span class="number">1</span>;</span><br><span class="line">                sum = sum * <span class="number">10</span> + in - <span class="string">'0'</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (flag)</span><br><span class="line">        num[ind++] = sum;</span><br><span class="line">    <span class="keyword">int</span> maxcover = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> step = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> lastcover = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= maxcover &amp;&amp; i &lt; ind; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(i &gt; lastcover)</span><br><span class="line">        &#123;</span><br><span class="line">            step++;</span><br><span class="line">            lastcover = maxcover;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(num[i] + i &gt; maxcover)</span><br><span class="line">        &#123;</span><br><span class="line">            maxcover = num[i] + i;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt; step &lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
       
     </div>
     
@@ -355,6 +394,12 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/面试/" rel="tag"># 面试</a>
+          
+        </div>
       
 
       
