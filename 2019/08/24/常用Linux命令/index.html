@@ -1,0 +1,1098 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/avatar.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Linux命令,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="因为面试的时候经常问到 Linux 常用命令，蚊子就将他们的命令分类总结了一下。">
+<meta name="keywords" content="Linux命令">
+<meta property="og:type" content="article">
+<meta property="og:title" content="常用Linux命令">
+<meta property="og:url" content="http://yoursite.com/2019/08/24/常用Linux命令/index.html">
+<meta property="og:site_name" content="Mosquito">
+<meta property="og:description" content="因为面试的时候经常问到 Linux 常用命令，蚊子就将他们的命令分类总结了一下。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://blogs-image.oss-cn-beijing.aliyuncs.com/Base/Linux/ls%E5%91%BD%E4%BB%A4.png">
+<meta property="og:image" content="https://blogs-image.oss-cn-beijing.aliyuncs.com/Base/Linux/pwd%E5%91%BD%E4%BB%A4.png">
+<meta property="og:image" content="https://blogs-image.oss-cn-beijing.aliyuncs.com/Base/Linux/cd%E5%91%BD%E4%BB%A4.png">
+<meta property="og:image" content="https://blogs-image.oss-cn-beijing.aliyuncs.com/Base/Linux/mkdir%E5%91%BD%E4%BB%A4.png">
+<meta property="og:image" content="https://blogs-image.oss-cn-beijing.aliyuncs.com/Base/Linux/find%E5%91%BD%E4%BB%A4.png">
+<meta property="og:image" content="https://blogs-image.oss-cn-beijing.aliyuncs.com/Base/Linux/grep%E5%91%BD%E4%BB%A4.png">
+<meta property="og:image" content="https://blogs-image.oss-cn-beijing.aliyuncs.com/Base/Linux/ps%E5%91%BD%E4%BB%A4.png">
+<meta property="og:image" content="https://blogs-image.oss-cn-beijing.aliyuncs.com/Base/Linux/top%E5%91%BD%E4%BB%A4.png">
+<meta property="og:updated_time" content="2019-08-24T08:29:09.010Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="常用Linux命令">
+<meta name="twitter:description" content="因为面试的时候经常问到 Linux 常用命令，蚊子就将他们的命令分类总结了一下。">
+<meta name="twitter:image" content="https://blogs-image.oss-cn-beijing.aliyuncs.com/Base/Linux/ls%E5%91%BD%E4%BB%A4.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/08/24/常用Linux命令/">
+
+
+
+
+
+  <title>常用Linux命令 | Mosquito</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+  <script type="text/javascript" src="/js/src/snow.js"></script>
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Mosquito</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/24/常用Linux命令/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mosquito">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mosquito">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">常用Linux命令</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+			
+			
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-24T16:20:33+08:00">
+                2019-08-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/操作系统/" itemprop="url" rel="index">
+                    <span itemprop="name">操作系统</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/08/24/常用Linux命令/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/08/24/常用Linux命令/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>因为面试的时候经常问到 Linux 常用命令，蚊子就将他们的命令分类总结了一下。</p>
+<a id="more"></a>
+<h2 id="文件目录类命令"><a href="#文件目录类命令" class="headerlink" title="文件目录类命令"></a>文件目录类命令</h2><h3 id="浏览目录命令"><a href="#浏览目录命令" class="headerlink" title="浏览目录命令"></a>浏览目录命令</h3><h4 id="ls"><a href="#ls" class="headerlink" title="ls"></a>ls</h4><p>命令英文原意：list</p>
+<p>功能描述：显示目p;录文件</p>
+<p>语法：ls 选项 [ -ald ] [ 文件或目录 ]</p>
+<p>-a 显示所有文件，包括隐藏文件</p>
+<p>-l 详细信息显示</p>
+<p>-d 查看目录属性</p>
+<p><img src="https://blogs-image.oss-cn-beijing.aliyuncs.com/Base/Linux/ls%E5%91%BD%E4%BB%A4.png" alt="ls命令"></p>
+<h4 id="pwd"><a href="#pwd" class="headerlink" title="pwd"></a>pwd</h4><p>命令英文原意：print working directory</p>
+<p>语法：pwd</p>
+<p>功能描述：显示当前所在的工作目录</p>
+<p><img src="https://blogs-image.oss-cn-beijing.aliyuncs.com/Base/Linux/pwd%E5%91%BD%E4%BB%A4.png" alt="pwd命令"></p>
+<h3 id="目录操作命令"><a href="#目录操作命令" class="headerlink" title="目录操作命令"></a>目录操作命令</h3><h4 id="cd"><a href="#cd" class="headerlink" title="cd"></a>cd</h4><p>命令英文原意：change directory</p>
+<p>语法：cd [ 目录 ]</p>
+<p>功能描述：切换目录</p>
+<p>范例：\$ cd / 切换到根目录 ：\$ cd .. </p>
+<p><img src="https://blogs-image.oss-cn-beijing.aliyuncs.com/Base/Linux/cd%E5%91%BD%E4%BB%A4.png" alt="cd命令"></p>
+<h4 id="mkdir"><a href="#mkdir" class="headerlink" title="mkdir"></a>mkdir</h4><p>命令英文原意：make directory</p>
+<p>语法：mkdir [ 目录名 ] </p>
+<p>功能描述：创建新目录</p>
+<p>范例：$ mkdir newdir</p>
+<p><img src="https://blogs-image.oss-cn-beijing.aliyuncs.com/Base/Linux/mkdir%E5%91%BD%E4%BB%A4.png" alt="mkdir命令"></p>
+<h4 id="rmdir"><a href="#rmdir" class="headerlink" title="rmdir"></a>rmdir</h4><p>命令英文原意：remove directory</p>
+<p>语法：rmdir [ 目录名 ]</p>
+<p>功能描述：删除空目录</p>
+<p>范例：$ rmdir newdir</p>
+<h3 id="浏览文件命令"><a href="#浏览文件命令" class="headerlink" title="浏览文件命令"></a>浏览文件命令</h3><h4 id="cat"><a href="#cat" class="headerlink" title="cat"></a>cat</h4><p>命令英文原意：concatenate and display files</p>
+<p>功能描述：连接文件并打印到标准输出设备上</p>
+<p>选项：-E 在每一行的末尾显示 $</p>
+<p>​            -n 危险时行添加行号</p>
+<p>参数：指定要连接的文件列表</p>
+<p>范例：cat m1（在屏幕上显示文件 m1 的内容）</p>
+<p>​            cat m1 m2 （同时显示文件 m1 和 m2 的内容）</p>
+<h4 id="more"><a href="#more" class="headerlink" title="more"></a>more</h4><p>语法：more [ 文件名 ]</p>
+<p>​           (空格) 或 f  –  显示下一页</p>
+<p>​           (Enter)  –  显示下一行</p>
+<p>​            q 或 Q  –  退出</p>
+<p>功能描述：分页显示文件内容</p>
+<p>范例：$ more /etc/services</p>
+<p><strong>less</strong> 命令的用法和 <strong>more</strong> 命令类似，也可以用来浏览超过一页的文件。所不同的是 less 命令除了可以按空格键向下显示文件外，还可以利用<code>上下键卷动文件</code>。</p>
+<h4 id="head"><a href="#head" class="headerlink" title="head"></a>head</h4><p>功能描述：用于显示文件前几行的内容</p>
+<p>格式：head [ 参数 ] &lt; 文件名 &gt; </p>
+<p>参数：-n：显示前 n 行，不指定此参数显示前 10 行</p>
+<p>范例：$ head /etc/passwd</p>
+<h4 id="tail"><a href="#tail" class="headerlink" title="tail"></a>tail</h4><p>功能描述：用于显示文件后几行的内容</p>
+<p>格式：tail [ 参数 ] &lt; 文件名 &gt;</p>
+<p>参数：-n：显示后 n 行，不指定此参数显示后 10 行</p>
+<p>+n：从第 n 行显示到文件尾</p>
+<p>-F：用于跟踪显示不断增长的文件结尾内容（通常用于显示日志文件）</p>
+<p>范例：$ tail /etc/passwd</p>
+<h3 id="文件操作命令"><a href="#文件操作命令" class="headerlink" title="文件操作命令"></a>文件操作命令</h3><h4 id="cp"><a href="#cp" class="headerlink" title="cp"></a>cp</h4><p>命令英文原意：copy</p>
+<p>功能描述：将文件从一处复制到另一处。一般在使用 cp 命令时将一个文件复制成另一个文件或复制到目录时，需要制定源文件名与目标文件名或目录。</p>
+<p>格式：cp [ 参数 ] &lt; 源文件路径 &gt; &lt; 目标文件路径 &gt;</p>
+<p>参数：-p：连同文件的属性一起复制，而非使用默认方式，常用于备份</p>
+<p>​            -i：若目标文件已经存在时，在覆盖时会先询问操纵的进行</p>
+<p>​            -r：递归持续复制，用于目录的复制行为</p>
+<p>​            -u：目标文件与源文件有差异时才会复制</p>
+<p>范例：cp test1.txt test2.txt（将 test1.txt 复制成 test2.txt）</p>
+<p>​           cp test3.txt /tmp（将 test3.txt 复制到 /tmp 目录中）</p>
+<p>​           cp -r test1（目录） test2（目录）（目录拷贝）</p>
+<h4 id="rm"><a href="#rm" class="headerlink" title="rm"></a>rm</h4><p>命令英文原意：remove</p>
+<p>功能描述：删除文件或目录</p>
+<p>格式：rm [ 参数 ] &lt; 目标文件路径 &gt;</p>
+<p>参数：-f：就是 force 的意思，忽略不存在的文件，不会出现警告消息</p>
+<p>​            -i：互动模式，在删除前会询问用户是否操作</p>
+<p>​            -r：递归删除，最常用于目录删除，它是一个非常危险的参数</p>
+<p>范例：rm myfiles（文件名）（删除某个文件）</p>
+<p>​           rm *（删除当前目录下的所有文件）</p>
+<p>​           rm -r myfolder（目录名） （递归删除某个目录，包含该目录下所有文件及子目录）</p>
+<p>​           rm -f *.txt（强迫删除所有后缀名为 txt 的文件）</p>
+<p>​           rm -i *（删除当前目录下的所有文件，删除文件时会询问，可按 Y 或 N 键表示允许或拒绝删除文件）</p>
+<h4 id="find"><a href="#find" class="headerlink" title="find"></a>find</h4><p>功能描述：用来寻找文件或目录</p>
+<p>格式：find 路径 [ 参数 ]</p>
+<p>参数：-name filename：找出文件名为 filename 的文件</p>
+<p>​            -size [ +- ] SIZE：找出比 SIZE 还要大（+）或小（-）的文件</p>
+<p>​            -type TYPE：查找文件的类型为 TYPE 的文件，TYPE 的值主要有：一般文件（f）、设备文件（b、c）、目录（d）、连接文件（l）、socket（s）、FIFO 管道文件（p）</p>
+<p>​            -perm mode：查找文件权限刚好等于 mode 的文件，mode 用数字表示，如0755</p>
+<p>范例：find -type f（查找一般文件）</p>
+<p>​           find -name runtest（查找名为 runtest 的文件）</p>
+<p><img src="https://blogs-image.oss-cn-beijing.aliyuncs.com/Base/Linux/find%E5%91%BD%E4%BB%A4.png" alt="find命令"></p>
+<h4 id="grep"><a href="#grep" class="headerlink" title="grep"></a>grep</h4><p>命令英文原意：Globally search a Regular Expression and Print</p>
+<p>功能描述：在文件中搜索匹配的字符并进行输出</p>
+<p>格式：grep [ 参数 ] &lt; 要找的字串 &gt; &lt; 要寻找字串的源文件 &gt;</p>
+<p>参数：-a：将 binary 文件以 text 文件的方式查找数据</p>
+<p>​            -c：计算找到 “查找字符串” 的次数</p>
+<p>​            -i：忽略大小写的区别，即把大小写视为相同</p>
+<p>​            -v：反向选择，即显示出不包含 ‘查找字符串’ 内容的那一行</p>
+<p><img src="https://blogs-image.oss-cn-beijing.aliyuncs.com/Base/Linux/grep%E5%91%BD%E4%BB%A4.png" alt="grep命令"></p>
+<h4 id="tar"><a href="#tar" class="headerlink" title="tar"></a>tar</h4><p>命令英文原意：tape archive</p>
+<p>功能描述：能够将用户所指定的文件或目录打包成一个文件，也可以通过指定参数开启压缩/解压缩功能</p>
+<p>格式：tar [ 参数 ]&lt; 文件 &gt;</p>
+<p>参数：-c：新建打包文件</p>
+<p>​            -t：查看打包文件的内容含有哪些文件名</p>
+<p>​            -x：解打包或解压缩的功能，可以搭配 -C（大写）指定解压的目录，注意 -c、-t、-x 不能同时出现在一条命令中</p>
+<p>​            -j：通过 bzip2 的支持进行压缩/解压缩</p>
+<p>​            -z：通过 bzip 的支持进行压缩/解压缩</p>
+<p>​            -v：在压缩/解压缩过程中，将正在处理的文件名显示出来</p>
+<p>​            -f filename：filename 为要处理的文件</p>
+<p>​            -C dir：指定压缩/解压缩的目录 dir</p>
+<p>范例：$ tar -cvf test.tar *（将当前的所有文件打包成 test.tar）</p>
+<p>$ tar -czvf test.tar.gz *（将当前的所有文件打包成 test.tar，再用 gzip 命令压缩）</p>
+<p>$ tar -tf test.tar（查看 test.tar 文件中包括了哪些文件）</p>
+<p>$ tar -xvf test.tar（将 test.tar 解打包）</p>
+<p>$ tar -xzvf foo.tar.gz（将 foo.tar.gz 解压缩并解打包）</p>
+<h2 id="进程控制类命令"><a href="#进程控制类命令" class="headerlink" title="进程控制类命令"></a>进程控制类命令</h2><h3 id="查看系统中的进程命令"><a href="#查看系统中的进程命令" class="headerlink" title="查看系统中的进程命令"></a>查看系统中的进程命令</h3><h4 id="ps"><a href="#ps" class="headerlink" title="ps"></a>ps</h4><p>功能描述：用来显示系统瞬间的进程信息，它可以显示出在用户输入 ps 命令时系统的进程及进程的相关信息</p>
+<p>格式：ps [ 参数 ]</p>
+<p>参数：-l：长格式输出</p>
+<p>​            -u：按用户名和启动时间的顺序显示进程</p>
+<p>​            -j：用任务格式来显示进程</p>
+<p>​            -f：用树形格式来显示进程</p>
+<p>​            -a：显示所有用户的所有进程（包括其他用户）</p>
+<p>​            -x：显示五控制终端的进程</p>
+<p>​            -r：显示运行中的进程</p>
+<p>范例：$ ps（显示本用户的进程）</p>
+<p>$ ps -aux | grep mosquito（查找 mosquito 用户的进程）</p>
+<p><img src="https://blogs-image.oss-cn-beijing.aliyuncs.com/Base/Linux/ps%E5%91%BD%E4%BB%A4.png" alt="ps命令"></p>
+<h4 id="top"><a href="#top" class="headerlink" title="top"></a>top</h4><p>功能描述：动态监视系统任务的工具，输出结果是连续的</p>
+<p>格式：top [ 参数 ]</p>
+<p>参数：-b：以批量模式运行，但不能接受命令行输入</p>
+<p>​            -c：显示命令行，而不仅仅是命令名</p>
+<p>​            -d N：显示两次刷新时间的间隔，比如 -d 5，表示两次刷新间隔为 5 秒</p>
+<p>​            -i：禁止显示空闲进程或僵尸进程</p>
+<p>​            -n NUM：显示更新次数，然后退出。比如 -n 5，表示 top 更新 5 次数据就退出</p>
+<p>​            -p PID：仅监视制定进程的 ID，PID 是一个数值</p>
+<p>​            -q：不经任何延时就刷新</p>
+<p>​            -s：安全模式运行，金庸一些效互指令</p>
+<p>​            -S：累积模式，输出每个进程的总的 CPU 时间</p>
+<p><img src="https://blogs-image.oss-cn-beijing.aliyuncs.com/Base/Linux/top%E5%91%BD%E4%BB%A4.png" alt="top命令"></p>
+<p>每 5 秒钟刷新一次，动态显示</p>
+<p>按下 U 键：输入用户名  –  查看用户进程</p>
+<p>按下 K 键：输入 PID  –  删除进程</p>
+<p>按下 Q 键：退出</p>
+<h3 id="控制系统中的进程命令"><a href="#控制系统中的进程命令" class="headerlink" title="控制系统中的进程命令"></a>控制系统中的进程命令</h3><h4 id="kill"><a href="#kill" class="headerlink" title="kill"></a>kill</h4><p>功能描述：用于向某个进程（通过 PID 标识）传送一个信号，它通常与 ps 和 jobs 命令一起使用</p>
+<p>格式：kill -SIGNAL PID</p>
+<p>SIGNAL 参数：</p>
+<p>​            1：SIGHUP，启动被终止的进程</p>
+<p>​            2：SIGINT，相当于输入 ctrl + c，终端一个程序的进行</p>
+<p>​            9：SIGKILL，强制中断一个进程的进行</p>
+<p>​            15：SIGTERM，以正常的结束进程方式来终止进程</p>
+<p>​            17：SIGSTOP，相当于输入 ctrl + z，暂停一个进程的进行</p>
+<p>范例：$ kill -SIGTERM %1（以正常的结束进程方式重之第一个后台工作进程）</p>
+<p>$ kill -SIGHUP PID（重新启动进程 ID 为 PID 的进程）</p>
+<h4 id="killall"><a href="#killall" class="headerlink" title="killall"></a>killall</h4><p>功能描述：使用进程的名称来杀死进程，使用此指令可以杀死一组同名进程</p>
+<p>格式：killall [ 参数 ] &lt; 正在运行的进程名 &gt;</p>
+<p>参数：-e：对长名称进行精确匹配</p>
+<p>​            -I：忽略大小写的不同</p>
+<p>​            -p：杀死进程所属的进程组</p>
+<p>​            -i：交互式杀死进程，杀死进程前需要进行确认</p>
+<p>​            -l：打印所有已知信号列表</p>
+<p>​            -q：如果没有进程被杀死。则不输出任何信息</p>
+<p>​            -r：使用正则表达式匹配要杀死的进程名称</p>
+<p>​            -s：用指定的进程号代替默认信号 “SIGTERM”</p>
+<p>​            -u：杀死指定用户的进程</p>
+<p>范例：$ killall game</p>
+<h4 id="nice"><a href="#nice" class="headerlink" title="nice"></a>nice</h4><p>功能描述：允许在默认优先级的基础上进行增大或减小的方式来运行命令</p>
+<p>格式：nice [ 参数 ] &lt; command [arguments] &gt;</p>
+<p>参数：command：系统中任意可执行文件的名称</p>
+<p>​            -n –adjustment：指定程序运行优先级的调整值（优先级的调整值范围为 -20 ~ 19，其中数值越小优先级越高，数值越大优先级越低，若 nice 命令未指定优先级的调整值，则以缺省值 10 来调整程序运行优先级，既在命令通常运行优先级基础之上增加 10）</p>
+<p>范例：$ nice -n -5 myprogram&amp;（在后台以通常运行优先级 -5 的优先级运行 myprogram）</p>
+<h4 id="renice"><a href="#renice" class="headerlink" title="renice"></a>renice</h4><p>功能描述：改变一个正在运行的 nice 值</p>
+<p>格式：renice [ 参数 ] &lt; pid &gt;</p>
+<p>参数：command：系统中任意可执行文件的名称</p>
+<p>​            -n：指定程序运行优先级的调整值</p>
+<p>范例：$ renice -5 777（将正在运行的 PID 为 777 的进程的 nice 值改为 -5）</p>
+<h3 id="进程后台运行命令"><a href="#进程后台运行命令" class="headerlink" title="进程后台运行命令"></a>进程后台运行命令</h3><h4 id="amp"><a href="#amp" class="headerlink" title="&amp;"></a>&amp;</h4><p>范例：cp -r /usr/* test &amp;（将 /usr 目录下的所有子目录及文件复制到 /root/test 目录下的工作放到后台运行）</p>
+<h3 id="进程的挂起和恢复"><a href="#进程的挂起和恢复" class="headerlink" title="进程的挂起和恢复"></a>进程的挂起和恢复</h3><p>Ctrl + Z：进程挂起</p>
+<p>Ctrl + C：进程终止</p>
+<p>gf  [ n ]：恢复到前台继续运行</p>
+<p>bg [ n ]：恢复到后台继续运行</p>
+<p>jobs：查看被挂起的进程</p>
+<h2 id="用户及权限管理类命令"><a href="#用户及权限管理类命令" class="headerlink" title="用户及权限管理类命令"></a>用户及权限管理类命令</h2><h3 id="用户管理类命令"><a href="#用户管理类命令" class="headerlink" title="用户管理类命令"></a>用户管理类命令</h3><h4 id="useradd"><a href="#useradd" class="headerlink" title="useradd"></a>useradd</h4><p>功能描述：新建用户账号（超级用户可用）</p>
+<p>格式：useradd [ 参数 ] &lt; 用户名 &gt;</p>
+<p>参数：-d：指定用户登入时的主目录</p>
+<p>​            -e：账号终止日期</p>
+<p>​            -g：指定账户所属的用户组</p>
+<p>​            -G：指定账户所属的附加组</p>
+<p>​            -s：指定账户登陆后所使用的 shell</p>
+<p>​            -u：指定用户 ID 号</p>
+<p>范例：$ useradd -g net04 zhangsan（新建一个用户 zhangsan，用户组为 net04）</p>
+<h4 id="passwd"><a href="#passwd" class="headerlink" title="passwd"></a>passwd</h4><p>功能描述：设置或修改用户的口令以及口令的属性</p>
+<p>格式：passwd [ 参数 ] &lt; 用户 &gt;</p>
+<p>参数：-d：删除用户的口令</p>
+<p>​            -I：暂时锁定指定的用户账号</p>
+<p>​            -s：显示指定用户账号的状态</p>
+<p>​            -u：解除指定用户账号的锁定</p>
+<p>范例：$ passwd -l zhangsan（锁定用户 zhangsan账号）</p>
+<p>$ passwd -u zhangsan（解锁用户 zhangsan账号）</p>
+<h4 id="usermod"><a href="#usermod" class="headerlink" title="usermod"></a>usermod</h4><p>功能描述：修改用户的属性（超级用户可用）</p>
+<p>格式：usermod [ 参数 ] &lt; 用户名 &gt;</p>
+<p>参数：-d：指定用户登入时的主目录</p>
+<p>​            -e：账号终止日期</p>
+<p>​            -g：指定账户所属的用户组</p>
+<p>​            -G：指定账户所属的附加组</p>
+<p>​            -s：指定账户登陆后所使用的 shell</p>
+<p>​            -u：指定用户 ID 号</p>
+<p>​            -I：新用户名（用于修改用户名）</p>
+<p>范例：$ usermod -l zhangs zhangsan（将 zhangsan 改为 zhangs）</p>
+<h4 id="userdel"><a href="#userdel" class="headerlink" title="userdel"></a>userdel</h4><p>功能描述：删除指定的用户账号（超级用户可用）</p>
+<p>格式：userdel [ 参数 ] &lt; 用户名 &gt;</p>
+<p>参数：-r：不仅删除此用户账号，而且删除用户主目录及本地邮件存储的目录或文件</p>
+<p>​            -f：删除用户登入目录以及目录中所有文件</p>
+<h4 id="su"><a href="#su" class="headerlink" title="su"></a>su</h4><p>功能描述：切换用户身份</p>
+<p>格式：su &lt; 用户名 &gt;</p>
+<p>注：超级用户可以切换为任何普通用户，而不需要输入口令；普通用户转换为其他用户需要输入被转换用户的口令；使用 exit 可以返回本来的用户身份。</p>
+<h4 id="id"><a href="#id" class="headerlink" title="id"></a>id</h4><p>功能描述：查看用户的 UID、GID 和用户所属用户组的信息，如果不指定用户，则显示当前用户的相关信息。</p>
+<p>格式：id &lt; 用户名 &gt;</p>
+<h4 id="whoami"><a href="#whoami" class="headerlink" title="whoami"></a>whoami</h4><p>查看当前用户名</p>
+<h4 id="w"><a href="#w" class="headerlink" title="w"></a>w</h4><p>查看当前登录系统用户和详细信息</p>
+<h3 id="用户组管理类命令"><a href="#用户组管理类命令" class="headerlink" title="用户组管理类命令"></a>用户组管理类命令</h3><h4 id="groupadd"><a href="#groupadd" class="headerlink" title="groupadd"></a>groupadd</h4><p>功能描述：新建组群（超级用户可用）</p>
+<p>格式：groupadd [ 参数 ] &lt; 用户组名 &gt;</p>
+<p>参数：-g：指定用户组 ID</p>
+<p>​            -o：允许组 ID 号不唯一</p>
+<h4 id="groupmod"><a href="#groupmod" class="headerlink" title="groupmod"></a>groupmod</h4><p>功能描述：修改指定的用户组的属性（超级用户可用）</p>
+<p>格式：groupmod [ 参数 ] &lt; 用户组名 &gt;</p>
+<p>参数：-g：指定新的用户组 ID</p>
+<p>​            -n：制定新的用户组名字</p>
+<p>​            -o：允许组 ID 号不唯一</p>
+<h4 id="groupdel"><a href="#groupdel" class="headerlink" title="groupdel"></a>groupdel</h4><p>功能描述：删除指定的用户组（超级用户可用）</p>
+<p>格式：groupdel &lt; 用户组名 &gt;</p>
+<p>注：在删除指定用户组之前必须保证该用户组不是任何用户的主要组群，否则要先删除以此用户组为主要组群的用户才可以删除该用户组。</p>
+<h3 id="文件权限管理类命令"><a href="#文件权限管理类命令" class="headerlink" title="文件权限管理类命令"></a>文件权限管理类命令</h3><p>文件权限：</p>
+<ol>
+<li>读取权限（r）：浏览文件 / 目录中内容的权限</li>
+<li>写入权限（w）：对文件而言是修改文件内容的权限；对目录而言是删除、添加和重命名目录内文件的权限</li>
+<li>执行权限（x）：对可执行文件而言是允许执行的权限；对目录而言是进入目录的权限</li>
+</ol>
+<p>文件用户分类：</p>
+<ol>
+<li>文件所有者：建立文件和目录的用户</li>
+<li>文件所有者所在组用户：文件所有者所属用户组中的其他用户</li>
+<li>其他用户：既不是文件所有者，又不是文件所有者所在组的其他所有用户</li>
+<li>超级用户：负责整个系统的管理和维护，拥有系统中所有文件的全部访问权限</li>
+</ol>
+<h4 id="chmod"><a href="#chmod" class="headerlink" title="chmod"></a>chmod</h4><p>功能描述：修改文件的访问权限</p>
+<p>格式：chmod &lt; 模式 &gt; &lt; 文件 &gt;</p>
+<p>模式：对象：u – 文件所有者、g – 同组用户、o – 其他用户</p>
+<p>​           操作符：+ – 增加、- – 删除、= – 赋予</p>
+<p>​           权限：r – 读、w – 写、x – 执行、s – 设置用户 ID</p>
+<p>范例：$ chmod g-w file（取消同组用户对 file 文件的写入权限）</p>
+<p>$ chmod 775 pict（将 pict 目录的访问权限设置为 775）</p>
+<p>$ chmod u+s file（设置 file 文件的设置用户 ID 位）</p>
+<h4 id="chown"><a href="#chown" class="headerlink" title="chown"></a>chown</h4><p>功能描述：将指定文件的拥有者改为指定的用户或用户组</p>
+<p>格式：chown &lt; 参数 &gt; &lt; 所有者/组 &gt; &lt; 文件 &gt;</p>
+<p>参数：-c：显示更改的部分的信息</p>
+<p>​           -f：忽略错误信息</p>
+<p>​           -h：修复符号链接</p>
+<p>​           -R：处理指定目录以及其子目录下的所有文件</p>
+<p>​           -v：显示详细的处理信息</p>
+<p>​           -deference：作用于符号链接的指向，而不是链接文件本身</p>
+<p>范例：$ chown hellen ex1（将 ex1 的所有者由 root 改为 hellen）</p>
+<h4 id="chgrp"><a href="#chgrp" class="headerlink" title="chgrp"></a>chgrp</h4><p>功能描述：改变文件的所属用户组</p>
+<p>格式：chgrp &lt; 参数 &gt; &lt; 组 &gt; &lt; 文件 &gt;</p>
+<p>参数：-c：当发生改变时输出调试信息</p>
+<p>​           -f：不显示错误信息</p>
+<p>​           -R：处理指定目录以及其子目录下的所有文件</p>
+<p>​           -v：运行时显示详细的处理信息</p>
+<p>​           –deference：作用于符号链接的指向，而不是链接文件本身</p>
+<p>​           –no-deference：作用于符号链接本身</p>
+<p>范例：$ chgrp staff ex1（将 ex1 文件所属的用户组由 root 改为 staff）</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Linux命令/" rel="tag"># Linux命令</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/08/20/景驰笔试/" rel="next" title="景驰笔试">
+                <i class="fa fa-chevron-left"></i> 景驰笔试
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="Mosquito">
+            
+              <p class="site-author-name" itemprop="name">Mosquito</p>
+              <p class="site-description motion-element" itemprop="description">qwq</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">32</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://caitiezhu.github.io/" title="树哥" target="_blank">树哥</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://guohao.me" title="露露" target="_blank">露露</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.cnblogs.com/draymonder" title="饼哥" target="_blank">饼哥</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://wangxuanni.top/" title="小a" target="_blank">小a</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://xiantang.info/" title="糖糖" target="_blank">糖糖</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#文件目录类命令"><span class="nav-number">1.</span> <span class="nav-text">文件目录类命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#浏览目录命令"><span class="nav-number">1.1.</span> <span class="nav-text">浏览目录命令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ls"><span class="nav-number">1.1.1.</span> <span class="nav-text">ls</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#pwd"><span class="nav-number">1.1.2.</span> <span class="nav-text">pwd</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#目录操作命令"><span class="nav-number">1.2.</span> <span class="nav-text">目录操作命令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#cd"><span class="nav-number">1.2.1.</span> <span class="nav-text">cd</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#mkdir"><span class="nav-number">1.2.2.</span> <span class="nav-text">mkdir</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#rmdir"><span class="nav-number">1.2.3.</span> <span class="nav-text">rmdir</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#浏览文件命令"><span class="nav-number">1.3.</span> <span class="nav-text">浏览文件命令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#cat"><span class="nav-number">1.3.1.</span> <span class="nav-text">cat</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#more"><span class="nav-number">1.3.2.</span> <span class="nav-text">more</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#head"><span class="nav-number">1.3.3.</span> <span class="nav-text">head</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#tail"><span class="nav-number">1.3.4.</span> <span class="nav-text">tail</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件操作命令"><span class="nav-number">1.4.</span> <span class="nav-text">文件操作命令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#cp"><span class="nav-number">1.4.1.</span> <span class="nav-text">cp</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#rm"><span class="nav-number">1.4.2.</span> <span class="nav-text">rm</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#find"><span class="nav-number">1.4.3.</span> <span class="nav-text">find</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#grep"><span class="nav-number">1.4.4.</span> <span class="nav-text">grep</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#tar"><span class="nav-number">1.4.5.</span> <span class="nav-text">tar</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#进程控制类命令"><span class="nav-number">2.</span> <span class="nav-text">进程控制类命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#查看系统中的进程命令"><span class="nav-number">2.1.</span> <span class="nav-text">查看系统中的进程命令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ps"><span class="nav-number">2.1.1.</span> <span class="nav-text">ps</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#top"><span class="nav-number">2.1.2.</span> <span class="nav-text">top</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#控制系统中的进程命令"><span class="nav-number">2.2.</span> <span class="nav-text">控制系统中的进程命令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#kill"><span class="nav-number">2.2.1.</span> <span class="nav-text">kill</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#killall"><span class="nav-number">2.2.2.</span> <span class="nav-text">killall</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#nice"><span class="nav-number">2.2.3.</span> <span class="nav-text">nice</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#renice"><span class="nav-number">2.2.4.</span> <span class="nav-text">renice</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#进程后台运行命令"><span class="nav-number">2.3.</span> <span class="nav-text">进程后台运行命令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#amp"><span class="nav-number">2.3.1.</span> <span class="nav-text">&amp;</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#进程的挂起和恢复"><span class="nav-number">2.4.</span> <span class="nav-text">进程的挂起和恢复</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用户及权限管理类命令"><span class="nav-number">3.</span> <span class="nav-text">用户及权限管理类命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#用户管理类命令"><span class="nav-number">3.1.</span> <span class="nav-text">用户管理类命令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#useradd"><span class="nav-number">3.1.1.</span> <span class="nav-text">useradd</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#passwd"><span class="nav-number">3.1.2.</span> <span class="nav-text">passwd</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#usermod"><span class="nav-number">3.1.3.</span> <span class="nav-text">usermod</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#userdel"><span class="nav-number">3.1.4.</span> <span class="nav-text">userdel</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#su"><span class="nav-number">3.1.5.</span> <span class="nav-text">su</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#id"><span class="nav-number">3.1.6.</span> <span class="nav-text">id</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#whoami"><span class="nav-number">3.1.7.</span> <span class="nav-text">whoami</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#w"><span class="nav-number">3.1.8.</span> <span class="nav-text">w</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用户组管理类命令"><span class="nav-number">3.2.</span> <span class="nav-text">用户组管理类命令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#groupadd"><span class="nav-number">3.2.1.</span> <span class="nav-text">groupadd</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#groupmod"><span class="nav-number">3.2.2.</span> <span class="nav-text">groupmod</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#groupdel"><span class="nav-number">3.2.3.</span> <span class="nav-text">groupdel</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件权限管理类命令"><span class="nav-number">3.3.</span> <span class="nav-text">文件权限管理类命令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#chmod"><span class="nav-number">3.3.1.</span> <span class="nav-text">chmod</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#chown"><span class="nav-number">3.3.2.</span> <span class="nav-text">chown</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#chgrp"><span class="nav-number">3.3.3.</span> <span class="nav-text">chgrp</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Mosquito</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'aWnHg7AdOWYIiVIOudWAPAbv-gzGzoHsz',
+        appKey: '7RLHqNLGONuQpwjTpAM4xOFz',
+        placeholder: 'Just go go',
+        avatar:'wavatar',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>
